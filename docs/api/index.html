@@ -1,0 +1,772 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="sofia.domain package" href="sofia.domain.html"><link rel="prev" title="Writing IR" href="../guide/writing_ir.html">
+        <link rel="prefetch" href="../_static/Black logo thick.png" as="image">
+        <link rel="prefetch" href="../_static/White logo thick.png" as="image">
+
+    <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>API Reference - sofia</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8158208e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  --color-brand-primary: #30403e;
+  --color-brand-content: #30403e;
+  --color-brand-visited: #30403e;
+  --color-sidebar-brand-text: #b91372;
+  --color-problematic: #b91372;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-background-primary: #0a0d0c;
+  --color-background-secondary: #0a0d0c;
+  --color-brand-primary: #8ebfba;
+  --color-brand-content: #8ebfba;
+  --color-brand-visited: #8ebfba;
+  --color-sidebar-brand-text: #b91372;
+  --color-problematic: #efb0a1;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-background-primary: #0a0d0c;
+  --color-background-secondary: #0a0d0c;
+  --color-brand-primary: #8ebfba;
+  --color-brand-content: #8ebfba;
+  --color-brand-visited: #8ebfba;
+  --color-sidebar-brand-text: #b91372;
+  --color-problematic: #efb0a1;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">sofia</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../_static/Black logo thick.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">sofia</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../guide/index.html">User Manual</a><input aria-label="Toggle navigation of User Manual" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guide/getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/sympy_basics.html">SymPy Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/domains_fields.html">Domains and Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/field_expressions.html">Field Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/discrete_interface.html">Discrete Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/auto_discretisation.html">Automatic Discretisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/build_solver.html">Running a Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guide/writing_ir.html">Writing IR</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">API Reference</a><input aria-label="Toggle navigation of API Reference" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sofia.domain.html">sofia.domain package</a><input aria-label="Toggle navigation of sofia.domain package" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.domain.coordinate.html">sofia.domain.coordinate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.domain.domain.html">sofia.domain.domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.domain.grid.html">sofia.domain.grid</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sofia.field.html">sofia.field package</a><input aria-label="Toggle navigation of sofia.field package" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.reductions.html">sofia.field.reductions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.staggered.html">sofia.field.staggered</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.sums.html">sofia.field.sums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.transfer.html">sofia.field.transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sofia.geometry.html">sofia.geometry package</a><input aria-label="Toggle navigation of sofia.geometry package" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.geometry.geometry.html">sofia.geometry.geometry</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sofia.pde.html">sofia.pde package</a><input aria-label="Toggle navigation of sofia.pde package" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sofia.pde.fdm.html">sofia.pde.fdm package</a><input aria-label="Toggle navigation of sofia.pde.fdm package" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.fdm.derivative.html">sofia.pde.fdm.derivative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.fdm.discretisation.html">sofia.pde.fdm.discretisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.fdm.stencils.html">sofia.pde.fdm.stencils</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sofia.pde.rkn.html">sofia.pde.rkn package</a><input aria-label="Toggle navigation of sofia.pde.rkn package" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.rkn.rkn.html">sofia.pde.rkn.rkn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.rkn.schemes.html">sofia.pde.rkn.schemes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.wall_functions.html">sofia.pde.wall_functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sofia.ir.html">sofia.ir package</a><input aria-label="Toggle navigation of sofia.ir package" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.base.html">sofia.ir.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.pde.html">sofia.ir.pde</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.token.html">sofia.ir.token</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sofia.domain.html">sofia.domain package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sofia.domain.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.domain.coordinate.html">sofia.domain.coordinate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.domain.coordinate.html#sofia.domain.coordinate.CoordSys"><code class="docutils literal notranslate"><span class="pre">CoordSys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.domain.domain.html">sofia.domain.domain</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.domain.domain.html#sofia.domain.domain.Domain"><code class="docutils literal notranslate"><span class="pre">Domain</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.domain.domain.html#sofia.domain.domain.DomainEdge"><code class="docutils literal notranslate"><span class="pre">DomainEdge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.domain.domain.html#sofia.domain.domain.DomainStart"><code class="docutils literal notranslate"><span class="pre">DomainStart</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.domain.domain.html#sofia.domain.domain.DomainEnd"><code class="docutils literal notranslate"><span class="pre">DomainEnd</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.domain.grid.html">sofia.domain.grid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.domain.grid.html#sofia.domain.grid.DD"><code class="docutils literal notranslate"><span class="pre">DD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.domain.grid.html#sofia.domain.grid.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.domain.html#module-sofia.domain">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sofia.field.html">sofia.field package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sofia.field.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.field.html#sofia.field.field.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.IndexedGridField"><code class="docutils literal notranslate"><span class="pre">IndexedGridField</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridField"><code class="docutils literal notranslate"><span class="pre">GridField</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridFieldLocus"><code class="docutils literal notranslate"><span class="pre">GridFieldLocus</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.locus.html#sofia.field.locus.Locus"><code class="docutils literal notranslate"><span class="pre">Locus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.locus.html#sofia.field.locus.ScalarLocus"><code class="docutils literal notranslate"><span class="pre">ScalarLocus</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.reductions.html">sofia.field.reductions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Reduce"><code class="docutils literal notranslate"><span class="pre">Reduce</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Min"><code class="docutils literal notranslate"><span class="pre">Min()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Max"><code class="docutils literal notranslate"><span class="pre">Max()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Mean"><code class="docutils literal notranslate"><span class="pre">Mean()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Sum"><code class="docutils literal notranslate"><span class="pre">Sum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Prod"><code class="docutils literal notranslate"><span class="pre">Prod()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.All"><code class="docutils literal notranslate"><span class="pre">All()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Any"><code class="docutils literal notranslate"><span class="pre">Any()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Std"><code class="docutils literal notranslate"><span class="pre">Std()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Var"><code class="docutils literal notranslate"><span class="pre">Var()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Median"><code class="docutils literal notranslate"><span class="pre">Median()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Norm"><code class="docutils literal notranslate"><span class="pre">Norm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.staggered.html">sofia.field.staggered</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.staggered.html#sofia.field.staggered.Staggered"><code class="docutils literal notranslate"><span class="pre">Staggered</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.sums.html">sofia.field.sums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.sums.html#sofia.field.sums.FieldAxisSum"><code class="docutils literal notranslate"><span class="pre">FieldAxisSum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.sums.html#sofia.field.sums.FieldAxisCumSum"><code class="docutils literal notranslate"><span class="pre">FieldAxisCumSum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.sums.html#sofia.field.sums.sum_axis"><code class="docutils literal notranslate"><span class="pre">sum_axis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.sums.html#sofia.field.sums.integrate_axis"><code class="docutils literal notranslate"><span class="pre">integrate_axis()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.transfer.html">sofia.field.transfer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.transfer.html#sofia.field.transfer.transfer"><code class="docutils literal notranslate"><span class="pre">transfer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.transfer.html#sofia.field.transfer.Transfer"><code class="docutils literal notranslate"><span class="pre">Transfer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.transfer.html#sofia.field.transfer.TransferGridGrid"><code class="docutils literal notranslate"><span class="pre">TransferGridGrid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.transfer.html#sofia.field.transfer.TransferScalarGrid"><code class="docutils literal notranslate"><span class="pre">TransferScalarGrid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.transfer.html#sofia.field.transfer.TransferGridScalar"><code class="docutils literal notranslate"><span class="pre">TransferGridScalar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.transfer.html#sofia.field.transfer.insert_transfers"><code class="docutils literal notranslate"><span class="pre">insert_transfers()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.field.html#module-sofia.field">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sofia.geometry.html">sofia.geometry package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sofia.geometry.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.geometry.geometry.html">sofia.geometry.geometry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.geometry.geometry.html#sofia.geometry.geometry.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.geometry.geometry.html#sofia.geometry.geometry.SDF"><code class="docutils literal notranslate"><span class="pre">SDF</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.geometry.html#module-sofia.geometry">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.geometry.html#sofia.geometry.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.geometry.html#sofia.geometry.Geometry.is_commutative"><code class="docutils literal notranslate"><span class="pre">Geometry.is_commutative</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.geometry.html#sofia.geometry.Geometry.sdf"><code class="docutils literal notranslate"><span class="pre">Geometry.sdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.geometry.html#sofia.geometry.Geometry.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Geometry.default_assumptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sofia.pde.html">sofia.pde package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sofia.pde.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.fdm.html">sofia.pde.fdm package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.fdm.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.fdm.html#module-sofia.pde.fdm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.rkn.html">sofia.pde.rkn package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.rkn.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.rkn.html#module-sofia.pde.rkn">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.pde.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.Style"><code class="docutils literal notranslate"><span class="pre">Style</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.set_theme"><code class="docutils literal notranslate"><span class="pre">set_theme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.get_style"><code class="docutils literal notranslate"><span class="pre">get_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.update_style"><code class="docutils literal notranslate"><span class="pre">update_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.draw_grid"><code class="docutils literal notranslate"><span class="pre">draw_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.wall_functions.html">sofia.pde.wall_functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.pde.html#module-sofia.pde">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.Del"><code class="docutils literal notranslate"><span class="pre">Del</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Del.gradient"><code class="docutils literal notranslate"><span class="pre">Del.gradient()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Del.dot"><code class="docutils literal notranslate"><span class="pre">Del.dot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Del.cross"><code class="docutils literal notranslate"><span class="pre">Del.cross()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Del.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Del.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative"><code class="docutils literal notranslate"><span class="pre">Derivative</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.side"><code class="docutils literal notranslate"><span class="pre">Derivative.side</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.discretisation_order"><code class="docutils literal notranslate"><span class="pre">Derivative.discretisation_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.allow_higher_order"><code class="docutils literal notranslate"><span class="pre">Derivative.allow_higher_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.integer_stencils"><code class="docutils literal notranslate"><span class="pre">Derivative.integer_stencils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.allow_expand"><code class="docutils literal notranslate"><span class="pre">Derivative.allow_expand</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.expand_terms"><code class="docutils literal notranslate"><span class="pre">Derivative.expand_terms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.from_derivative"><code class="docutils literal notranslate"><span class="pre">Derivative.from_derivative()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.func"><code class="docutils literal notranslate"><span class="pre">Derivative.func()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.as_finite_difference"><code class="docutils literal notranslate"><span class="pre">Derivative.as_finite_difference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.html#sofia.pde.Derivative.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Derivative.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.as_finite_diff"><code class="docutils literal notranslate"><span class="pre">as_finite_diff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.build_simulation"><code class="docutils literal notranslate"><span class="pre">build_simulation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.curl"><code class="docutils literal notranslate"><span class="pre">curl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.diff"><code class="docutils literal notranslate"><span class="pre">diff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.diff_finite"><code class="docutils literal notranslate"><span class="pre">diff_finite()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.diff_upwind"><code class="docutils literal notranslate"><span class="pre">diff_upwind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.discretise"><code class="docutils literal notranslate"><span class="pre">discretise()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.divergence"><code class="docutils literal notranslate"><span class="pre">divergence()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.fix"><code class="docutils literal notranslate"><span class="pre">fix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.gradient"><code class="docutils literal notranslate"><span class="pre">gradient()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.laplacian"><code class="docutils literal notranslate"><span class="pre">laplacian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.rkn"><code class="docutils literal notranslate"><span class="pre">rkn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.simulate"><code class="docutils literal notranslate"><span class="pre">simulate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.eval_expr"><code class="docutils literal notranslate"><span class="pre">eval_expr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.html#sofia.pde.apply_boundary_conditions"><code class="docutils literal notranslate"><span class="pre">apply_boundary_conditions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sofia.ir.html">sofia.ir package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sofia.ir.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.base.html">sofia.ir.base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Assignment"><code class="docutils literal notranslate"><span class="pre">Assignment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.FunctionDefinition"><code class="docutils literal notranslate"><span class="pre">FunctionDefinition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.FunctionCall"><code class="docutils literal notranslate"><span class="pre">FunctionCall</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.For"><code class="docutils literal notranslate"><span class="pre">For</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CodeBlock"><code class="docutils literal notranslate"><span class="pre">CodeBlock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Pass"><code class="docutils literal notranslate"><span class="pre">Pass</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Print"><code class="docutils literal notranslate"><span class="pre">Print</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Save"><code class="docutils literal notranslate"><span class="pre">Save</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Load"><code class="docutils literal notranslate"><span class="pre">Load</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Inputs"><code class="docutils literal notranslate"><span class="pre">Inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Outputs"><code class="docutils literal notranslate"><span class="pre">Outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.IndicesDeclaration"><code class="docutils literal notranslate"><span class="pre">IndicesDeclaration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.PrintTime"><code class="docutils literal notranslate"><span class="pre">PrintTime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.EvalAssignment"><code class="docutils literal notranslate"><span class="pre">EvalAssignment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CustomFunctionCall"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Checkpoint"><code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.pde.html">sofia.ir.pde</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.ProjectDivFree"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelReconstruct"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.EddyViscositySmagorinsky"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.RKn"><code class="docutils literal notranslate"><span class="pre">RKn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.token.html">sofia.ir.token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CodegenToken"><code class="docutils literal notranslate"><span class="pre">CodegenToken</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CustomToken"><code class="docutils literal notranslate"><span class="pre">CustomToken</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.ir.html#module-sofia.ir">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Assignment"><code class="docutils literal notranslate"><span class="pre">Assignment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Assignment.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Assignment.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Checkpoint"><code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Checkpoint.body"><code class="docutils literal notranslate"><span class="pre">Checkpoint.body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Checkpoint.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Checkpoint.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Checkpoint.defaults"><code class="docutils literal notranslate"><span class="pre">Checkpoint.defaults</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.CodeBlock"><code class="docutils literal notranslate"><span class="pre">CodeBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CodeBlock.default_assumptions"><code class="docutils literal notranslate"><span class="pre">CodeBlock.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.CodegenToken"><code class="docutils literal notranslate"><span class="pre">CodegenToken</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CodegenToken.default_assumptions"><code class="docutils literal notranslate"><span class="pre">CodegenToken.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CodegenToken.defaults"><code class="docutils literal notranslate"><span class="pre">CodegenToken.defaults</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomFunctionCall"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomFunctionCall.name"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomFunctionCall.lhs"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall.lhs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomFunctionCall.input_args"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall.input_args</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomFunctionCall.default_assumptions"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomToken"><code class="docutils literal notranslate"><span class="pre">CustomToken</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomToken.transform"><code class="docutils literal notranslate"><span class="pre">CustomToken.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomToken.default_assumptions"><code class="docutils literal notranslate"><span class="pre">CustomToken.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomToken.defaults"><code class="docutils literal notranslate"><span class="pre">CustomToken.defaults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.CustomToken.doit"><code class="docutils literal notranslate"><span class="pre">CustomToken.doit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.EvalAssignment"><code class="docutils literal notranslate"><span class="pre">EvalAssignment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EvalAssignment.default_assumptions"><code class="docutils literal notranslate"><span class="pre">EvalAssignment.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.defaults"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky.defaults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.doit"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky.doit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.velocities"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky.velocities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.nu_sgs"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky.nu_sgs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.Cs"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky.Cs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.strain_squaring"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky.strain_squaring</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.default_assumptions"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.For"><code class="docutils literal notranslate"><span class="pre">For</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.For.length"><code class="docutils literal notranslate"><span class="pre">For.length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.For.body"><code class="docutils literal notranslate"><span class="pre">For.body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.For.output_fields"><code class="docutils literal notranslate"><span class="pre">For.output_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.For.checkpoint"><code class="docutils literal notranslate"><span class="pre">For.checkpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.For.transform"><code class="docutils literal notranslate"><span class="pre">For.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.For.default_assumptions"><code class="docutils literal notranslate"><span class="pre">For.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.For.defaults"><code class="docutils literal notranslate"><span class="pre">For.defaults</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.FunctionCall"><code class="docutils literal notranslate"><span class="pre">FunctionCall</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.FunctionCall.name"><code class="docutils literal notranslate"><span class="pre">FunctionCall.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.FunctionCall.function_args"><code class="docutils literal notranslate"><span class="pre">FunctionCall.function_args</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.FunctionCall.default_assumptions"><code class="docutils literal notranslate"><span class="pre">FunctionCall.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.FunctionDefinition"><code class="docutils literal notranslate"><span class="pre">FunctionDefinition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.FunctionDefinition.body"><code class="docutils literal notranslate"><span class="pre">FunctionDefinition.body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.FunctionDefinition.default_assumptions"><code class="docutils literal notranslate"><span class="pre">FunctionDefinition.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.IndicesDeclaration"><code class="docutils literal notranslate"><span class="pre">IndicesDeclaration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.IndicesDeclaration.symbols"><code class="docutils literal notranslate"><span class="pre">IndicesDeclaration.symbols</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.IndicesDeclaration.default_assumptions"><code class="docutils literal notranslate"><span class="pre">IndicesDeclaration.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Inputs"><code class="docutils literal notranslate"><span class="pre">Inputs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Inputs.symbols"><code class="docutils literal notranslate"><span class="pre">Inputs.symbols</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Inputs.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Inputs.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Load"><code class="docutils literal notranslate"><span class="pre">Load</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Load.filename"><code class="docutils literal notranslate"><span class="pre">Load.filename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Load.fields"><code class="docutils literal notranslate"><span class="pre">Load.fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Load.clip_larger"><code class="docutils literal notranslate"><span class="pre">Load.clip_larger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Load.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Load.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Load.defaults"><code class="docutils literal notranslate"><span class="pre">Load.defaults</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Outputs"><code class="docutils literal notranslate"><span class="pre">Outputs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Outputs.symbols"><code class="docutils literal notranslate"><span class="pre">Outputs.symbols</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Outputs.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Outputs.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Pass"><code class="docutils literal notranslate"><span class="pre">Pass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Pass.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Pass.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Print"><code class="docutils literal notranslate"><span class="pre">Print</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Print.print_args"><code class="docutils literal notranslate"><span class="pre">Print.print_args</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Print.format_string"><code class="docutils literal notranslate"><span class="pre">Print.format_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Print.file"><code class="docutils literal notranslate"><span class="pre">Print.file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Print.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Print.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.PrintTime"><code class="docutils literal notranslate"><span class="pre">PrintTime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.PrintTime.show"><code class="docutils literal notranslate"><span class="pre">PrintTime.show</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.PrintTime.default_assumptions"><code class="docutils literal notranslate"><span class="pre">PrintTime.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.PrintTime.defaults"><code class="docutils literal notranslate"><span class="pre">PrintTime.defaults</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.ProjectDivFree"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.ProjectDivFree.defaults"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree.defaults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.ProjectDivFree.doit"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree.doit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.ProjectDivFree.velocities"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree.velocities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.ProjectDivFree.pressure"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree.pressure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.ProjectDivFree.bcs"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree.bcs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.ProjectDivFree.default_assumptions"><code class="docutils literal notranslate"><span class="pre">ProjectDivFree.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn"><code class="docutils literal notranslate"><span class="pre">RKn</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn.F"><code class="docutils literal notranslate"><span class="pre">RKn.F</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn.order"><code class="docutils literal notranslate"><span class="pre">RKn.order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn.dt"><code class="docutils literal notranslate"><span class="pre">RKn.dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn.post"><code class="docutils literal notranslate"><span class="pre">RKn.post</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn.transform"><code class="docutils literal notranslate"><span class="pre">RKn.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn.default_assumptions"><code class="docutils literal notranslate"><span class="pre">RKn.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.RKn.defaults"><code class="docutils literal notranslate"><span class="pre">RKn.defaults</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save"><code class="docutils literal notranslate"><span class="pre">Save</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.out_folder"><code class="docutils literal notranslate"><span class="pre">Save.out_folder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.fields"><code class="docutils literal notranslate"><span class="pre">Save.fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.sequential"><code class="docutils literal notranslate"><span class="pre">Save.sequential</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.overwrite"><code class="docutils literal notranslate"><span class="pre">Save.overwrite</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.downcast_dtype"><code class="docutils literal notranslate"><span class="pre">Save.downcast_dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.use_threading"><code class="docutils literal notranslate"><span class="pre">Save.use_threading</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Save.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.defaults"><code class="docutils literal notranslate"><span class="pre">Save.defaults</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.x"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.expr"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.expr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.b"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.b</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.default_assumptions"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.defaults"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.defaults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.doit"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.doit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.wall_fn"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.wall_fn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.y_plus"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.y_plus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.velocities"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.velocities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.geometry"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.geometry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.nu"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.nu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.band"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.band</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.match_height"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.match_height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.maxiter"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.maxiter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.max_dist"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.max_dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.side"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.side</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.default_assumptions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.defaults"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.defaults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.doit"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.doit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.wall_fn"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.wall_fn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.y_plus"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.y_plus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.query"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.query</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.velocities"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.velocities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.geometry"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.geometry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.nu"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.nu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.band"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.band</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.match_height"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.match_height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.maxiter"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.maxiter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.max_dist"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.max_dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.side"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.side</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.default_assumptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="sofia.domain.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">sofia.domain package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../guide/writing_ir.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Writing IR</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Fermioniq
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=2caa9db7"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>
