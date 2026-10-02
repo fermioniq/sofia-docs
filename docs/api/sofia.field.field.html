@@ -266,6 +266,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -350,6 +351,34 @@ appearing in the object.</p>
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="sofia.field.field.fields">
+<span class="sig-prename descclassname"><span class="pre">sofia.field.field.</span></span><span class="sig-name descname"><span class="pre">fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="sofia.html#sofia.Domain" title="sofia.Domain"><span class="pre">Domain</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sofia.field.field.Field" title="sofia.field.field.Field"><span class="pre">Field</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.field.field.fields" title="Link to this definition">¶</a></dt>
+<dd><p>Create one or more Fields on a shared domain.</p>
+<p>Equivalent to <code class="xref py py-func docutils literal notranslate"><span class="pre">sympy.symbols()</span></code>, but for Fields. Always returns
+a tuple for better type support.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>names</strong> – Field names, comma- or whitespace-separated; see <code class="xref py py-func docutils literal notranslate"><span class="pre">sympy.symbols()</span></code>.</p></li>
+<li><p><strong>domain</strong> – Domain the fields live on.</p></li>
+<li><p><strong>**kwargs</strong> – Forwarded to the <cite>Field</cite> subclass registered for <code class="docutils literal notranslate"><span class="pre">domain</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple of the created Field(s).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#sofia.field.field.Field" title="sofia.field.field.Field">Field</a>, …]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">u</span><span class="p">,)</span> <span class="o">=</span> <span class="n">fields</span><span class="p">(</span><span class="s2">"u"</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Grid</span><span class="p">(</span><span class="n">ndim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">fields</span><span class="p">(</span><span class="s2">"v w"</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Grid</span><span class="p">(</span><span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </section>
 
         </article>
@@ -412,6 +441,7 @@ appearing in the object.</p>
 <li><a class="reference internal" href="#sofia.field.field.Field.as_dummy"><code class="docutils literal notranslate"><span class="pre">Field.as_dummy()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#sofia.field.field.fields"><code class="docutils literal notranslate"><span class="pre">fields()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +453,7 @@ appearing in the object.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=2caa9db7"></script>
+</div><script src="../_static/documentation_options.js?v=757451c5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

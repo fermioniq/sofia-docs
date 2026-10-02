@@ -266,6 +266,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -347,6 +348,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sofia.field.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.field.html#sofia.field.field.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.field.html#sofia.field.field.fields"><code class="docutils literal notranslate"><span class="pre">fields()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a><ul>
@@ -440,7 +442,9 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.EvalAssignment"><code class="docutils literal notranslate"><span class="pre">EvalAssignment</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CustomFunctionCall"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Checkpoint"><code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.pde.html">sofia.ir.pde</a><ul>
@@ -448,7 +452,6 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelReconstruct"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.EddyViscositySmagorinsky"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.RKn"><code class="docutils literal notranslate"><span class="pre">RKn</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.token.html">sofia.ir.token</a><ul>
@@ -597,6 +600,14 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.defaults"><code class="docutils literal notranslate"><span class="pre">Save.defaults</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.x"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.exprs"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.exprs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.b"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.b</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.default_assumptions"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.defaults"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.defaults</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.x"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.x</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.expr"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.expr</span></code></a></li>
@@ -620,21 +631,14 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.default_assumptions</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.defaults"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.defaults</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.doit"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.doit()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.wall_fn"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.wall_fn</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.y_plus"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.y_plus</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.query"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.query</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.velocities"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.velocities</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.geometry"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.geometry</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.nu"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.nu</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.band"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.band</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.match_height"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.match_height</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.maxiter"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.maxiter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.max_dist"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.max_dist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.side"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.side</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.default_assumptions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.condition"><code class="docutils literal notranslate"><span class="pre">While.condition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.body"><code class="docutils literal notranslate"><span class="pre">While.body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.max_iter"><code class="docutils literal notranslate"><span class="pre">While.max_iter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.n_iter"><code class="docutils literal notranslate"><span class="pre">While.n_iter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.transform"><code class="docutils literal notranslate"><span class="pre">While.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.default_assumptions"><code class="docutils literal notranslate"><span class="pre">While.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.defaults"><code class="docutils literal notranslate"><span class="pre">While.defaults</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -662,6 +666,10 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.get_style"><code class="docutils literal notranslate"><span class="pre">get_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.update_style"><code class="docutils literal notranslate"><span class="pre">update_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.draw_grid"><code class="docutils literal notranslate"><span class="pre">draw_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian"><code class="docutils literal notranslate"><span class="pre">Jacobian</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
@@ -1008,7 +1016,7 @@ system to a new coordinate system.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sofia.Scalar">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">Scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Symbol</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">assumptions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.Scalar" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">Scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Symbol</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DTypeLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">assumptions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.Scalar" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomicExpr</span></code></p>
 <p>Symbolic scalar.</p>
 <p>Identified by <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">assumptions</span></code>, compared after sympy has
@@ -1096,9 +1104,64 @@ drawn their consequences.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="sofia.fields">
+<span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sofia.Domain" title="sofia.Domain"><span class="pre">Domain</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="sofia.field.field.html#sofia.field.field.Field" title="sofia.field.field.Field"><span class="pre">Field</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.fields" title="Link to this definition">¶</a></dt>
+<dd><p>Create one or more Fields on a shared domain.</p>
+<p>Equivalent to <code class="xref py py-func docutils literal notranslate"><span class="pre">sympy.symbols()</span></code>, but for Fields. Always returns
+a tuple for better type support.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>names</strong> – Field names, comma- or whitespace-separated; see <code class="xref py py-func docutils literal notranslate"><span class="pre">sympy.symbols()</span></code>.</p></li>
+<li><p><strong>domain</strong> – Domain the fields live on.</p></li>
+<li><p><strong>**kwargs</strong> – Forwarded to the <cite>Field</cite> subclass registered for <code class="docutils literal notranslate"><span class="pre">domain</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple of the created Field(s).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#sofia.Field" title="sofia.Field">Field</a>, …]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">u</span><span class="p">,)</span> <span class="o">=</span> <span class="n">fields</span><span class="p">(</span><span class="s2">"u"</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Grid</span><span class="p">(</span><span class="n">ndim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">fields</span><span class="p">(</span><span class="s2">"v w"</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Grid</span><span class="p">(</span><span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="sofia.print_environment_info">
 <span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">print_environment_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sofia.print_environment_info" title="Link to this definition">¶</a></dt>
 <dd><p>Print the environment info for reporting bugs, mimicking the <cite>jax</cite> equivalent.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sofia.scalars">
+<span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sofia.Scalar" title="sofia.scalar.scalar.Scalar"><span class="pre">Scalar</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.scalars" title="Link to this definition">¶</a></dt>
+<dd><p>Create one or more Scalars.</p>
+<p>Equivalent to <code class="xref py py-func docutils literal notranslate"><span class="pre">sympy.symbols()</span></code>, but for Scalars. Always returns
+a tuple for better type support.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>names</strong> – Scalar names, comma- or whitespace-separated; see <code class="xref py py-func docutils literal notranslate"><span class="pre">sympy.symbols()</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to <cite>Scalar</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple of the created Scalar(s).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#sofia.Scalar" title="sofia.Scalar">Scalar</a>, …]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">a</span><span class="p">,)</span> <span class="o">=</span> <span class="n">scalars</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">scalars</span><span class="p">(</span><span class="s2">"b c"</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -1204,7 +1267,9 @@ drawn their consequences.</p>
 <li><a class="reference internal" href="#sofia.Staggered.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Staggered.default_assumptions</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#sofia.fields"><code class="docutils literal notranslate"><span class="pre">fields()</span></code></a></li>
 <li><a class="reference internal" href="#sofia.print_environment_info"><code class="docutils literal notranslate"><span class="pre">print_environment_info()</span></code></a></li>
+<li><a class="reference internal" href="#sofia.scalars"><code class="docutils literal notranslate"><span class="pre">scalars()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1218,7 +1283,7 @@ drawn their consequences.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=2caa9db7"></script>
+</div><script src="../_static/documentation_options.js?v=757451c5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

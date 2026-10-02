@@ -3,12 +3,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="sofia.field.transfer" href="sofia.field.transfer.html"><link rel="prev" title="sofia.field.staggered" href="sofia.field.staggered.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="sofia.pde.les" href="sofia.pde.les.html"><link rel="prev" title="sofia.pde.drawing" href="sofia.pde.drawing.html">
         <link rel="prefetch" href="../_static/Black logo thick.png" as="image">
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia.field.sums - sofia</title>
+        <title>sofia.pde.jacobian - sofia</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -239,13 +239,13 @@
 <li class="toctree-l3"><a class="reference internal" href="sofia.domain.grid.html">sofia.domain.grid</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="sofia.field.html">sofia.field package</a><input aria-label="Toggle navigation of sofia.field package" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sofia.field.html">sofia.field package</a><input aria-label="Toggle navigation of sofia.field package" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.reductions.html">sofia.field.reductions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.staggered.html">sofia.field.staggered</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">sofia.field.sums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.sums.html">sofia.field.sums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.transfer.html">sofia.field.transfer</a></li>
 </ul>
 </li>
@@ -253,7 +253,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sofia.geometry.geometry.html">sofia.geometry.geometry</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="sofia.pde.html">sofia.pde package</a><input aria-label="Toggle navigation of sofia.pde package" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="sofia.pde.html">sofia.pde package</a><input aria-label="Toggle navigation of sofia.pde package" checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3 has-children"><a class="reference internal" href="sofia.pde.fdm.html">sofia.pde.fdm package</a><input aria-label="Toggle navigation of sofia.pde.fdm package" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="sofia.pde.fdm.derivative.html">sofia.pde.fdm.derivative</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.pde.fdm.discretisation.html">sofia.pde.fdm.discretisation</a></li>
@@ -266,7 +266,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">sofia.pde.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -315,84 +315,51 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-sofia.field.sums">
-<span id="sofia-field-sums"></span><h1>sofia.field.sums<a class="headerlink" href="#module-sofia.field.sums" title="Link to this heading">¶</a></h1>
+          <section id="module-sofia.pde.jacobian">
+<span id="sofia-pde-jacobian"></span><h1>sofia.pde.jacobian<a class="headerlink" href="#module-sofia.pde.jacobian" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="sofia.field.sums.FieldAxisSum">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.field.sums.</span></span><span class="sig-name descname"><span class="pre">FieldAxisSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.field.sums.FieldAxisSum" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></p>
+<dt class="sig sig-object py" id="sofia.pde.jacobian.Jacobian">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.pde.jacobian.</span></span><span class="sig-name descname"><span class="pre">Jacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exprs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Expr</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridField" title="sofia.field.grid_field.GridField"><span class="pre">GridField</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.pde.jacobian.Jacobian" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The symbolic Jacobian of a system of equations.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="sofia.pde.jacobian.Jacobian.entries">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">entries</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridField" title="sofia.field.grid_field.GridField"><span class="pre">GridField</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#sofia.pde.jacobian.Jacobian.entries" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the Jacobian entries of the system of equations.</p>
+</dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="sofia.field.sums.FieldAxisSum.eval">
-<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.field.sums.FieldAxisSum.eval" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a canonical form of cls applied to arguments args.</p>
-<section id="explanation">
-<h2>Explanation<a class="headerlink" href="#explanation" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">eval()</span></code> method is called when the class <code class="docutils literal notranslate"><span class="pre">cls</span></code> is about to be
-instantiated and it should return either some simplified instance
-(possible of some other class), or if the class <code class="docutils literal notranslate"><span class="pre">cls</span></code> should be
-unmodified, return None.</p>
-<p>Examples of <code class="docutils literal notranslate"><span class="pre">eval()</span></code> for the function “sign”</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">arg</span> <span class="ow">is</span> <span class="n">S</span><span class="o">.</span><span class="n">NaN</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">NaN</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">is_zero</span><span class="p">:</span> <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">Zero</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">is_positive</span><span class="p">:</span> <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">One</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">is_negative</span><span class="p">:</span> <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">NegativeOne</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">Mul</span><span class="p">):</span>
-        <span class="n">coeff</span><span class="p">,</span> <span class="n">terms</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">as_coeff_Mul</span><span class="p">(</span><span class="n">rational</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">coeff</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">S</span><span class="o">.</span><span class="n">One</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span> <span class="o">*</span> <span class="bp">cls</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
+<dt class="sig sig-object py" id="sofia.pde.jacobian.Jacobian.is_nearest_neighbor">
+<span class="sig-name descname"><span class="pre">is_nearest_neighbor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#sofia.pde.jacobian.Jacobian.is_nearest_neighbor" title="Link to this definition">¶</a></dt>
+<dd><p>Whether entries only couples neighbors along <cite>axis</cite>.</p>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sofia.field.sums.FieldAxisCumSum">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.field.sums.</span></span><span class="sig-name descname"><span class="pre">FieldAxisCumSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.field.sums.FieldAxisCumSum" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="sofia.field.sums.FieldAxisCumSum.eval">
-<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.field.sums.FieldAxisCumSum.eval" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a canonical form of cls applied to arguments args.</p>
-<section id="id1">
-<h2>Explanation<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">eval()</span></code> method is called when the class <code class="docutils literal notranslate"><span class="pre">cls</span></code> is about to be
-instantiated and it should return either some simplified instance
-(possible of some other class), or if the class <code class="docutils literal notranslate"><span class="pre">cls</span></code> should be
-unmodified, return None.</p>
-<p>Examples of <code class="docutils literal notranslate"><span class="pre">eval()</span></code> for the function “sign”</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">arg</span> <span class="ow">is</span> <span class="n">S</span><span class="o">.</span><span class="n">NaN</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">NaN</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">is_zero</span><span class="p">:</span> <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">Zero</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">is_positive</span><span class="p">:</span> <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">One</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">is_negative</span><span class="p">:</span> <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">NegativeOne</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">Mul</span><span class="p">):</span>
-        <span class="n">coeff</span><span class="p">,</span> <span class="n">terms</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">as_coeff_Mul</span><span class="p">(</span><span class="n">rational</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">coeff</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">S</span><span class="o">.</span><span class="n">One</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span> <span class="o">*</span> <span class="bp">cls</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
+<dt class="sig sig-object py" id="sofia.pde.jacobian.Jacobian.to_block_tridiagonal">
+<span class="sig-name descname"><span class="pre">to_block_tridiagonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">MutableDenseMatrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">MutableDenseMatrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">MutableDenseMatrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Expr</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.pde.jacobian.Jacobian.to_block_tridiagonal" title="Link to this definition">¶</a></dt>
+<dd><p>Return blocks of the Jacobian along <cite>axis</cite> as (D, A, C, b).</p>
+<p>D is the diagonal, A is the lower diagonal, and C is the upper diagonal.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="sofia.pde.jacobian.Jacobian.to_block_tridiagonal_solvable">
+<span class="sig-name descname"><span class="pre">to_block_tridiagonal_solvable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridField" title="sofia.field.grid_field.GridField"><span class="pre">GridField</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridField" title="sofia.field.grid_field.GridField"><span class="pre">GridField</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">MutableDenseMatrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">MutableDenseMatrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Expr</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.pde.jacobian.Jacobian.to_block_tridiagonal_solvable" title="Link to this definition">¶</a></dt>
+<dd><p>Return <cite>(x, exprs, b)</cite> as expected by <cite>ir.SolveBlockTridiagonal</cite>.</p>
+<p>Example usage:
+<cite>ir.SolveBlockTridiagonal(*Jacobian(exprs, variables).to_block_tridiagonal_solvable(axis))</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> – The grid axis to build block-tridiagonal system along.</p></li>
+<li><p><strong>outputs</strong> – Fields to hold the Newton step for each field in <cite>variables</cite>, in
+the same order.</p></li>
+<li><p><strong>negate</strong> – Controls the sign of <cite>b</cite>. By default <cite>b = -fixed_exprs</cite>, matching
+the Newton step <cite>J &#64; dx = -R</cite>.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="sofia.field.sums.sum_axis">
-<span class="sig-prename descclassname"><span class="pre">sofia.field.sums.</span></span><span class="sig-name descname"><span class="pre">sum_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_exterior</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cumulative</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'lower'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'upper'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sofia.field.sums.FieldAxisSum" title="sofia.field.sums.FieldAxisSum"><span class="pre">FieldAxisSum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sofia.field.sums.FieldAxisCumSum" title="sofia.field.sums.FieldAxisCumSum"><span class="pre">FieldAxisCumSum</span></a></span></span><a class="headerlink" href="#sofia.field.sums.sum_axis" title="Link to this definition">¶</a></dt>
-<dd><p>Sum the field over the given coordinate axes.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sofia.field.sums.integrate_axis">
-<span class="sig-prename descclassname"><span class="pre">sofia.field.sums.</span></span><span class="sig-name descname"><span class="pre">integrate_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_scheme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">WeightsScheme</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cumulative</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'lower'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'upper'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sofia.field.sums.FieldAxisSum" title="sofia.field.sums.FieldAxisSum"><span class="pre">FieldAxisSum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sofia.field.sums.FieldAxisCumSum" title="sofia.field.sums.FieldAxisCumSum"><span class="pre">FieldAxisCumSum</span></a></span></span><a class="headerlink" href="#sofia.field.sums.integrate_axis" title="Link to this definition">¶</a></dt>
-<dd><p>Integrate over the given axes.</p>
 </dd></dl>
 
 </section>
@@ -402,23 +369,23 @@ unmodified, return None.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="sofia.field.transfer.html">
+          <a class="next-page" href="sofia.pde.les.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">sofia.field.transfer</div>
+                <div class="title">sofia.pde.les</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="sofia.field.staggered.html">
+          <a class="prev-page" href="sofia.pde.drawing.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">sofia.field.staggered</div>
+                <div class="title">sofia.pde.drawing</div>
                 
               </div>
             </a>
@@ -452,17 +419,14 @@ unmodified, return None.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">sofia.field.sums</a><ul>
-<li><a class="reference internal" href="#sofia.field.sums.FieldAxisSum"><code class="docutils literal notranslate"><span class="pre">FieldAxisSum</span></code></a><ul>
-<li><a class="reference internal" href="#sofia.field.sums.FieldAxisSum.eval"><code class="docutils literal notranslate"><span class="pre">FieldAxisSum.eval()</span></code></a></li>
+<li><a class="reference internal" href="#">sofia.pde.jacobian</a><ul>
+<li><a class="reference internal" href="#sofia.pde.jacobian.Jacobian"><code class="docutils literal notranslate"><span class="pre">Jacobian</span></code></a><ul>
+<li><a class="reference internal" href="#sofia.pde.jacobian.Jacobian.entries"><code class="docutils literal notranslate"><span class="pre">Jacobian.entries</span></code></a></li>
+<li><a class="reference internal" href="#sofia.pde.jacobian.Jacobian.is_nearest_neighbor"><code class="docutils literal notranslate"><span class="pre">Jacobian.is_nearest_neighbor()</span></code></a></li>
+<li><a class="reference internal" href="#sofia.pde.jacobian.Jacobian.to_block_tridiagonal"><code class="docutils literal notranslate"><span class="pre">Jacobian.to_block_tridiagonal()</span></code></a></li>
+<li><a class="reference internal" href="#sofia.pde.jacobian.Jacobian.to_block_tridiagonal_solvable"><code class="docutils literal notranslate"><span class="pre">Jacobian.to_block_tridiagonal_solvable()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sofia.field.sums.FieldAxisCumSum"><code class="docutils literal notranslate"><span class="pre">FieldAxisCumSum</span></code></a><ul>
-<li><a class="reference internal" href="#sofia.field.sums.FieldAxisCumSum.eval"><code class="docutils literal notranslate"><span class="pre">FieldAxisCumSum.eval()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sofia.field.sums.sum_axis"><code class="docutils literal notranslate"><span class="pre">sum_axis()</span></code></a></li>
-<li><a class="reference internal" href="#sofia.field.sums.integrate_axis"><code class="docutils literal notranslate"><span class="pre">integrate_axis()</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -266,6 +266,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -639,6 +640,24 @@ solved using Fourier transforms.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="sofia.ir.base.SolveBlockTridiagonal">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.base.</span></span><span class="sig-name descname"><span class="pre">SolveBlockTridiagonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.base.SolveBlockTridiagonal" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CodegenToken" title="sofia.ir.token.CodegenToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodegenToken</span></code></a></p>
+<p>Solve a block-tridiagonal system of equations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>sympy.core.containers.Tuple</em>) – Output field symbols.</p></li>
+<li><p><strong>exprs</strong> (<em>sympy.core.containers.Tuple</em>) – A tuple of symbolic matrices representing the blocks of the system.
+The matrices should be of the form (D, A, C) where D is the diagonal,
+A is the lower diagonal, and C is the upper diagonal.</p></li>
+<li><p><strong>b</strong> (<em>sympy.core.containers.Tuple</em>) – Discretised right hand side expressions.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="sofia.ir.base.Checkpoint">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.base.</span></span><span class="sig-name descname"><span class="pre">Checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.base.Checkpoint" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CodegenToken" title="sofia.ir.token.CodegenToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodegenToken</span></code></a></p>
@@ -684,6 +703,84 @@ as the example above.</p>
 </dl>
 </div>
 </section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sofia.ir.base.While">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.base.</span></span><span class="sig-name descname"><span class="pre">While</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.base.While" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CustomToken" title="sofia.ir.token.CustomToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">CustomToken</span></code></a></p>
+<p>A while-loop.</p>
+<p>Repeat a block of code (<code class="docutils literal notranslate"><span class="pre">body</span></code>) for as long as <code class="docutils literal notranslate"><span class="pre">condition</span></code> holds. The
+condition is checked before each iteration, the first one included, so the body
+never runs if it is false at the outset.</p>
+<p><code class="docutils literal notranslate"><span class="pre">condition</span></code> should be an expression of <code class="docutils literal notranslate"><span class="pre">BooleanKind</span></code> involving <code class="docutils literal notranslate"><span class="pre">Scalar</span></code>
+variables and fields wrapped in a <code class="docutils literal notranslate"><span class="pre">sofia.field.reductions.Reduce</span></code>. Every scalar
+and field the condition reads must already hold a value before the loop, and every
+reduction is re-evaluated before each check.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> given, it stops after at most <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> iterations. The loop
+exits without raising any exception or warning.</p>
+<p>The loop returns the inputs of <code class="docutils literal notranslate"><span class="pre">body</span></code> together with everything <code class="docutils literal notranslate"><span class="pre">condition</span></code>
+reads and, when <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> is given, also the number of iterations. A variable
+written only inside the body, and not read by the condition, stays local to it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>condition</strong> (<em>sympy.core.basic.Basic</em>) – The loop runs for as long as this holds.</p></li>
+<li><p><strong>body</strong> (<a class="reference internal" href="#sofia.ir.base.CodeBlock" title="sofia.ir.base.CodeBlock"><em>sofia.ir.base.CodeBlock</em></a>) – Loop body.</p></li>
+<li><p><strong>max_iter</strong> (<em>sympy.core.numbers.Integer</em><em> | </em><em>sympy.core.symbol.Symbol</em><em> | </em><em>None</em>) – Maximum allowed number of iterations. By default it is <code class="docutils literal notranslate"><span class="pre">None</span></code>, for which
+the loop runs as long as the condition holds.</p></li>
+<li><p><strong>n_iter</strong> (<a class="reference internal" href="sofia.html#sofia.Scalar" title="sofia.scalar.scalar.Scalar"><em>sofia.scalar.scalar.Scalar</em></a><em> | </em><em>None</em>) – Where to store the number of iterations run in the loop. By default it is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, for which the number of iterations is not returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is not a boolean expression, if <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> is a
+    non-positive integer or a symbol assumed to be non-positive, or if <code class="docutils literal notranslate"><span class="pre">n_iter</span></code>
+    appears in <code class="docutils literal notranslate"><span class="pre">condition</span></code> or <code class="docutils literal notranslate"><span class="pre">body</span></code>.</p></li>
+<li><p><strong>TypeError</strong> – If <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> is neither an integer nor a symbol, or <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> is not a
+    <code class="docutils literal notranslate"><span class="pre">Scalar</span></code>.</p></li>
+<li><p><strong>NotImplementedError</strong> – If <code class="docutils literal notranslate"><span class="pre">condition</span></code> contains fields outside a reduction.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a href="#id14"><span class="problematic" id="id15">``</span></a><a href="#id16"><span class="problematic" id="id17">`</span></a>python
+from sofia import Field, Grid, Scalar, ir
+from sofia.field.reductions import Norm</p>
+<p>G = Grid(ndim=3)
+u = Field(“u”, G)
+threshold = Scalar(“threshold”)
+n_iter = Scalar(“n_iter”)</p>
+<dl class="simple">
+<dt>code_ir = ir.CodeBlock(</dt><dd><p>ir.Inputs((u, threshold)),
+ir.While(Norm(u) &gt; threshold, ir.CodeBlock(u &lt;&lt; u / 2), n_iter=n_iter),
+ir.Outputs((u, n_iter)),</p>
+</dd>
+</dl>
+<p>)</p>
+<p><a href="#id18"><span class="problematic" id="id19">``</span></a><a href="#id20"><span class="problematic" id="id21">`</span></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sofia.ir.base.While.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.base.While.transform" title="Link to this definition">¶</a></dt>
+<dd><p>Represent this token in terms of other IR tokens.</p>
+<p>All returned tokens must (eventually) expand to just tokens defined in
+<cite>ir.base</cite> (e.g. <cite>ir.base.For</cite>), as the code generator is only defined
+for those tokens. Note that tt is okay for this method to return other
+custom tokens not from <cite>ir.base</cite>, as long as these tokens (possibly
+through multiple <cite>.transform()</cite> calls) eventually expand to just
+<cite>ir.base</cite> tokens.</p>
+<p>Subclasses must override this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The token in terms of other IR tokens.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>sympy.Basic</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -764,7 +861,12 @@ as the example above.</p>
 <li><a class="reference internal" href="#sofia.ir.base.EvalAssignment"><code class="docutils literal notranslate"><span class="pre">EvalAssignment</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.base.CustomFunctionCall"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.base.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.base.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.base.Checkpoint"><code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.base.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a><ul>
+<li><a class="reference internal" href="#sofia.ir.base.While.transform"><code class="docutils literal notranslate"><span class="pre">While.transform()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -776,7 +878,7 @@ as the example above.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=2caa9db7"></script>
+</div><script src="../_static/documentation_options.js?v=757451c5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

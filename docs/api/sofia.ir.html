@@ -266,6 +266,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -341,7 +342,12 @@
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.EvalAssignment"><code class="docutils literal notranslate"><span class="pre">EvalAssignment</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CustomFunctionCall"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Checkpoint"><code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.While.transform"><code class="docutils literal notranslate"><span class="pre">While.transform()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sofia.ir.pde.html">sofia.ir.pde</a><ul>
@@ -359,10 +365,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.RKn"><code class="docutils literal notranslate"><span class="pre">RKn</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.RKn.transform"><code class="docutils literal notranslate"><span class="pre">RKn.transform()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelUTau.doit"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.doit()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1332,6 +1334,49 @@ simulation.</p></li>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="sofia.ir.SolveBlockTridiagonal">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.</span></span><span class="sig-name descname"><span class="pre">SolveBlockTridiagonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.SolveBlockTridiagonal" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CodegenToken" title="sofia.ir.token.CodegenToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodegenToken</span></code></a></p>
+<p>Solve a block-tridiagonal system of equations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>sympy.core.containers.Tuple</em>) – Output field symbols.</p></li>
+<li><p><strong>exprs</strong> (<em>sympy.core.containers.Tuple</em>) – A tuple of symbolic matrices representing the blocks of the system.
+The matrices should be of the form (D, A, C) where D is the diagonal,
+A is the lower diagonal, and C is the upper diagonal.</p></li>
+<li><p><strong>b</strong> (<em>sympy.core.containers.Tuple</em>) – Discretised right hand side expressions.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveBlockTridiagonal.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span></span><a class="headerlink" href="#sofia.ir.SolveBlockTridiagonal.x" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveBlockTridiagonal.exprs">
+<span class="sig-name descname"><span class="pre">exprs</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span></span><a class="headerlink" href="#sofia.ir.SolveBlockTridiagonal.exprs" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveBlockTridiagonal.b">
+<span class="sig-name descname"><span class="pre">b</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span></span><a class="headerlink" href="#sofia.ir.SolveBlockTridiagonal.b" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveBlockTridiagonal.default_assumptions">
+<span class="sig-name descname"><span class="pre">default_assumptions</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#sofia.ir.SolveBlockTridiagonal.default_assumptions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveBlockTridiagonal.defaults">
+<span class="sig-name descname"><span class="pre">defaults</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#sofia.ir.SolveBlockTridiagonal.defaults" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="sofia.ir.SolveCirculant">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.</span></span><span class="sig-name descname"><span class="pre">SolveCirculant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.SolveCirculant" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Token</span></code></p>
@@ -1481,118 +1526,109 @@ or unless the ‘deep’ hint was set to ‘False’.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.</span></span><span class="sig-name descname"><span class="pre">WallModelUTau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.WallModelUTau" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Token</span></code></p>
-<p>Computes near-wall friction velocity u_tau.</p>
+<dt class="sig sig-object py" id="sofia.ir.While">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.</span></span><span class="sig-name descname"><span class="pre">While</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.While" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CustomToken" title="sofia.ir.token.CustomToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">CustomToken</span></code></a></p>
+<p>A while-loop.</p>
+<p>Repeat a block of code (<code class="docutils literal notranslate"><span class="pre">body</span></code>) for as long as <code class="docutils literal notranslate"><span class="pre">condition</span></code> holds. The
+condition is checked before each iteration, the first one included, so the body
+never runs if it is false at the outset.</p>
+<p><code class="docutils literal notranslate"><span class="pre">condition</span></code> should be an expression of <code class="docutils literal notranslate"><span class="pre">BooleanKind</span></code> involving <code class="docutils literal notranslate"><span class="pre">Scalar</span></code>
+variables and fields wrapped in a <code class="docutils literal notranslate"><span class="pre">sofia.field.reductions.Reduce</span></code>. Every scalar
+and field the condition reads must already hold a value before the loop, and every
+reduction is re-evaluated before each check.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> given, it stops after at most <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> iterations. The loop
+exits without raising any exception or warning.</p>
+<p>The loop returns the inputs of <code class="docutils literal notranslate"><span class="pre">body</span></code> together with everything <code class="docutils literal notranslate"><span class="pre">condition</span></code>
+reads and, when <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> is given, also the number of iterations. A variable
+written only inside the body, and not read by the condition, stays local to it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>wall_fn</strong> – Symbolic wall function in forward form <code class="docutils literal notranslate"><span class="pre">u+</span> <span class="pre">=</span> <span class="pre">f(y+)</span></code>, expressed in
-terms of <code class="docutils literal notranslate"><span class="pre">y_plus</span></code>. e.g. Reichardt’s law. The inverse form
-(<code class="docutils literal notranslate"><span class="pre">y+</span> <span class="pre">=</span> <span class="pre">g(u+)</span></code>, e.g. Spalding) is not accepted.</p></li>
-<li><p><strong>y_plus</strong> – The symbol used for <code class="docutils literal notranslate"><span class="pre">y+</span></code> inside <code class="docutils literal notranslate"><span class="pre">wall_fn</span></code>.
-(will refactor into sp.Lambda later)</p></li>
-<li><p><strong>query</strong> – Field that will store u_tau.</p></li>
-<li><p><strong>velocities</strong> – The velocity components <code class="docutils literal notranslate"><span class="pre">(u,</span> <span class="pre">v,</span> <span class="pre">w)</span></code>, overwritten in place.</p></li>
-<li><p><strong>geometry</strong> – <cite>Geometry</cite> object.</p></li>
-<li><p><strong>nu</strong> – Kinematic viscosity.</p></li>
-<li><p><strong>band</strong> – Reconstruct only where the wall distance is below this.</p></li>
-<li><p><strong>match_height</strong> – Wall distance of the matching point used to infer <code class="docutils literal notranslate"><span class="pre">u_tau</span></code>.
-Must exceed <code class="docutils literal notranslate"><span class="pre">band</span></code>.</p></li>
-<li><p><strong>n_iter</strong> – Newton iterations for <code class="docutils literal notranslate"><span class="pre">u_tau</span></code>.</p></li>
-<li><p><strong>max_dist</strong> – Search radius passed to <code class="docutils literal notranslate"><span class="pre">wp.mesh_query_point</span></code>.</p></li>
+<li><p><strong>condition</strong> (<em>sympy.core.basic.Basic</em>) – The loop runs for as long as this holds.</p></li>
+<li><p><strong>body</strong> (<a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CodeBlock" title="sofia.ir.base.CodeBlock"><em>sofia.ir.base.CodeBlock</em></a>) – Loop body.</p></li>
+<li><p><strong>max_iter</strong> (<em>sympy.core.numbers.Integer</em><em> | </em><em>sympy.core.symbol.Symbol</em><em> | </em><em>None</em>) – Maximum allowed number of iterations. By default it is <code class="docutils literal notranslate"><span class="pre">None</span></code>, for which
+the loop runs as long as the condition holds.</p></li>
+<li><p><strong>n_iter</strong> (<a class="reference internal" href="sofia.html#sofia.Scalar" title="sofia.scalar.scalar.Scalar"><em>sofia.scalar.scalar.Scalar</em></a><em> | </em><em>None</em>) – Where to store the number of iterations run in the loop. By default it is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, for which the number of iterations is not returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is not a boolean expression, if <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> is a
+    non-positive integer or a symbol assumed to be non-positive, or if <code class="docutils literal notranslate"><span class="pre">n_iter</span></code>
+    appears in <code class="docutils literal notranslate"><span class="pre">condition</span></code> or <code class="docutils literal notranslate"><span class="pre">body</span></code>.</p></li>
+<li><p><strong>TypeError</strong> – If <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> is neither an integer nor a symbol, or <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> is not a
+    <code class="docutils literal notranslate"><span class="pre">Scalar</span></code>.</p></li>
+<li><p><strong>NotImplementedError</strong> – If <code class="docutils literal notranslate"><span class="pre">condition</span></code> contains fields outside a reduction.</p></li>
 </ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p><a href="#id30"><span class="problematic" id="id31">``</span></a><a href="#id32"><span class="problematic" id="id33">`</span></a>python
+from sofia import Field, Grid, Scalar, ir
+from sofia.field.reductions import Norm</p>
+<p>G = Grid(ndim=3)
+u = Field(“u”, G)
+threshold = Scalar(“threshold”)
+n_iter = Scalar(“n_iter”)</p>
+<dl class="simple">
+<dt>code_ir = ir.CodeBlock(</dt><dd><p>ir.Inputs((u, threshold)),
+ir.While(Norm(u) &gt; threshold, ir.CodeBlock(u &lt;&lt; u / 2), n_iter=n_iter),
+ir.Outputs((u, n_iter)),</p>
+</dd>
+</dl>
+<p>)</p>
+<p><a href="#id34"><span class="problematic" id="id35">``</span></a><a href="#id36"><span class="problematic" id="id37">`</span></a></p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.defaults">
-<span class="sig-name descname"><span class="pre">defaults</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'band':</span> <span class="pre">2,</span> <span class="pre">'match_height':</span> <span class="pre">6,</span> <span class="pre">'max_dist':</span> <span class="pre">10.0,</span> <span class="pre">'maxiter':</span> <span class="pre">8,</span> <span class="pre">'side':</span> <span class="pre">1}</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.defaults" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sofia.ir.While.condition">
+<span class="sig-name descname"><span class="pre">condition</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Basic</span></span><a class="headerlink" href="#sofia.ir.While.condition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.While.body">
+<span class="sig-name descname"><span class="pre">body</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CodeBlock" title="sofia.ir.base.CodeBlock"><span class="pre">CodeBlock</span></a></span><a class="headerlink" href="#sofia.ir.While.body" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.While.max_iter">
+<span class="sig-name descname"><span class="pre">max_iter</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Integer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Symbol</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#sofia.ir.While.max_iter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.While.n_iter">
+<span class="sig-name descname"><span class="pre">n_iter</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="sofia.html#sofia.Scalar" title="sofia.scalar.scalar.Scalar"><span class="pre">Scalar</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#sofia.ir.While.n_iter" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.doit">
-<span class="sig-name descname"><span class="pre">doit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.WallModelUTau.doit" title="Link to this definition">¶</a></dt>
-<dd><p>Evaluate objects that are not evaluated by default like limits,
-integrals, sums and products. All objects of this kind will be
-evaluated recursively, unless some species were excluded via ‘hints’
-or unless the ‘deep’ hint was set to ‘False’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Integral</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">*</span><span class="n">Integral</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="go">2*Integral(x, x)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">Integral</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
-<span class="go">x**2</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">Integral</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="go">2*Integral(x, x)</span>
-</pre></div>
-</div>
+<dt class="sig sig-object py" id="sofia.ir.While.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.While.transform" title="Link to this definition">¶</a></dt>
+<dd><p>Represent this token in terms of other IR tokens.</p>
+<p>All returned tokens must (eventually) expand to just tokens defined in
+<cite>ir.base</cite> (e.g. <cite>ir.base.For</cite>), as the code generator is only defined
+for those tokens. Note that tt is okay for this method to return other
+custom tokens not from <cite>ir.base</cite>, as long as these tokens (possibly
+through multiple <cite>.transform()</cite> calls) eventually expand to just
+<cite>ir.base</cite> tokens.</p>
+<p>Subclasses must override this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The token in terms of other IR tokens.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>sympy.Basic</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.wall_fn">
-<span class="sig-name descname"><span class="pre">wall_fn</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.wall_fn" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sofia.ir.While.default_assumptions">
+<span class="sig-name descname"><span class="pre">default_assumptions</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#sofia.ir.While.default_assumptions" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.y_plus">
-<span class="sig-name descname"><span class="pre">y_plus</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.y_plus" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.query">
-<span class="sig-name descname"><span class="pre">query</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.query" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.velocities">
-<span class="sig-name descname"><span class="pre">velocities</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.velocities" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.geometry">
-<span class="sig-name descname"><span class="pre">geometry</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.geometry" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.nu">
-<span class="sig-name descname"><span class="pre">nu</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.nu" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.band">
-<span class="sig-name descname"><span class="pre">band</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.band" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.match_height">
-<span class="sig-name descname"><span class="pre">match_height</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.match_height" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.maxiter">
-<span class="sig-name descname"><span class="pre">maxiter</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.maxiter" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.max_dist">
-<span class="sig-name descname"><span class="pre">max_dist</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.max_dist" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.side">
-<span class="sig-name descname"><span class="pre">side</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.side" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sofia.ir.WallModelUTau.default_assumptions">
-<span class="sig-name descname"><span class="pre">default_assumptions</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#sofia.ir.WallModelUTau.default_assumptions" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sofia.ir.While.defaults">
+<span class="sig-name descname"><span class="pre">defaults</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'max_iter':</span> <span class="pre">None,</span> <span class="pre">'n_iter':</span> <span class="pre">None}</span></span><a class="headerlink" href="#sofia.ir.While.defaults" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1796,6 +1832,14 @@ or unless the ‘deep’ hint was set to ‘False’.</p>
 <li><a class="reference internal" href="#sofia.ir.Save.defaults"><code class="docutils literal notranslate"><span class="pre">Save.defaults</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#sofia.ir.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a><ul>
+<li><a class="reference internal" href="#sofia.ir.SolveBlockTridiagonal.x"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.x</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveBlockTridiagonal.exprs"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.exprs</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveBlockTridiagonal.b"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.b</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveBlockTridiagonal.default_assumptions"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.default_assumptions</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveBlockTridiagonal.defaults"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.defaults</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#sofia.ir.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a><ul>
 <li><a class="reference internal" href="#sofia.ir.SolveCirculant.x"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.x</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.SolveCirculant.expr"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.expr</span></code></a></li>
@@ -1819,21 +1863,14 @@ or unless the ‘deep’ hint was set to ‘False’.</p>
 <li><a class="reference internal" href="#sofia.ir.WallModelReconstruct.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.default_assumptions</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a><ul>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.defaults"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.defaults</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.doit"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.doit()</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.wall_fn"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.wall_fn</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.y_plus"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.y_plus</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.query"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.query</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.velocities"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.velocities</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.geometry"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.geometry</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.nu"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.nu</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.band"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.band</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.match_height"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.match_height</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.maxiter"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.maxiter</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.max_dist"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.max_dist</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.side"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.side</span></code></a></li>
-<li><a class="reference internal" href="#sofia.ir.WallModelUTau.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.default_assumptions</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a><ul>
+<li><a class="reference internal" href="#sofia.ir.While.condition"><code class="docutils literal notranslate"><span class="pre">While.condition</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.While.body"><code class="docutils literal notranslate"><span class="pre">While.body</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.While.max_iter"><code class="docutils literal notranslate"><span class="pre">While.max_iter</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.While.n_iter"><code class="docutils literal notranslate"><span class="pre">While.n_iter</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.While.transform"><code class="docutils literal notranslate"><span class="pre">While.transform()</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.While.default_assumptions"><code class="docutils literal notranslate"><span class="pre">While.default_assumptions</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.While.defaults"><code class="docutils literal notranslate"><span class="pre">While.defaults</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1849,7 +1886,7 @@ or unless the ‘deep’ hint was set to ‘False’.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=2caa9db7"></script>
+</div><script src="../_static/documentation_options.js?v=757451c5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

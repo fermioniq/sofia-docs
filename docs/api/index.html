@@ -266,6 +266,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.drawing.html">sofia.pde.drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -345,6 +346,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sofia.field.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.field.html#sofia.field.field.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.field.html#sofia.field.field.fields"><code class="docutils literal notranslate"><span class="pre">fields()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a><ul>
@@ -441,6 +443,10 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.pde.drawing.html#sofia.pde.drawing.draw_grid"><code class="docutils literal notranslate"><span class="pre">draw_grid()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.pde.jacobian.html">sofia.pde.jacobian</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian"><code class="docutils literal notranslate"><span class="pre">Jacobian</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -507,7 +513,9 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.EvalAssignment"><code class="docutils literal notranslate"><span class="pre">EvalAssignment</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CustomFunctionCall"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Checkpoint"><code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.pde.html">sofia.ir.pde</a><ul>
@@ -515,7 +523,6 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelReconstruct"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.EddyViscositySmagorinsky"><code class="docutils literal notranslate"><span class="pre">EddyViscositySmagorinsky</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.RKn"><code class="docutils literal notranslate"><span class="pre">RKn</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.pde.html#sofia.ir.pde.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.token.html">sofia.ir.token</a><ul>
@@ -664,6 +671,14 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.Save.defaults"><code class="docutils literal notranslate"><span class="pre">Save.defaults</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.x"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.exprs"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.exprs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.b"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.b</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.default_assumptions"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveBlockTridiagonal.defaults"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal.defaults</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.x"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.x</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.SolveCirculant.expr"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.expr</span></code></a></li>
@@ -687,21 +702,14 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelReconstruct.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.default_assumptions</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau"><code class="docutils literal notranslate"><span class="pre">WallModelUTau</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.defaults"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.defaults</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.doit"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.doit()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.wall_fn"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.wall_fn</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.y_plus"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.y_plus</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.query"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.query</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.velocities"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.velocities</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.geometry"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.geometry</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.nu"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.nu</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.band"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.band</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.match_height"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.match_height</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.maxiter"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.maxiter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.max_dist"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.max_dist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.side"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.side</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.WallModelUTau.default_assumptions"><code class="docutils literal notranslate"><span class="pre">WallModelUTau.default_assumptions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.ir.html#sofia.ir.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.condition"><code class="docutils literal notranslate"><span class="pre">While.condition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.body"><code class="docutils literal notranslate"><span class="pre">While.body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.max_iter"><code class="docutils literal notranslate"><span class="pre">While.max_iter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.n_iter"><code class="docutils literal notranslate"><span class="pre">While.n_iter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.transform"><code class="docutils literal notranslate"><span class="pre">While.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.default_assumptions"><code class="docutils literal notranslate"><span class="pre">While.default_assumptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.ir.html#sofia.ir.While.defaults"><code class="docutils literal notranslate"><span class="pre">While.defaults</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -761,7 +769,7 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=2caa9db7"></script>
+</div><script src="../_static/documentation_options.js?v=757451c5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

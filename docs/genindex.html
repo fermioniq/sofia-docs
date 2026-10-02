@@ -264,6 +264,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.pde.drawing.html">sofia.pde.drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.pde.simulate.html">sofia.pde.simulate</a></li>
@@ -313,7 +314,7 @@
           
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#Q"><strong>Q</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a> | <a href="#Y"><strong>Y</strong></a> | <a href="#Z"><strong>Z</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a> | <a href="#Y"><strong>Y</strong></a> | <a href="#Z"><strong>Z</strong></a></div>
 </section>
 <section id="A" class="genindex-section">
   <h2>A</h2>
@@ -375,14 +376,14 @@
   <h2>B</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/sofia.ir.html#sofia.ir.SolveCirculant.b">b (sofia.ir.SolveCirculant attribute)</a>
-</li>
-        <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.band">band (sofia.ir.WallModelReconstruct attribute)</a>
+        <li><a href="api/sofia.ir.html#sofia.ir.SolveBlockTridiagonal.b">b (sofia.ir.SolveBlockTridiagonal attribute)</a>
 
         <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.band">(sofia.ir.WallModelUTau attribute)</a>
+          <li><a href="api/sofia.ir.html#sofia.ir.SolveCirculant.b">(sofia.ir.SolveCirculant attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.band">band (sofia.ir.WallModelReconstruct attribute)</a>
+</li>
         <li><a href="api/sofia.ir.html#sofia.ir.ProjectDivFree.bcs">bcs (sofia.ir.ProjectDivFree attribute)</a>
 </li>
         <li><a href="api/sofia.ir.html#sofia.ir.Checkpoint.body">body (sofia.ir.Checkpoint attribute)</a>
@@ -391,6 +392,8 @@
           <li><a href="api/sofia.ir.html#sofia.ir.For.body">(sofia.ir.For attribute)</a>
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.FunctionDefinition.body">(sofia.ir.FunctionDefinition attribute)</a>
+</li>
+          <li><a href="api/sofia.ir.html#sofia.ir.While.body">(sofia.ir.While attribute)</a>
 </li>
         </ul></li>
     </ul></td>
@@ -441,6 +444,8 @@
           <li><a href="api/sofia.html#sofia.Grid.concrete">(sofia.Grid method)</a>
 </li>
         </ul></li>
+        <li><a href="api/sofia.ir.html#sofia.ir.While.condition">condition (sofia.ir.While attribute)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.html#sofia.Grid.coord_to_ind">coord_to_ind() (sofia.Grid method)</a>
@@ -538,11 +543,13 @@
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.Save.default_assumptions">(sofia.ir.Save attribute)</a>
 </li>
+          <li><a href="api/sofia.ir.html#sofia.ir.SolveBlockTridiagonal.default_assumptions">(sofia.ir.SolveBlockTridiagonal attribute)</a>
+</li>
           <li><a href="api/sofia.ir.html#sofia.ir.SolveCirculant.default_assumptions">(sofia.ir.SolveCirculant attribute)</a>
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.default_assumptions">(sofia.ir.WallModelReconstruct attribute)</a>
 </li>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.default_assumptions">(sofia.ir.WallModelUTau attribute)</a>
+          <li><a href="api/sofia.ir.html#sofia.ir.While.default_assumptions">(sofia.ir.While attribute)</a>
 </li>
           <li><a href="api/sofia.pde.html#sofia.pde.Del.default_assumptions">(sofia.pde.Del attribute)</a>
 </li>
@@ -576,9 +583,11 @@
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.Save.defaults">(sofia.ir.Save attribute)</a>
 </li>
+          <li><a href="api/sofia.ir.html#sofia.ir.SolveBlockTridiagonal.defaults">(sofia.ir.SolveBlockTridiagonal attribute)</a>
+</li>
           <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.defaults">(sofia.ir.WallModelReconstruct attribute)</a>
 </li>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.defaults">(sofia.ir.WallModelUTau attribute)</a>
+          <li><a href="api/sofia.ir.html#sofia.ir.While.defaults">(sofia.ir.While attribute)</a>
 </li>
         </ul></li>
     </ul></td>
@@ -662,15 +671,11 @@
 </li>
           <li><a href="api/sofia.ir.pde.html#sofia.ir.pde.WallModelReconstruct.doit">(sofia.ir.pde.WallModelReconstruct method)</a>
 </li>
-          <li><a href="api/sofia.ir.pde.html#sofia.ir.pde.WallModelUTau.doit">(sofia.ir.pde.WallModelUTau method)</a>
-</li>
           <li><a href="api/sofia.ir.html#sofia.ir.ProjectDivFree.doit">(sofia.ir.ProjectDivFree method)</a>
 </li>
           <li><a href="api/sofia.ir.token.html#sofia.ir.token.CustomToken.doit">(sofia.ir.token.CustomToken method)</a>
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.doit">(sofia.ir.WallModelReconstruct method)</a>
-</li>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.doit">(sofia.ir.WallModelUTau method)</a>
 </li>
         </ul></li>
         <li><a href="api/sofia.html#sofia.Domain">Domain (class in sofia)</a>
@@ -709,6 +714,8 @@
         </ul></li>
         <li><a href="api/sofia.domain.domain.html#sofia.domain.domain.DomainEdge.END">END (sofia.domain.domain.DomainEdge attribute)</a>
 </li>
+        <li><a href="api/sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian.entries">entries (sofia.pde.jacobian.Jacobian property)</a>
+</li>
         <li><a href="api/sofia.domain.grid.html#sofia.domain.grid.DD.eval">eval() (sofia.domain.grid.DD class method)</a>
 
         <ul>
@@ -738,6 +745,8 @@
 </li>
         </ul></li>
         <li><a href="api/sofia.ir.html#sofia.ir.SolveCirculant.expr">expr (sofia.ir.SolveCirculant attribute)</a>
+</li>
+        <li><a href="api/sofia.ir.html#sofia.ir.SolveBlockTridiagonal.exprs">exprs (sofia.ir.SolveBlockTridiagonal attribute)</a>
 </li>
         <li><a href="api/sofia.domain.grid.html#sofia.domain.grid.Grid.exterior_nodes">exterior_nodes (sofia.domain.grid.Grid property)</a>
 
@@ -769,6 +778,12 @@
 
         <ul>
           <li><a href="api/sofia.ir.html#sofia.ir.Save.fields">(sofia.ir.Save attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/sofia.html#sofia.fields">fields() (in module sofia)</a>
+
+        <ul>
+          <li><a href="api/sofia.field.field.html#sofia.field.field.fields">(in module sofia.field.field)</a>
 </li>
         </ul></li>
         <li><a href="api/sofia.ir.html#sofia.ir.Print.file">file (sofia.ir.Print attribute)</a>
@@ -836,11 +851,7 @@
 </li>
         </ul></li>
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.geometry">geometry (sofia.ir.WallModelReconstruct attribute)</a>
-
-        <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.geometry">(sofia.ir.WallModelUTau attribute)</a>
 </li>
-        </ul></li>
         <li><a href="api/sofia.pde.drawing.html#sofia.pde.drawing.get_style">get_style() (in module sofia.pde.drawing)</a>
 </li>
         <li><a href="api/sofia.pde.html#sofia.pde.gradient">gradient() (in module sofia.pde)</a>
@@ -917,7 +928,19 @@
           <li><a href="api/sofia.html#sofia.Scalar.is_commutative">(sofia.Scalar attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian.is_nearest_neighbor">is_nearest_neighbor() (sofia.pde.jacobian.Jacobian method)</a>
+</li>
         <li><a href="api/sofia.html#sofia.Scalar.is_symbol">is_symbol (sofia.Scalar attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian">Jacobian (class in sofia.pde.jacobian)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -966,25 +989,15 @@
         <li><a href="api/sofia.html#sofia.Grid.maps_ind_to_coord">maps_ind_to_coord() (sofia.Grid method)</a>
 </li>
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.match_height">match_height (sofia.ir.WallModelReconstruct attribute)</a>
-
-        <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.match_height">(sofia.ir.WallModelUTau attribute)</a>
 </li>
-        </ul></li>
         <li><a href="api/sofia.field.reductions.html#sofia.field.reductions.Max">Max() (in module sofia.field.reductions)</a>
 </li>
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.max_dist">max_dist (sofia.ir.WallModelReconstruct attribute)</a>
-
-        <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.max_dist">(sofia.ir.WallModelUTau attribute)</a>
 </li>
-        </ul></li>
+        <li><a href="api/sofia.ir.html#sofia.ir.While.max_iter">max_iter (sofia.ir.While attribute)</a>
+</li>
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.maxiter">maxiter (sofia.ir.WallModelReconstruct attribute)</a>
-
-        <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.maxiter">(sofia.ir.WallModelUTau attribute)</a>
 </li>
-        </ul></li>
         <li><a href="api/sofia.field.reductions.html#sofia.field.reductions.Mean">Mean() (in module sofia.field.reductions)</a>
 </li>
         <li><a href="api/sofia.field.reductions.html#sofia.field.reductions.Median">Median() (in module sofia.field.reductions)</a>
@@ -1045,6 +1058,8 @@
 </li>
           <li><a href="api/sofia.pde.fdm.stencils.html#module-sofia.pde.fdm.stencils">sofia.pde.fdm.stencils</a>
 </li>
+          <li><a href="api/sofia.pde.jacobian.html#module-sofia.pde.jacobian">sofia.pde.jacobian</a>
+</li>
           <li><a href="api/sofia.pde.les.html#module-sofia.pde.les">sofia.pde.les</a>
 </li>
           <li><a href="api/sofia.pde.preprocess.html#module-sofia.pde.preprocess">sofia.pde.preprocess</a>
@@ -1068,22 +1083,20 @@
   <h2>N</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/sofia.ir.html#sofia.ir.While.n_iter">n_iter (sofia.ir.While attribute)</a>
+</li>
         <li><a href="api/sofia.ir.html#sofia.ir.CustomFunctionCall.name">name (sofia.ir.CustomFunctionCall attribute)</a>
 
         <ul>
           <li><a href="api/sofia.ir.html#sofia.ir.FunctionCall.name">(sofia.ir.FunctionCall attribute)</a>
 </li>
         </ul></li>
-        <li><a href="api/sofia.field.reductions.html#sofia.field.reductions.Norm">Norm() (in module sofia.field.reductions)</a>
-</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.nu">nu (sofia.ir.WallModelReconstruct attribute)</a>
-
-        <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.nu">(sofia.ir.WallModelUTau attribute)</a>
+        <li><a href="api/sofia.field.reductions.html#sofia.field.reductions.Norm">Norm() (in module sofia.field.reductions)</a>
 </li>
-        </ul></li>
+        <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.nu">nu (sofia.ir.WallModelReconstruct attribute)</a>
+</li>
         <li><a href="api/sofia.ir.html#sofia.ir.EddyViscositySmagorinsky.nu_sgs">nu_sgs (sofia.ir.EddyViscositySmagorinsky attribute)</a>
 </li>
     </ul></td>
@@ -1162,16 +1175,6 @@
   </tr></table>
 </section>
 
-<section id="Q" class="genindex-section">
-  <h2>Q</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.query">query (sofia.ir.WallModelUTau attribute)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
 <section id="R" class="genindex-section">
   <h2>R</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
@@ -1216,6 +1219,8 @@
 </li>
         <li><a href="api/sofia.field.locus.html#sofia.field.locus.ScalarLocus">ScalarLocus (class in sofia.field.locus)</a>
 </li>
+        <li><a href="api/sofia.html#sofia.scalars">scalars() (in module sofia)</a>
+</li>
         <li><a href="api/sofia.geometry.geometry.html#sofia.geometry.geometry.SDF">SDF (class in sofia.geometry.geometry)</a>
 </li>
         <li><a href="api/sofia.geometry.html#sofia.geometry.Geometry.sdf">sdf() (sofia.geometry.Geometry method)</a>
@@ -1235,8 +1240,6 @@
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.side">side (sofia.ir.WallModelReconstruct attribute)</a>
 
         <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.side">(sofia.ir.WallModelUTau attribute)</a>
-</li>
           <li><a href="api/sofia.pde.html#sofia.pde.Derivative.side">(sofia.pde.Derivative attribute)</a>
 </li>
           <li><a href="api/sofia.pde.fdm.html#sofia.pde.fdm.Derivative.side">(sofia.pde.fdm.Derivative attribute)</a>
@@ -1358,8 +1361,6 @@
           <li><a href="api/sofia.ir.html#module-sofia.ir">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     sofia.ir.base
 
@@ -1367,6 +1368,8 @@
           <li><a href="api/sofia.ir.base.html#module-sofia.ir.base">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     sofia.ir.pde
 
@@ -1424,6 +1427,13 @@
 </li>
         </ul></li>
         <li>
+    sofia.pde.jacobian
+
+        <ul>
+          <li><a href="api/sofia.pde.jacobian.html#module-sofia.pde.jacobian">module</a>
+</li>
+        </ul></li>
+        <li>
     sofia.pde.les
 
         <ul>
@@ -1470,6 +1480,12 @@
 
         <ul>
           <li><a href="api/sofia.pde.wall_functions.html#module-sofia.pde.wall_functions">module</a>
+</li>
+        </ul></li>
+        <li><a href="api/sofia.ir.html#sofia.ir.SolveBlockTridiagonal">SolveBlockTridiagonal (class in sofia.ir)</a>
+
+        <ul>
+          <li><a href="api/sofia.ir.base.html#sofia.ir.base.SolveBlockTridiagonal">(class in sofia.ir.base)</a>
 </li>
         </ul></li>
         <li><a href="api/sofia.ir.html#sofia.ir.SolveCirculant">SolveCirculant (class in sofia.ir)</a>
@@ -1528,6 +1544,10 @@
   <h2>T</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian.to_block_tridiagonal">to_block_tridiagonal() (sofia.pde.jacobian.Jacobian method)</a>
+</li>
+        <li><a href="api/sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian.to_block_tridiagonal_solvable">to_block_tridiagonal_solvable() (sofia.pde.jacobian.Jacobian method)</a>
+</li>
         <li><a href="api/sofia.html#sofia.GridField.to_staggered_origin">to_staggered_origin() (sofia.GridField method)</a>
 </li>
         <li><a href="api/sofia.field.transfer.html#sofia.field.transfer.Transfer">Transfer (class in sofia.field.transfer)</a>
@@ -1545,6 +1565,8 @@
         <li><a href="api/sofia.ir.base.html#sofia.ir.base.For.transform">transform() (sofia.ir.base.For method)</a>
 
         <ul>
+          <li><a href="api/sofia.ir.base.html#sofia.ir.base.While.transform">(sofia.ir.base.While method)</a>
+</li>
           <li><a href="api/sofia.ir.html#sofia.ir.CustomToken.transform">(sofia.ir.CustomToken method)</a>
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.For.transform">(sofia.ir.For method)</a>
@@ -1554,6 +1576,8 @@
           <li><a href="api/sofia.ir.html#sofia.ir.RKn.transform">(sofia.ir.RKn method)</a>
 </li>
           <li><a href="api/sofia.ir.token.html#sofia.ir.token.CustomToken.transform">(sofia.ir.token.CustomToken method)</a>
+</li>
+          <li><a href="api/sofia.ir.html#sofia.ir.While.transform">(sofia.ir.While method)</a>
 </li>
         </ul></li>
     </ul></td>
@@ -1601,8 +1625,6 @@
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.velocities">(sofia.ir.WallModelReconstruct attribute)</a>
 </li>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.velocities">(sofia.ir.WallModelUTau attribute)</a>
-</li>
         </ul></li>
     </ul></td>
   </tr></table>
@@ -1613,11 +1635,7 @@
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.wall_fn">wall_fn (sofia.ir.WallModelReconstruct attribute)</a>
-
-        <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.wall_fn">(sofia.ir.WallModelUTau attribute)</a>
 </li>
-        </ul></li>
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct">WallModelReconstruct (class in sofia.ir)</a>
 
         <ul>
@@ -1626,10 +1644,10 @@
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau">WallModelUTau (class in sofia.ir)</a>
+        <li><a href="api/sofia.ir.html#sofia.ir.While">While (class in sofia.ir)</a>
 
         <ul>
-          <li><a href="api/sofia.ir.pde.html#sofia.ir.pde.WallModelUTau">(class in sofia.ir.pde)</a>
+          <li><a href="api/sofia.ir.base.html#sofia.ir.base.While">(class in sofia.ir.base)</a>
 </li>
         </ul></li>
         <li><a href="api/sofia.html#sofia.GridField.with_order">with_order() (sofia.GridField method)</a>
@@ -1642,12 +1660,16 @@
   <h2>X</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/sofia.ir.html#sofia.ir.SolveCirculant.x">x (sofia.ir.SolveCirculant attribute)</a>
+        <li><a href="api/sofia.ir.html#sofia.ir.SolveBlockTridiagonal.x">x (sofia.ir.SolveBlockTridiagonal attribute)</a>
+
+        <ul>
+          <li><a href="api/sofia.ir.html#sofia.ir.SolveCirculant.x">(sofia.ir.SolveCirculant attribute)</a>
 </li>
-        <li><a href="api/sofia.html#sofia.Staggered.XFACE">XFACE (sofia.Staggered attribute)</a>
-</li>
+        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/sofia.html#sofia.Staggered.XFACE">XFACE (sofia.Staggered attribute)</a>
+</li>
         <li><a href="api/sofia.html#sofia.Staggered.XY_EDGE">XY_EDGE (sofia.Staggered attribute)</a>
 </li>
         <li><a href="api/sofia.html#sofia.Staggered.XZ_EDGE">XZ_EDGE (sofia.Staggered attribute)</a>
@@ -1661,11 +1683,7 @@
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.ir.html#sofia.ir.WallModelReconstruct.y_plus">y_plus (sofia.ir.WallModelReconstruct attribute)</a>
-
-        <ul>
-          <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.y_plus">(sofia.ir.WallModelUTau attribute)</a>
 </li>
-        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.html#sofia.Staggered.YFACE">YFACE (sofia.Staggered attribute)</a>
@@ -1718,7 +1736,7 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=2caa9db7"></script>
+</div><script src="_static/documentation_options.js?v=757451c5"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
