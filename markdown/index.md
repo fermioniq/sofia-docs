@@ -5,7 +5,7 @@ contain the root `toctree` directive. -->
 
 # Sofia
 
-– Build version 0.4.0 commit 9389e39 –
+– Build version 0.4.0 commit eecc1c5 –
 
 **Sofia** is a symbolic compute engine with high-level interface for building partial differential equations solvers.
 
