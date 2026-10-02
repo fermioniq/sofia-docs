@@ -3,9 +3,9 @@ sphinx-quickstart on Wed Dec 10 15:19:20 2025.
 You can adapt this file completely to your liking, but it should at least
 contain the root `toctree` directive. -->
 
-# Symbolic Compute Engine
+# Sofia
 
-A symbolic compute engine with high-level interface for building partial differential equations solvers.
+Sofia is a symbolic compute engine with high-level interface for building partial differential equations solvers.
 
 Develop a full simulation in a few lines of code:
 
