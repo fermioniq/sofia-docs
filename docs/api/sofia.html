@@ -1020,11 +1020,13 @@ system to a new coordinate system.</p></li>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomicExpr</span></code></p>
 <p>Symbolic scalar.</p>
 <p>Identified by <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">assumptions</span></code>, compared after sympy has
-drawn their consequences.</p>
+drawn their consequences. If <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is boolean, a <code class="docutils literal notranslate"><span class="pre">BooleanScalar</span></code> is
+returned instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – Identifier the generated code declares this scalar under.</p></li>
+<li><p><strong>dtype</strong> – Data type. By default it is the backend’s float dtype.</p></li>
 <li><p><strong>assumptions</strong> – Sympy assumptions, restricted to <code class="docutils literal notranslate"><span class="pre">SUPPORTED_ASSUMPTIONS</span></code>.</p></li>
 </ul>
 </dd>
@@ -1037,6 +1039,11 @@ drawn their consequences.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sofia.Scalar.is_symbol">
 <span class="sig-name descname"><span class="pre">is_symbol</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#sofia.Scalar.is_symbol" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.Scalar.is_Symbol">
+<span class="sig-name descname"><span class="pre">is_Symbol</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#sofia.Scalar.is_Symbol" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1251,6 +1258,7 @@ a tuple for better type support.</p>
 <li><a class="reference internal" href="#sofia.Scalar"><code class="docutils literal notranslate"><span class="pre">Scalar</span></code></a><ul>
 <li><a class="reference internal" href="#sofia.Scalar.is_commutative"><code class="docutils literal notranslate"><span class="pre">Scalar.is_commutative</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Scalar.is_symbol"><code class="docutils literal notranslate"><span class="pre">Scalar.is_symbol</span></code></a></li>
+<li><a class="reference internal" href="#sofia.Scalar.is_Symbol"><code class="docutils literal notranslate"><span class="pre">Scalar.is_Symbol</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Scalar.kind"><code class="docutils literal notranslate"><span class="pre">Scalar.kind</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Scalar.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Scalar.default_assumptions</span></code></a></li>
 </ul>

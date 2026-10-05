@@ -501,15 +501,19 @@ Bases: `AtomicExpr`
 Symbolic scalar.
 
 Identified by `name` and `assumptions`, compared after sympy has
-drawn their consequences.
+drawn their consequences. If `dtype` is boolean, a `BooleanScalar` is
+returned instead.
 
 * **Parameters:**
   * **name** – Identifier the generated code declares this scalar under.
+  * **dtype** – Data type. By default it is the backend’s float dtype.
   * **assumptions** – Sympy assumptions, restricted to `SUPPORTED_ASSUMPTIONS`.
 
 #### is_commutative *= True*
 
 #### is_symbol *= True*
+
+#### is_Symbol *= True*
 
 #### kind *= NumberKind*
 
