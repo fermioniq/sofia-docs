@@ -936,14 +936,15 @@ written only inside the body, and not read by the condition, stays local to it.
   * **body** ([*sofia.ir.base.CodeBlock*](sofia.ir.base.md#sofia.ir.base.CodeBlock)) – Loop body.
   * **max_iter** (*sympy.core.numbers.Integer* *|* *sympy.core.symbol.Symbol* *|* *None*) – Maximum allowed number of iterations. By default it is `None`, for which
     the loop runs as long as the condition holds.
-  * **n_iter** ([*sofia.scalar.scalar.Scalar*](sofia.md#sofia.Scalar) *|* *None*) – Where to store the number of iterations run in the loop. By default it is
-    `None`, for which the number of iterations is not returned.
+  * **n_iter** ([*sofia.scalar.scalar.Scalar*](sofia.md#sofia.Scalar) *|* *None*) – Integer `Scalar` where to store the number of iterations run in the loop.
+    By default it is `None`, for which the number of iterations is not
+    returned.
 * **Raises:**
   * **ValueError** – If `condition` is not a boolean expression, if `max_iter` is a
         non-positive integer or a symbol assumed to be non-positive, or if `n_iter`
         appears in `condition` or `body`.
-  * **TypeError** – If `max_iter` is neither an integer nor a symbol, or `n_iter` is not a
-        `Scalar`.
+  * **TypeError** – If `max_iter` is neither an integer nor a symbol, or `n_iter` is not an
+        integer `Scalar`.
   * **NotImplementedError** – If `condition` contains fields outside a reduction.
 
 ### Examples
@@ -963,7 +964,7 @@ from sofia.field.reductions import Norm
 G = Grid(ndim=3)
 u = Field(“u”, G)
 threshold = Scalar(“threshold”)
-n_iter = Scalar(“n_iter”)
+n_iter = Scalar(“n_iter”, dtype=int)
 
 code_ir = ir.CodeBlock(
 : ir.Inputs((u, threshold)),
