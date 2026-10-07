@@ -22,6 +22,7 @@
   * [`CustomFunctionCall`](sofia.ir.base.md#sofia.ir.base.CustomFunctionCall)
   * [`SolveCirculant`](sofia.ir.base.md#sofia.ir.base.SolveCirculant)
   * [`SolveBlockTridiagonal`](sofia.ir.base.md#sofia.ir.base.SolveBlockTridiagonal)
+  * [`SolveSparse`](sofia.ir.base.md#sofia.ir.base.SolveSparse)
   * [`Checkpoint`](sofia.ir.base.md#sofia.ir.base.Checkpoint)
   * [`While`](sofia.ir.base.md#sofia.ir.base.While)
     * [`While.transform()`](sofia.ir.base.md#sofia.ir.base.While.transform)
@@ -836,6 +837,141 @@ solved using Fourier transforms.
 #### b
 
 #### default_assumptions *= {}*
+
+### *class* sofia.ir.SolveSparse(\*args, \*\*kwargs)
+
+Bases: [`CodegenToken`](sofia.ir.token.md#sofia.ir.token.CodegenToken)
+
+Solve `A x = b`, or `A^T x = b`, with a sparse direct solver.
+
+Entries of `A` that couple to a neighbour outside of the grid are dropped,
+also along periodic axes.
+
+* **Parameters:**
+  * **x** – The unknown fields to solve for. They must have the same locus.
+    The solution is written to these fields.
+  * **exprs** – 
+
+    The operator `A`, as either one expression per field of `x` or a single
+    `Jacobian`.
+
+    For the expressions, each may be:
+    - a stencil, linear in the unknowns at shifted indices, e.g. `x[i - 1]`.
+    - an expression linear in `x`, whose derivatives are discretised.
+
+    The `Jacobian` holds one residual per field of `x`. `A` is the
+    derivative of these residuals with respect to the `variables`, rather
+    than with respect to `x`. For a nonlinear residual, the entries of
+    `A` depend on the `variables`, and are computed from the values the
+    `variables` hold when the solve runs. The `variables` are only read,
+    and are not overwritten by the solve. This is for example used in a
+    Newton step: `x` is the update, and the `variables` hold the current
+    value at which the residual is linearised. Also see the Newton example
+    below.
+  * **b** – The right-hand side, one expression per row.
+  * **transpose** – Solve `A^T x = b` instead.
+  * **scale_rows** – Scale each row of `A` and `b` by the largest entry of that row of `A`.
+* **Raises:**
+  * **TypeError** – If `x` isn’t one or more `GridField`.
+  * **ValueError** – If fields of `x` share a name, `x`, `exprs` and `b` have a different
+        number of rows, or the fields don’t have the same locus.
+
+### Examples
+
+A stencil, `A x = b`
+
+```
+``
+```
+
+```
+`
+```
+
+python
+from sofia import Grid, fields, ir
+
+G = Grid(ndim=2)
+i, j = G.indices
+x, b = fields(“x b”, G)
+
+A = 4 \* x[i, j] - x[i - 1, j] - x[i, j - 1] - x[i + 1, j + 1]
+token = ir.SolveSparse(x, A, b)
+
+```
+``
+```
+
+```
+`
+```
+
+An expression, coupling two 1D fields
+
+```
+``
+```
+
+```
+`
+```
+
+python
+from sofia.pde import diff
+
+G = Grid(ndim=1)
+u, v, f, g = fields(“u v f g”, G)
+
+token = ir.SolveSparse((u, v), (-diff(u, G.x, 2) + v, v - 2 \* u), (f, g))
+
+```
+``
+```
+
+```
+`
+```
+
+A `Jacobian`, for a Newton step on the nonlinear residual `R` of a 2D field
+
+```
+``
+```
+
+```
+`
+```
+
+python
+from sofia.pde.jacobian import Jacobian
+
+G = Grid(ndim=2)
+u, d, q = fields(“u d q”, G)
+R = -(diff(u, G.x, 2) + diff(u, G.y, 2)) + u\*\*3 - q
+
+token = ir.SolveSparse(d, Jacobian(R, u), -R)
+
+```
+``
+```
+
+```
+`
+```
+
+#### x *: sp.Tuple*
+
+#### exprs *: sp.Tuple | [Jacobian](sofia.pde.jacobian.md#sofia.pde.jacobian.Jacobian)*
+
+#### b *: sp.Tuple*
+
+#### transpose *: Boolean*
+
+#### scale_rows *: Boolean*
+
+#### default_assumptions *= {}*
+
+#### defaults *= {'scale_rows': True, 'transpose': False}*
 
 ### *class* sofia.ir.WallModelReconstruct(\*args, \*\*kwargs)
 

@@ -70,11 +70,11 @@ u
 True
 >>> w = Field("w", Grid(ndim=3))
 >>> Transfer(u, to=w.locus).doit()
-TransferGridGrid(u, GridFieldLocus(Grid(ndim=3), Center, (0, 0, 0)))
+TransferGridGrid(u, GridFieldLocus(Grid(ndim=3), (0, 1, 2), (0, 0, 0)))
 >>> u.locus == w.locus
 False
 >>> Transfer(v + 2 * w, to=v.locus).doit()
-v + 2*TransferGridGrid(w, GridFieldLocus(Grid(ndim=2), Center, (0, 0)))
+v + 2*TransferGridGrid(w, GridFieldLocus(Grid(ndim=2), (0, 1), (0, 0)))
 >>> Transfer(u + Transfer(v, to=v.locus), to=u.locus).doit()
 u + v
 ```

@@ -65,7 +65,7 @@ Shifts:
 
 Combine shift and staggered offset of a field.
 
-### *class* sofia.field.grid_field.GridFieldLocus(grid: [Grid](sofia.domain.grid.md#sofia.domain.grid.Grid), staggered: [Staggered](sofia.field.staggered.md#sofia.field.staggered.Staggered), shifts: Tuple)
+### *class* sofia.field.grid_field.GridFieldLocus(grid: [Grid](sofia.domain.grid.md#sofia.domain.grid.Grid), axes: Tuple, shifts: Tuple)
 
 Bases: [`Locus`](sofia.field.locus.md#sofia.field.locus.Locus)
 

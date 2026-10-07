@@ -8,7 +8,7 @@
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia.ir package - sofia 0.4.1.dev8</title>
+        <title>sofia.ir package - sofia 0.4.1.dev9</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.1.dev8</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.1.dev9</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.1.dev8</span>
+  <span class="sidebar-brand-text">sofia 0.4.1.dev9</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -343,6 +343,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.CustomFunctionCall"><code class="docutils literal notranslate"><span class="pre">CustomFunctionCall</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveCirculant"><code class="docutils literal notranslate"><span class="pre">SolveCirculant</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveBlockTridiagonal"><code class="docutils literal notranslate"><span class="pre">SolveBlockTridiagonal</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.SolveSparse"><code class="docutils literal notranslate"><span class="pre">SolveSparse</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.Checkpoint"><code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.While"><code class="docutils literal notranslate"><span class="pre">While</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sofia.ir.base.html#sofia.ir.base.While.transform"><code class="docutils literal notranslate"><span class="pre">While.transform()</span></code></a></li>
@@ -1415,6 +1416,110 @@ solved using Fourier transforms.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.</span></span><span class="sig-name descname"><span class="pre">SolveSparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.SolveSparse" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="sofia.ir.token.html#sofia.ir.token.CodegenToken" title="sofia.ir.token.CodegenToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodegenToken</span></code></a></p>
+<p>Solve <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code>, or <code class="docutils literal notranslate"><span class="pre">A^T</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code>, with a sparse direct solver.</p>
+<p>Entries of <code class="docutils literal notranslate"><span class="pre">A</span></code> that couple to a neighbour outside of the grid are dropped,
+also along periodic axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The unknown fields to solve for. They must have the same locus.
+The solution is written to these fields.</p></li>
+<li><p><strong>exprs</strong> – <p>The operator <code class="docutils literal notranslate"><span class="pre">A</span></code>, as either one expression per field of <code class="docutils literal notranslate"><span class="pre">x</span></code> or a single
+<code class="docutils literal notranslate"><span class="pre">Jacobian</span></code>.</p>
+<p>For the expressions, each may be:</p>
+<ul>
+<li><p>a stencil, linear in the unknowns at shifted indices, e.g. <code class="docutils literal notranslate"><span class="pre">x[i</span> <span class="pre">-</span> <span class="pre">1]</span></code>.</p></li>
+<li><p>an expression linear in <code class="docutils literal notranslate"><span class="pre">x</span></code>, whose derivatives are discretised.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Jacobian</span></code> holds one residual per field of <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">A</span></code> is the
+derivative of these residuals with respect to the <code class="docutils literal notranslate"><span class="pre">variables</span></code>, rather
+than with respect to <code class="docutils literal notranslate"><span class="pre">x</span></code>. For a nonlinear residual, the entries of
+<code class="docutils literal notranslate"><span class="pre">A</span></code> depend on the <code class="docutils literal notranslate"><span class="pre">variables</span></code>, and are computed from the values the
+<code class="docutils literal notranslate"><span class="pre">variables</span></code> hold when the solve runs. The <code class="docutils literal notranslate"><span class="pre">variables</span></code> are only read,
+and are not overwritten by the solve. This is for example used in a
+Newton step: <code class="docutils literal notranslate"><span class="pre">x</span></code> is the update, and the <code class="docutils literal notranslate"><span class="pre">variables</span></code> hold the current
+value at which the residual is linearised. Also see the Newton example
+below.</p>
+</p></li>
+<li><p><strong>b</strong> – The right-hand side, one expression per row.</p></li>
+<li><p><strong>transpose</strong> – Solve <code class="docutils literal notranslate"><span class="pre">A^T</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code> instead.</p></li>
+<li><p><strong>scale_rows</strong> – Scale each row of <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> by the largest entry of that row of <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If <code class="docutils literal notranslate"><span class="pre">x</span></code> isn’t one or more <code class="docutils literal notranslate"><span class="pre">GridField</span></code>.</p></li>
+<li><p><strong>ValueError</strong> – If fields of <code class="docutils literal notranslate"><span class="pre">x</span></code> share a name, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">exprs</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> have a different
+    number of rows, or the fields don’t have the same locus.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>A stencil, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code></p>
+<p><a href="#id30"><span class="problematic" id="id31">``</span></a><a href="#id32"><span class="problematic" id="id33">`</span></a>python
+from sofia import Grid, fields, ir</p>
+<p>G = Grid(ndim=2)
+i, j = G.indices
+x, b = fields(“x b”, G)</p>
+<p>A = 4 * x[i, j] - x[i - 1, j] - x[i, j - 1] - x[i + 1, j + 1]
+token = ir.SolveSparse(x, A, b)
+<a href="#id34"><span class="problematic" id="id35">``</span></a><a href="#id36"><span class="problematic" id="id37">`</span></a></p>
+<p>An expression, coupling two 1D fields</p>
+<p><a href="#id38"><span class="problematic" id="id39">``</span></a><a href="#id40"><span class="problematic" id="id41">`</span></a>python
+from sofia.pde import diff</p>
+<p>G = Grid(ndim=1)
+u, v, f, g = fields(“u v f g”, G)</p>
+<p>token = ir.SolveSparse((u, v), (-diff(u, G.x, 2) + v, v - 2 * u), (f, g))
+<a href="#id42"><span class="problematic" id="id43">``</span></a><a href="#id44"><span class="problematic" id="id45">`</span></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Jacobian</span></code>, for a Newton step on the nonlinear residual <code class="docutils literal notranslate"><span class="pre">R</span></code> of a 2D field</p>
+<p><a href="#id46"><span class="problematic" id="id47">``</span></a><a href="#id48"><span class="problematic" id="id49">`</span></a>python
+from sofia.pde.jacobian import Jacobian</p>
+<p>G = Grid(ndim=2)
+u, d, q = fields(“u d q”, G)
+R = -(diff(u, G.x, 2) + diff(u, G.y, 2)) + u**3 - q</p>
+<p>token = ir.SolveSparse(d, Jacobian(R, u), -R)
+<a href="#id50"><span class="problematic" id="id51">``</span></a><a href="#id52"><span class="problematic" id="id53">`</span></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sp.Tuple</span></span><a class="headerlink" href="#sofia.ir.SolveSparse.x" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse.exprs">
+<span class="sig-name descname"><span class="pre">exprs</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sp.Tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="sofia.pde.jacobian.html#sofia.pde.jacobian.Jacobian" title="sofia.pde.jacobian.Jacobian"><span class="pre">Jacobian</span></a></span><a class="headerlink" href="#sofia.ir.SolveSparse.exprs" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse.b">
+<span class="sig-name descname"><span class="pre">b</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sp.Tuple</span></span><a class="headerlink" href="#sofia.ir.SolveSparse.b" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Boolean</span></span><a class="headerlink" href="#sofia.ir.SolveSparse.transpose" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse.scale_rows">
+<span class="sig-name descname"><span class="pre">scale_rows</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Boolean</span></span><a class="headerlink" href="#sofia.ir.SolveSparse.scale_rows" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse.default_assumptions">
+<span class="sig-name descname"><span class="pre">default_assumptions</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#sofia.ir.SolveSparse.default_assumptions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.ir.SolveSparse.defaults">
+<span class="sig-name descname"><span class="pre">defaults</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'scale_rows':</span> <span class="pre">True,</span> <span class="pre">'transpose':</span> <span class="pre">False}</span></span><a class="headerlink" href="#sofia.ir.SolveSparse.defaults" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="sofia.ir.WallModelReconstruct">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.ir.</span></span><span class="sig-name descname"><span class="pre">WallModelReconstruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ir.WallModelReconstruct" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Token</span></code></p>
@@ -1566,7 +1671,7 @@ returned.</p></li>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p><a href="#id30"><span class="problematic" id="id31">``</span></a><a href="#id32"><span class="problematic" id="id33">`</span></a>python
+<p><a href="#id54"><span class="problematic" id="id55">``</span></a><a href="#id56"><span class="problematic" id="id57">`</span></a>python
 from sofia import Field, Grid, Scalar, ir
 from sofia.field.reductions import Norm</p>
 <p>G = Grid(ndim=3)
@@ -1580,7 +1685,7 @@ ir.Outputs((u, n_iter)),</p>
 </dd>
 </dl>
 <p>)</p>
-<p><a href="#id34"><span class="problematic" id="id35">``</span></a><a href="#id36"><span class="problematic" id="id37">`</span></a></p>
+<p><a href="#id58"><span class="problematic" id="id59">``</span></a><a href="#id60"><span class="problematic" id="id61">`</span></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sofia.ir.While.condition">
 <span class="sig-name descname"><span class="pre">condition</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Basic</span></span><a class="headerlink" href="#sofia.ir.While.condition" title="Link to this definition">¶</a></dt>
@@ -1848,6 +1953,16 @@ through multiple <cite>.transform()</cite> calls) eventually expand to just
 <li><a class="reference internal" href="#sofia.ir.SolveCirculant.default_assumptions"><code class="docutils literal notranslate"><span class="pre">SolveCirculant.default_assumptions</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse"><code class="docutils literal notranslate"><span class="pre">SolveSparse</span></code></a><ul>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse.x"><code class="docutils literal notranslate"><span class="pre">SolveSparse.x</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse.exprs"><code class="docutils literal notranslate"><span class="pre">SolveSparse.exprs</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse.b"><code class="docutils literal notranslate"><span class="pre">SolveSparse.b</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse.transpose"><code class="docutils literal notranslate"><span class="pre">SolveSparse.transpose</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse.scale_rows"><code class="docutils literal notranslate"><span class="pre">SolveSparse.scale_rows</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse.default_assumptions"><code class="docutils literal notranslate"><span class="pre">SolveSparse.default_assumptions</span></code></a></li>
+<li><a class="reference internal" href="#sofia.ir.SolveSparse.defaults"><code class="docutils literal notranslate"><span class="pre">SolveSparse.defaults</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#sofia.ir.WallModelReconstruct"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct</span></code></a><ul>
 <li><a class="reference internal" href="#sofia.ir.WallModelReconstruct.defaults"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.defaults</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.WallModelReconstruct.doit"><code class="docutils literal notranslate"><span class="pre">WallModelReconstruct.doit()</span></code></a></li>
@@ -1887,7 +2002,7 @@ through multiple <cite>.transform()</cite> calls) eventually expand to just
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=7cd01ec4"></script>
+</div><script src="../_static/documentation_options.js?v=181fce80"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

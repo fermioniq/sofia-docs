@@ -1,12 +1,19 @@
 # sofia.pde.jacobian
 
-### *class* sofia.pde.jacobian.Jacobian(exprs: tuple[Expr, ...], variables: tuple[[GridField](sofia.field.grid_field.md#sofia.field.grid_field.GridField), ...])
+### *class* sofia.pde.jacobian.Jacobian(\*args)
 
-Bases: `object`
+Bases: `Function`
 
 The symbolic Jacobian of a system of equations.
 
-#### *property* entries *: dict[tuple[int, [GridField](sofia.field.grid_field.md#sofia.field.grid_field.GridField), tuple[int, ...]], Expr]*
+* **Parameters:**
+  * **exprs** – The residual expressions of the system, or a single expression.
+  * **variables** – The fields to differentiate exprs with respect to, or a single field.
+* **Raises:**
+  * **TypeError** – If variables isn’t one or more GridField.
+  * **ValueError** – If the variables does not contain unique fields.
+
+#### *property* entries *: dict[tuple[int, int, tuple[int, ...]], Expr]*
 
 Compute the Jacobian entries of the system of equations.
 
@@ -20,7 +27,7 @@ Return blocks of the Jacobian along axis as (D, A, C, b).
 
 D is the diagonal, A is the lower diagonal, and C is the upper diagonal.
 
-#### to_block_tridiagonal_solvable(axis: int, outputs: tuple[[GridField](sofia.field.grid_field.md#sofia.field.grid_field.GridField), ...] | None = None, negate: bool = True) → tuple[tuple[[GridField](sofia.field.grid_field.md#sofia.field.grid_field.GridField), ...], tuple[MutableDenseMatrix, MutableDenseMatrix, MutableDenseMatrix], tuple[Expr, ...]]
+#### to_block_tridiagonal_solvable(axis: int, outputs: tuple[[GridField](sofia.md#sofia.GridField), ...] | None = None, negate: bool = True) → tuple[tuple[[GridField](sofia.md#sofia.GridField), ...], tuple[MutableDenseMatrix, MutableDenseMatrix, MutableDenseMatrix], tuple[Expr, ...]]
 
 Return (x, exprs, b) as expected by ir.SolveBlockTridiagonal.
 
