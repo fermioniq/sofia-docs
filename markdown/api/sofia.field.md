@@ -5,6 +5,8 @@
 * [sofia.field.field](sofia.field.field.md)
   * [`Field`](sofia.field.field.md#sofia.field.field.Field)
     * [`Field.as_dummy()`](sofia.field.field.md#sofia.field.field.Field.as_dummy)
+  * [`VectorField`](sofia.field.field.md#sofia.field.field.VectorField)
+    * [`VectorField.fields`](sofia.field.field.md#sofia.field.field.VectorField.fields)
   * [`fields()`](sofia.field.field.md#sofia.field.field.fields)
 * [sofia.field.grid_field](sofia.field.grid_field.md)
   * [`IndexedGridField`](sofia.field.grid_field.md#sofia.field.grid_field.IndexedGridField)

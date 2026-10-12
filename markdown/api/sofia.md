@@ -19,6 +19,7 @@
   * [Submodules](sofia.field.md#submodules)
     * [sofia.field.field](sofia.field.field.md)
       * [`Field`](sofia.field.field.md#sofia.field.field.Field)
+      * [`VectorField`](sofia.field.field.md#sofia.field.field.VectorField)
       * [`fields()`](sofia.field.field.md#sofia.field.field.fields)
     * [sofia.field.grid_field](sofia.field.grid_field.md)
       * [`IndexedGridField`](sofia.field.grid_field.md#sofia.field.grid_field.IndexedGridField)
@@ -350,6 +351,52 @@ appearing in the object.
 
 #### default_assumptions *= {'commutative': True}*
 
+### *class* sofia.VectorField(name: str | Symbol, domain: [Domain](#sofia.Domain), staggered: str | tuple[[Staggered](sofia.field.staggered.md#sofia.field.staggered.Staggered), ...] | None = None, \*\*kwargs)
+
+### *class* sofia.VectorField(\*terms: Vector, \*\*options)
+
+Bases: `VectorAdd`
+
+A vector field composed of one scalar Field per axis.
+
+It is a sympy vector so it can be used in any,vector expression.
+
+* **Parameters:**
+  * **name** – Each component field is named f”{name}_{axis}”
+    (where axis is “x”, “y” or “z”).
+  * **domain** – Domain the component fields live on.
+  * **staggered** – Where the components sit within a cell on a Grid. This can be given
+    either as a Staggered per component or as the string “faces”, which means
+    each component lives on the face normal to its axis.
+  * **\*\*kwargs** – Forwarded to every component Field.
+
+### Examples
+
+```pycon
+>>> from sofia import Grid
+>>> G = Grid(ndim=2, name="G")
+>>> u = VectorField("u", G)
+>>> u
+u_x*global.ihat + u_y*global.jhat
+>>> u.fields
+(u_x, u_y)
+>>> [f.staggered for f in VectorField("m", G, staggered="faces").fields]
+[XFACE, YFACE]
+>>> u << 0
+CodeBlock(
+EvalAssignment(u_x, 0),
+EvalAssignment(u_y, 0)
+)
+```
+
+#### is_commutative *= True*
+
+#### *property* fields *: tuple[[Field](sofia.field.field.md#sofia.field.field.Field), ...]*
+
+The scalar field of each component.
+
+#### default_assumptions *= {'commutative': True}*
+
 ### *class* sofia.GridField(name: str, domain: [Grid](sofia.domain.grid.md#sofia.domain.grid.Grid), staggered: [Staggered](sofia.field.staggered.md#sofia.field.staggered.Staggered) = Center, discretisation_order: int = 0, axes: Tuple | tuple[Symbol | int, ...] = None, \_shifts: Tuple | tuple[Symbol | float | int, ...] | None = None)
 
 Bases: [`Field`](sofia.field.field.md#sofia.field.field.Field)
@@ -498,8 +545,6 @@ Return the substitutions corresponding to the concrete numbers of the grid.
 >>> G.concrete(shape=(100, 200), extent=((0, 1), (0, 2)))
 {G.Nx: 100, G.Ny: 200, G.Lx: 1, G.Ly: 2, G.x0: 0, G.y0: 0, global.x: i/100, global.y: j/100}
 ```
-
-#### vec(\*components)
 
 #### default_assumptions *= {}*
 
