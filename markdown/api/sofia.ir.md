@@ -35,6 +35,8 @@
     * [`EddyViscositySmagorinsky.doit()`](sofia.ir.pde.md#sofia.ir.pde.EddyViscositySmagorinsky.doit)
   * [`RKn`](sofia.ir.pde.md#sofia.ir.pde.RKn)
     * [`RKn.transform()`](sofia.ir.pde.md#sofia.ir.pde.RKn.transform)
+  * [`WallModelUTau`](sofia.ir.pde.md#sofia.ir.pde.WallModelUTau)
+    * [`WallModelUTau.doit()`](sofia.ir.pde.md#sofia.ir.pde.WallModelUTau.doit)
 * [sofia.ir.token](sofia.ir.token.md)
   * [`CodegenToken`](sofia.ir.token.md#sofia.ir.token.CodegenToken)
   * [`CustomToken`](sofia.ir.token.md#sofia.ir.token.CustomToken)
@@ -1026,6 +1028,81 @@ x**2
 #### wall_fn
 
 #### y_plus
+
+#### velocities
+
+#### geometry
+
+#### nu
+
+#### band
+
+#### match_height
+
+#### maxiter
+
+#### max_dist
+
+#### side
+
+#### default_assumptions *= {}*
+
+### *class* sofia.ir.WallModelUTau(\*args, \*\*kwargs)
+
+Bases: `Token`
+
+Computes near-wall friction velocity u_tau.
+
+* **Parameters:**
+  * **wall_fn** – Symbolic wall function in forward form `u+ = f(y+)`, expressed in
+    terms of `y_plus`. e.g. Reichardt’s law. The inverse form
+    (`y+ = g(u+)`, e.g. Spalding) is not accepted.
+  * **y_plus** – The symbol used for `y+` inside `wall_fn`.
+    (will refactor into sp.Lambda later)
+  * **query** – Field that will store u_tau.
+  * **velocities** – The velocity components `(u, v, w)`, overwritten in place.
+  * **geometry** – Geometry object.
+  * **nu** – Kinematic viscosity.
+  * **band** – Reconstruct only where the wall distance is below this.
+  * **match_height** – Wall distance of the matching point used to infer `u_tau`.
+    Must exceed `band`.
+  * **n_iter** – Newton iterations for `u_tau`.
+  * **max_dist** – Search radius passed to `wp.mesh_query_point`.
+
+#### defaults *= {'band': 2, 'match_height': 6, 'max_dist': 10.0, 'maxiter': 8, 'side': 1}*
+
+#### doit(deep=False, \*\*hints)
+
+Evaluate objects that are not evaluated by default like limits,
+integrals, sums and products. All objects of this kind will be
+evaluated recursively, unless some species were excluded via ‘hints’
+or unless the ‘deep’ hint was set to ‘False’.
+
+```pycon
+>>> from sympy import Integral
+>>> from sympy.abc import x
+```
+
+```pycon
+>>> 2*Integral(x, x)
+2*Integral(x, x)
+```
+
+```pycon
+>>> (2*Integral(x, x)).doit()
+x**2
+```
+
+```pycon
+>>> (2*Integral(x, x)).doit(deep=False)
+2*Integral(x, x)
+```
+
+#### wall_fn
+
+#### y_plus
+
+#### query
 
 #### velocities
 
