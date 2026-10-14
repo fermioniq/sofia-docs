@@ -9,6 +9,7 @@
 * [sofia.domain.domain](sofia.domain.domain.md)
   * [`Domain`](sofia.domain.domain.md#sofia.domain.domain.Domain)
     * [`Domain.dim()`](sofia.domain.domain.md#sofia.domain.domain.Domain.dim)
+    * [`Domain.identity`](sofia.domain.domain.md#sofia.domain.domain.Domain.identity)
   * [`DomainEdge`](sofia.domain.domain.md#sofia.domain.domain.DomainEdge)
     * [`DomainEdge.START`](sofia.domain.domain.md#sofia.domain.domain.DomainEdge.START)
     * [`DomainEdge.END`](sofia.domain.domain.md#sofia.domain.domain.DomainEdge.END)

@@ -43,7 +43,7 @@ Bases: `VectorAdd`
 
 A vector field composed of one scalar Field per axis.
 
-It is a sympy vector so it can be used in any,vector expression.
+It is a sympy vector so it can be used in any vector expression.
 
 * **Parameters:**
   * **name** – Each component field is named f”{name}_{axis}”
@@ -76,6 +76,67 @@ EvalAssignment(u_y, 0)
 #### *property* fields *: tuple[[Field](#sofia.field.field.Field), ...]*
 
 The scalar field of each component.
+
+#### assignments(other) → dict[[Field](#sofia.field.field.Field), Expr]
+
+Return the value each component field gets when other is assigned.
+
+### *class* sofia.field.field.TensorField(name: str | Symbol, domain: [Domain](sofia.md#sofia.Domain), symmetric: bool = False, staggered: str | tuple[tuple[[Staggered](sofia.field.staggered.md#sofia.field.staggered.Staggered) | None, ...], ...] | None = None, \*\*kwargs)
+
+### *class* sofia.field.field.TensorField(\*terms: Dyadic, \*\*options)
+
+Bases: `DyadicAdd`
+
+An order 2 tensor field (dyadic) composed of one scalar Field per pair of axes.
+
+It is a sympy dyadic, so it can be used in any dyadic expression.
+
+* **Parameters:**
+  * **name** – Each component field is named f”{name}_{a}{b}” (e.g. T_xy).
+  * **domain** – Domain the component fields live on.
+  * **symmetric** – Use one field for T_ab and T_ba, so the tensor is symmetric by construction.
+  * **staggered** – Where the components sit within a cell on a Grid. This can be given
+    either as one Staggered per component, as rows (staggered[a][b] for
+    component T_ab), or as the string “mac”, which puts the diagonal
+    components at cell centers and the off-diagonal ones on the edges.
+  * **\*\*kwargs** – Forwarded to every component Field.
+
+### Examples
+
+```pycon
+>>> from sofia import Grid
+>>> G = Grid(ndim=2, name="G")
+>>> T = TensorField("T", G)
+>>> T.fields
+(T_xx, T_xy, T_yx, T_yy)
+>>> T.dot(G.unit_vectors[0])
+T_xx*global.ihat + T_yx*global.jhat
+>>> S = TensorField("S", G, symmetric=True)
+>>> S.fields
+(S_xx, S_xy, S_yy)
+>>> S << 2
+CodeBlock(
+EvalAssignment(S_xx, 2),
+EvalAssignment(S_xy, 2),
+EvalAssignment(S_yy, 2)
+)
+```
+
+#### *property* fields *: tuple[[Field](#sofia.field.field.Field), ...]*
+
+The distinct component fields.
+
+#### *property* symmetric *: bool*
+
+Whether T_ab and T_ba are the same field for every pair of axes.
+
+#### assignments(other) → dict[[Field](#sofia.field.field.Field), Expr]
+
+Return the value each component field gets when other is assigned.
+
+### sofia.field.field.component_fields(symbols) → tuple
+
+Return symbols as a tuple, with vector and tensor fields split into fields.
 
 ### sofia.field.field.fields(names: str, domain: [Domain](sofia.md#sofia.Domain), \*\*kwargs: object) → tuple[[Field](#sofia.field.field.Field), ...]
 

@@ -10,6 +10,10 @@ The position space where a field lives.
 
 Return the dimension index of a coordinate.
 
+#### *property* identity
+
+Return a sum over the outer products of the unit vectors with themselves.
+
 ### *class* sofia.domain.domain.DomainEdge(\*args)
 
 Bases: `Basic`

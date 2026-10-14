@@ -18,6 +18,8 @@
     * [sofia.field.field](sofia.field.field.md)
       * [`Field`](sofia.field.field.md#sofia.field.field.Field)
       * [`VectorField`](sofia.field.field.md#sofia.field.field.VectorField)
+      * [`TensorField`](sofia.field.field.md#sofia.field.field.TensorField)
+      * [`component_fields()`](sofia.field.field.md#sofia.field.field.component_fields)
       * [`fields()`](sofia.field.field.md#sofia.field.field.fields)
     * [sofia.field.grid_field](sofia.field.grid_field.md)
       * [`IndexedGridField`](sofia.field.grid_field.md#sofia.field.grid_field.IndexedGridField)
