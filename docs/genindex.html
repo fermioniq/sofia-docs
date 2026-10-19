@@ -6,7 +6,7 @@
         <link rel="prefetch" href="_static/Black logo thick.png" as="image">
         <link rel="prefetch" href="_static/White logo thick.png" as="image">
 
-    <link rel="shortcut icon" href="_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 --><title>Index - sofia 0.4.2.dev3</title>
+    <link rel="shortcut icon" href="_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 --><title>Index - sofia 0.4.2.dev4</title>
 <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
@@ -183,7 +183,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">sofia 0.4.2.dev3</div></a>
+      <a href="index.html"><div class="brand">sofia 0.4.2.dev4</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -208,7 +208,7 @@
     <img class="sidebar-logo only-dark" src="_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.2.dev3</span>
+  <span class="sidebar-brand-text">sofia 0.4.2.dev4</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -235,12 +235,14 @@
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.domain.coordinate.html">sofia.domain.coordinate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.domain.domain.html">sofia.domain.domain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.domain.grid.html">sofia.domain.grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sofia.domain.particle_domain.html">sofia.domain.particle_domain</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/sofia.field.html">sofia.field package</a><input aria-label="Toggle navigation of sofia.field package" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.field.field.html">sofia.field.field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.field.grid_field.html">sofia.field.grid_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.field.locus.html">sofia.field.locus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sofia.field.particle_field.html">sofia.field.particle_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.field.reductions.html">sofia.field.reductions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.field.staggered.html">sofia.field.staggered</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/sofia.field.sums.html">sofia.field.sums</a></li>
@@ -459,7 +461,11 @@
         <li><a href="api/sofia.domain.grid.html#sofia.domain.grid.Grid.concrete">concrete() (sofia.domain.grid.Grid method)</a>
 
         <ul>
+          <li><a href="api/sofia.domain.particle_domain.html#sofia.domain.particle_domain.ParticleDomain.concrete">(sofia.domain.particle_domain.ParticleDomain method)</a>
+</li>
           <li><a href="api/sofia.html#sofia.Grid.concrete">(sofia.Grid method)</a>
+</li>
+          <li><a href="api/sofia.html#sofia.ParticleDomain.concrete">(sofia.ParticleDomain method)</a>
 </li>
         </ul></li>
     </ul></td>
@@ -572,6 +578,10 @@
           <li><a href="api/sofia.ir.html#sofia.ir.WallModelUTau.default_assumptions">(sofia.ir.WallModelUTau attribute)</a>
 </li>
           <li><a href="api/sofia.ir.html#sofia.ir.While.default_assumptions">(sofia.ir.While attribute)</a>
+</li>
+          <li><a href="api/sofia.html#sofia.ParticleDomain.default_assumptions">(sofia.ParticleDomain attribute)</a>
+</li>
+          <li><a href="api/sofia.html#sofia.ParticleField.default_assumptions">(sofia.ParticleField attribute)</a>
 </li>
           <li><a href="api/sofia.pde.html#sofia.pde.Del.default_assumptions">(sofia.pde.Del attribute)</a>
 </li>
@@ -753,6 +763,8 @@
         <li><a href="api/sofia.domain.grid.html#sofia.domain.grid.DD.eval">eval() (sofia.domain.grid.DD class method)</a>
 
         <ul>
+          <li><a href="api/sofia.field.particle_field.html#sofia.field.particle_field.Neighbour.eval">(sofia.field.particle_field.Neighbour class method)</a>
+</li>
           <li><a href="api/sofia.field.reductions.html#sofia.field.reductions.Reduce.eval">(sofia.field.reductions.Reduce class method)</a>
 </li>
           <li><a href="api/sofia.field.sums.html#sofia.field.sums.FieldAxisCumSum.eval">(sofia.field.sums.FieldAxisCumSum class method)</a>
@@ -942,8 +954,14 @@
         </ul></li>
         <li><a href="api/sofia.field.grid_field.html#sofia.field.grid_field.IndexedGridField">IndexedGridField (class in sofia.field.grid_field)</a>
 </li>
-        <li><a href="api/sofia.html#sofia.GridField.indexify">indexify() (sofia.GridField method)</a>
+        <li><a href="api/sofia.field.particle_field.html#sofia.field.particle_field.IndexedParticleField">IndexedParticleField (class in sofia.field.particle_field)</a>
 </li>
+        <li><a href="api/sofia.html#sofia.GridField.indexify">indexify() (sofia.GridField method)</a>
+
+        <ul>
+          <li><a href="api/sofia.html#sofia.ParticleField.indexify">(sofia.ParticleField method)</a>
+</li>
+        </ul></li>
         <li><a href="api/sofia.ir.html#sofia.ir.IndicesDeclaration">IndicesDeclaration (class in sofia.ir)</a>
 
         <ul>
@@ -980,6 +998,8 @@
           <li><a href="api/sofia.geometry.html#sofia.geometry.Geometry.is_commutative">(sofia.geometry.Geometry attribute)</a>
 </li>
           <li><a href="api/sofia.html#sofia.GridField.is_commutative">(sofia.GridField attribute)</a>
+</li>
+          <li><a href="api/sofia.html#sofia.ParticleField.is_commutative">(sofia.ParticleField attribute)</a>
 </li>
           <li><a href="api/sofia.html#sofia.Scalar.is_commutative">(sofia.Scalar attribute)</a>
 </li>
@@ -1092,6 +1112,8 @@
 </li>
           <li><a href="api/sofia.domain.grid.html#module-sofia.domain.grid">sofia.domain.grid</a>
 </li>
+          <li><a href="api/sofia.domain.particle_domain.html#module-sofia.domain.particle_domain">sofia.domain.particle_domain</a>
+</li>
           <li><a href="api/sofia.field.html#module-sofia.field">sofia.field</a>
 </li>
           <li><a href="api/sofia.field.field.html#module-sofia.field.field">sofia.field.field</a>
@@ -1099,6 +1121,8 @@
           <li><a href="api/sofia.field.grid_field.html#module-sofia.field.grid_field">sofia.field.grid_field</a>
 </li>
           <li><a href="api/sofia.field.locus.html#module-sofia.field.locus">sofia.field.locus</a>
+</li>
+          <li><a href="api/sofia.field.particle_field.html#module-sofia.field.particle_field">sofia.field.particle_field</a>
 </li>
           <li><a href="api/sofia.field.reductions.html#module-sofia.field.reductions">sofia.field.reductions</a>
 </li>
@@ -1165,6 +1189,8 @@
           <li><a href="api/sofia.ir.html#sofia.ir.FunctionCall.name">(sofia.ir.FunctionCall attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/sofia.field.particle_field.html#sofia.field.particle_field.Neighbour">Neighbour (class in sofia.field.particle_field)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.field.reductions.html#sofia.field.reductions.Norm">Norm() (in module sofia.field.reductions)</a>
@@ -1213,6 +1239,20 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.pde.fdm.derivative.html#sofia.pde.fdm.derivative.partial_unordered">partial_unordered (class in sofia.pde.fdm.derivative)</a>
 </li>
+        <li><a href="api/sofia.html#sofia.ParticleDomain">ParticleDomain (class in sofia)</a>
+
+        <ul>
+          <li><a href="api/sofia.domain.particle_domain.html#sofia.domain.particle_domain.ParticleDomain">(class in sofia.domain.particle_domain)</a>
+</li>
+        </ul></li>
+        <li><a href="api/sofia.html#sofia.ParticleField">ParticleField (class in sofia)</a>
+
+        <ul>
+          <li><a href="api/sofia.field.particle_field.html#sofia.field.particle_field.ParticleField">(class in sofia.field.particle_field)</a>
+</li>
+        </ul></li>
+        <li><a href="api/sofia.field.particle_field.html#sofia.field.particle_field.ParticleLocus">ParticleLocus (class in sofia.field.particle_field)</a>
+</li>
         <li><a href="api/sofia.ir.html#sofia.ir.Pass">Pass (class in sofia.ir)</a>
 
         <ul>
@@ -1221,6 +1261,8 @@
         </ul></li>
         <li><a href="api/sofia.ir.html#sofia.ir.RKn.post">post (sofia.ir.RKn attribute)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.ir.html#sofia.ir.ProjectDivFree.pressure">pressure (sofia.ir.ProjectDivFree attribute)</a>
 </li>
         <li><a href="api/sofia.ir.html#sofia.ir.Print">Print (class in sofia.ir)</a>
@@ -1229,8 +1271,6 @@
           <li><a href="api/sofia.ir.base.html#sofia.ir.base.Print">(class in sofia.ir.base)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/sofia.ir.html#sofia.ir.Print.print_args">print_args (sofia.ir.Print attribute)</a>
 </li>
         <li><a href="api/sofia.html#sofia.print_environment_info">print_environment_info() (in module sofia)</a>
@@ -1341,6 +1381,12 @@
         </ul></li>
         <li><a href="api/sofia.pde.html#sofia.pde.simulate">simulate() (in module sofia.pde)</a>
 </li>
+        <li><a href="api/sofia.domain.particle_domain.html#sofia.domain.particle_domain.ParticleDomain.smoothing_length">smoothing_length (sofia.domain.particle_domain.ParticleDomain property)</a>
+
+        <ul>
+          <li><a href="api/sofia.html#sofia.ParticleDomain.smoothing_length">(sofia.ParticleDomain property)</a>
+</li>
+        </ul></li>
         <li>
     sofia
 
@@ -1377,6 +1423,13 @@
 </li>
         </ul></li>
         <li>
+    sofia.domain.particle_domain
+
+        <ul>
+          <li><a href="api/sofia.domain.particle_domain.html#module-sofia.domain.particle_domain">module</a>
+</li>
+        </ul></li>
+        <li>
     sofia.field
 
         <ul>
@@ -1402,6 +1455,13 @@
 
         <ul>
           <li><a href="api/sofia.field.locus.html#module-sofia.field.locus">module</a>
+</li>
+        </ul></li>
+        <li>
+    sofia.field.particle_field
+
+        <ul>
+          <li><a href="api/sofia.field.particle_field.html#module-sofia.field.particle_field">module</a>
 </li>
         </ul></li>
         <li>
@@ -1460,6 +1520,8 @@
           <li><a href="api/sofia.ir.base.html#module-sofia.ir.base">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     sofia.ir.pde
 
@@ -1467,8 +1529,6 @@
           <li><a href="api/sofia.ir.pde.html#module-sofia.ir.pde">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     sofia.ir.token
 
@@ -1634,6 +1694,8 @@
           <li><a href="api/sofia.ir.html#sofia.ir.Outputs.symbols">(sofia.ir.Outputs attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/sofia.domain.domain.html#sofia.domain.domain.symbols_or_concrete">symbols_or_concrete() (in module sofia.domain.domain)</a>
+</li>
         <li><a href="api/sofia.field.field.html#sofia.field.field.TensorField.symmetric">symmetric (sofia.field.field.TensorField property)</a>
 
         <ul>
@@ -1868,7 +1930,7 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=71d3a9f8"></script>
+</div><script src="_static/documentation_options.js?v=94cd9e65"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>

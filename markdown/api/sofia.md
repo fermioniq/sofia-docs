@@ -11,9 +11,12 @@
       * [`DomainEdge`](sofia.domain.domain.md#sofia.domain.domain.DomainEdge)
       * [`DomainStart`](sofia.domain.domain.md#sofia.domain.domain.DomainStart)
       * [`DomainEnd`](sofia.domain.domain.md#sofia.domain.domain.DomainEnd)
+      * [`symbols_or_concrete()`](sofia.domain.domain.md#sofia.domain.domain.symbols_or_concrete)
     * [sofia.domain.grid](sofia.domain.grid.md)
       * [`DD`](sofia.domain.grid.md#sofia.domain.grid.DD)
       * [`Grid`](sofia.domain.grid.md#sofia.domain.grid.Grid)
+    * [sofia.domain.particle_domain](sofia.domain.particle_domain.md)
+      * [`ParticleDomain`](sofia.domain.particle_domain.md#sofia.domain.particle_domain.ParticleDomain)
   * [Module contents](sofia.domain.md#module-sofia.domain)
 * [sofia.field package](sofia.field.md)
   * [Submodules](sofia.field.md#submodules)
@@ -30,6 +33,11 @@
     * [sofia.field.locus](sofia.field.locus.md)
       * [`Locus`](sofia.field.locus.md#sofia.field.locus.Locus)
       * [`ScalarLocus`](sofia.field.locus.md#sofia.field.locus.ScalarLocus)
+    * [sofia.field.particle_field](sofia.field.particle_field.md)
+      * [`ParticleField`](sofia.field.particle_field.md#sofia.field.particle_field.ParticleField)
+      * [`IndexedParticleField`](sofia.field.particle_field.md#sofia.field.particle_field.IndexedParticleField)
+      * [`Neighbour`](sofia.field.particle_field.md#sofia.field.particle_field.Neighbour)
+      * [`ParticleLocus`](sofia.field.particle_field.md#sofia.field.particle_field.ParticleLocus)
     * [sofia.field.reductions](sofia.field.reductions.md)
       * [`Reduce`](sofia.field.reductions.md#sofia.field.reductions.Reduce)
       * [`Min()`](sofia.field.reductions.md#sofia.field.reductions.Min)
@@ -630,6 +638,41 @@ Return the substitutions corresponding to the concrete numbers of the grid.
 ```
 
 #### default_assumptions *= {}*
+
+### *class* sofia.ParticleDomain(ndim: Literal[1, 2, 3] = 3, name: str = 'P', \_n_particles: Expr | int | None = None, \_extent: Tuple | None = None, \_smoothing_length: Expr | float | None = None)
+
+Bases: [`Domain`](sofia.domain.domain.md#sofia.domain.domain.Domain)
+
+Symbolic representation of a particle domain.
+
+A domain where fields are indexed by particle.
+Particles live in ndim-dimensional Cartesian space.
+
+* **Parameters:**
+  * **ndim** – Spatial dimensionality.
+  * **name** – Name used to identify the particle domain.
+
+#### *property* smoothing_length *: Expr*
+
+Cutoff radius of every NeighbourSum on this domain.
+
+#### concrete(n_particles: int | None = None, extent: tuple[Numeric | tuple[Numeric, Numeric] | list[Numeric], ...] | list[Numeric | tuple[Numeric, Numeric] | list[Numeric]] | Numeric | None = None, smoothing_length: float | None = None, subs: dict | None = None) → dict[Symbol, int | float]
+
+Return substitutions corresponding to the concrete numbers of the domain.
+
+#### default_assumptions *= {}*
+
+### *class* sofia.ParticleField(name: str, domain: [ParticleDomain](sofia.domain.particle_domain.md#sofia.domain.particle_domain.ParticleDomain))
+
+Bases: [`Field`](sofia.field.field.md#sofia.field.field.Field)
+
+Symbolic field living on a ParticleDomain.
+
+#### indexify()
+
+#### default_assumptions *= {'commutative': True}*
+
+#### is_commutative *= True*
 
 ### *class* sofia.Scalar(name: str | Symbol, , dtype: DTypeLike | None = None, \*\*assumptions: bool | None)
 

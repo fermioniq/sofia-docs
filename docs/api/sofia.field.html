@@ -3,12 +3,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="sofia.field.field" href="sofia.field.field.html"><link rel="prev" title="sofia.domain.grid" href="sofia.domain.grid.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="sofia.field.field" href="sofia.field.field.html"><link rel="prev" title="sofia.domain.particle_domain" href="sofia.domain.particle_domain.html">
         <link rel="prefetch" href="../_static/Black logo thick.png" as="image">
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia.field package - sofia 0.4.2.dev3</title>
+        <title>sofia.field package - sofia 0.4.2.dev4</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.2.dev3</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.2.dev4</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.2.dev3</span>
+  <span class="sidebar-brand-text">sofia 0.4.2.dev4</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -237,12 +237,14 @@
 <li class="toctree-l3"><a class="reference internal" href="sofia.domain.coordinate.html">sofia.domain.coordinate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.domain.domain.html">sofia.domain.domain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.domain.grid.html">sofia.domain.grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.domain.particle_domain.html">sofia.domain.particle_domain</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">sofia.field package</a><input aria-label="Toggle navigation of sofia.field package" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.particle_field.html">sofia.field.particle_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.reductions.html">sofia.field.reductions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.staggered.html">sofia.field.staggered</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.sums.html">sofia.field.sums</a></li>
@@ -358,6 +360,16 @@
 <li class="toctree-l2"><a class="reference internal" href="sofia.field.locus.html#sofia.field.locus.ScalarLocus"><code class="docutils literal notranslate"><span class="pre">ScalarLocus</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="sofia.field.particle_field.html">sofia.field.particle_field</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sofia.field.particle_field.html#sofia.field.particle_field.ParticleField"><code class="docutils literal notranslate"><span class="pre">ParticleField</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.field.particle_field.html#sofia.field.particle_field.IndexedParticleField"><code class="docutils literal notranslate"><span class="pre">IndexedParticleField</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.field.particle_field.html#sofia.field.particle_field.Neighbour"><code class="docutils literal notranslate"><span class="pre">Neighbour</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.particle_field.html#sofia.field.particle_field.Neighbour.eval"><code class="docutils literal notranslate"><span class="pre">Neighbour.eval()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sofia.field.particle_field.html#sofia.field.particle_field.ParticleLocus"><code class="docutils literal notranslate"><span class="pre">ParticleLocus</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sofia.field.reductions.html">sofia.field.reductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Reduce"><code class="docutils literal notranslate"><span class="pre">Reduce</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.reductions.html#sofia.field.reductions.Reduce.eval"><code class="docutils literal notranslate"><span class="pre">Reduce.eval()</span></code></a></li>
@@ -427,14 +439,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="sofia.domain.grid.html">
+          <a class="prev-page" href="sofia.domain.particle_domain.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">sofia.domain.grid</div>
+                <div class="title">sofia.domain.particle_domain</div>
                 
               </div>
             </a>
@@ -482,7 +494,7 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=71d3a9f8"></script>
+</div><script src="../_static/documentation_options.js?v=94cd9e65"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

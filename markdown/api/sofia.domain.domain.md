@@ -44,3 +44,15 @@ Bases: [`DomainEdge`](#sofia.domain.domain.DomainEdge)
 ### *class* sofia.domain.domain.DomainEnd(\*args)
 
 Bases: [`DomainEdge`](#sofia.domain.domain.DomainEdge)
+
+### sofia.domain.domain.symbols_or_concrete(given, symbols, name: str)
+
+Return given if it is a concrete value, else the domain’s symbols.
+
+Some domain properties, such as the shape or extent, start out as
+symbols the domain creates from its name. They are kept in the
+domain’s args so that substituting the dict from domain.concrete() also
+replaces them inside the domain. When sympy rebuilds the domain,
+\_\_new_\_ gets back either those symbols unchanged or the values
+substituted for them. Anything else is rejected, because users set
+these through concrete(), not the constructor.
