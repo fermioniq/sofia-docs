@@ -8,7 +8,7 @@
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia package - sofia 0.4.2.dev4</title>
+        <title>sofia package - sofia 0.4.2.dev5</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.2.dev4</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.2.dev5</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.2.dev4</span>
+  <span class="sidebar-brand-text">sofia 0.4.2.dev5</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -244,6 +244,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.neighbour_sum.html">sofia.field.neighbour_sum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.particle_field.html">sofia.field.particle_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.reductions.html">sofia.field.reductions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.staggered.html">sofia.field.staggered</a></li>
@@ -370,6 +371,10 @@
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.locus.html#sofia.field.locus.Locus"><code class="docutils literal notranslate"><span class="pre">Locus</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.locus.html#sofia.field.locus.ScalarLocus"><code class="docutils literal notranslate"><span class="pre">ScalarLocus</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.neighbour_sum.html">sofia.field.neighbour_sum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.neighbour_sum.html#sofia.field.neighbour_sum.NeighbourSum"><code class="docutils literal notranslate"><span class="pre">NeighbourSum</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.particle_field.html">sofia.field.particle_field</a><ul>
@@ -1195,6 +1200,37 @@ system to a new coordinate system.</p></li>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="sofia.NeighbourSum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">NeighbourSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.NeighbourSum" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></p>
+<p>Sum a per-pair expression over the neighbours of each particle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expr</strong> – Per-pair expression. <cite>field</cite> is the value at the particle itself,
+<cite>field.neighbour</cite> the value at the neighbour. Can be scalar or vector.</p></li>
+<li><p><strong>pos</strong> – Particle position, determines which particles count as neighbours. Only
+pairs closer than the domain’s <cite>smoothing_length</cite> contribute to the sum.</p></li>
+<li><p><strong>exclude_self</strong> – If True, skip the particle itself.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sofia.NeighbourSum.cutoff">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">cutoff</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Basic</span></span><a class="headerlink" href="#sofia.NeighbourSum.cutoff" title="Link to this definition">¶</a></dt>
+<dd><p>Condition for a neighbour to contribute to the sum.</p>
+<p>A neighbour contributes if it is closer than <cite>smoothing_length</cite> to the
+particle.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sofia.NeighbourSum.default_assumptions">
+<span class="sig-name descname"><span class="pre">default_assumptions</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#sofia.NeighbourSum.default_assumptions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="sofia.ParticleDomain">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">ParticleDomain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ndim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'P'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_n_particles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_extent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_smoothing_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.ParticleDomain" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="sofia.domain.domain.html#sofia.domain.domain.Domain" title="sofia.domain.domain.Domain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Domain</span></code></a></p>
@@ -1506,6 +1542,11 @@ a tuple for better type support.</p>
 <li><a class="reference internal" href="#sofia.Grid.default_assumptions"><code class="docutils literal notranslate"><span class="pre">Grid.default_assumptions</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#sofia.NeighbourSum"><code class="docutils literal notranslate"><span class="pre">NeighbourSum</span></code></a><ul>
+<li><a class="reference internal" href="#sofia.NeighbourSum.cutoff"><code class="docutils literal notranslate"><span class="pre">NeighbourSum.cutoff</span></code></a></li>
+<li><a class="reference internal" href="#sofia.NeighbourSum.default_assumptions"><code class="docutils literal notranslate"><span class="pre">NeighbourSum.default_assumptions</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#sofia.ParticleDomain"><code class="docutils literal notranslate"><span class="pre">ParticleDomain</span></code></a><ul>
 <li><a class="reference internal" href="#sofia.ParticleDomain.smoothing_length"><code class="docutils literal notranslate"><span class="pre">ParticleDomain.smoothing_length</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ParticleDomain.concrete"><code class="docutils literal notranslate"><span class="pre">ParticleDomain.concrete()</span></code></a></li>
@@ -1554,7 +1595,7 @@ a tuple for better type support.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=94cd9e65"></script>
+</div><script src="../_static/documentation_options.js?v=f0024e21"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

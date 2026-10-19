@@ -33,6 +33,8 @@
     * [sofia.field.locus](sofia.field.locus.md)
       * [`Locus`](sofia.field.locus.md#sofia.field.locus.Locus)
       * [`ScalarLocus`](sofia.field.locus.md#sofia.field.locus.ScalarLocus)
+    * [sofia.field.neighbour_sum](sofia.field.neighbour_sum.md)
+      * [`NeighbourSum`](sofia.field.neighbour_sum.md#sofia.field.neighbour_sum.NeighbourSum)
     * [sofia.field.particle_field](sofia.field.particle_field.md)
       * [`ParticleField`](sofia.field.particle_field.md#sofia.field.particle_field.ParticleField)
       * [`IndexedParticleField`](sofia.field.particle_field.md#sofia.field.particle_field.IndexedParticleField)
@@ -636,6 +638,28 @@ Return the substitutions corresponding to the concrete numbers of the grid.
 >>> G.concrete(shape=(100, 200), extent=((0, 1), (0, 2)))
 {G.Nx: 100, G.Ny: 200, G.Lx: 1, G.Ly: 2, G.x0: 0, G.y0: 0, global.x: i/100, global.y: j/100}
 ```
+
+#### default_assumptions *= {}*
+
+### *class* sofia.NeighbourSum(\*args)
+
+Bases: `Function`
+
+Sum a per-pair expression over the neighbours of each particle.
+
+* **Parameters:**
+  * **expr** – Per-pair expression. field is the value at the particle itself,
+    field.neighbour the value at the neighbour. Can be scalar or vector.
+  * **pos** – Particle position, determines which particles count as neighbours. Only
+    pairs closer than the domain’s smoothing_length contribute to the sum.
+  * **exclude_self** – If True, skip the particle itself.
+
+#### *property* cutoff *: Basic*
+
+Condition for a neighbour to contribute to the sum.
+
+A neighbour contributes if it is closer than smoothing_length to the
+particle.
 
 #### default_assumptions *= {}*
 
