@@ -67,10 +67,7 @@ u_x*global.ihat + u_y*global.jhat
 >>> [f.staggered for f in VectorField("m", G, staggered="faces").fields]
 [XFACE, YFACE]
 >>> u << 0
-CodeBlock(
-EvalAssignment(u_x, 0),
-EvalAssignment(u_y, 0)
-)
+EvalAssignment((u_x, u_y), (0, 0))
 ```
 
 #### *property* fields *: tuple[[Field](#sofia.field.field.Field), ...]*
@@ -115,11 +112,7 @@ T_xx*global.ihat + T_yx*global.jhat
 >>> S.fields
 (S_xx, S_xy, S_yy)
 >>> S << 2
-CodeBlock(
-EvalAssignment(S_xx, 2),
-EvalAssignment(S_xy, 2),
-EvalAssignment(S_yy, 2)
-)
+EvalAssignment((S_xx, S_xy, S_yy), (2, 2, 2))
 ```
 
 #### *property* fields *: tuple[[Field](#sofia.field.field.Field), ...]*
