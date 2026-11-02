@@ -281,7 +281,6 @@
       * [`draw_grid()`](sofia.pde.drawing.md#sofia.pde.drawing.draw_grid)
     * [sofia.pde.jacobian](sofia.pde.jacobian.md)
       * [`Jacobian`](sofia.pde.jacobian.md#sofia.pde.jacobian.Jacobian)
-    * [sofia.pde.les](sofia.pde.les.md)
     * [sofia.pde.preprocess](sofia.pde.preprocess.md)
     * [sofia.pde.simulate](sofia.pde.simulate.md)
     * [sofia.pde.wall_functions](sofia.pde.wall_functions.md)

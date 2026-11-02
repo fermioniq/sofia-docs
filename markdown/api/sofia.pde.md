@@ -60,7 +60,6 @@
     * [`Jacobian.is_nearest_neighbor()`](sofia.pde.jacobian.md#sofia.pde.jacobian.Jacobian.is_nearest_neighbor)
     * [`Jacobian.to_block_tridiagonal()`](sofia.pde.jacobian.md#sofia.pde.jacobian.Jacobian.to_block_tridiagonal)
     * [`Jacobian.to_block_tridiagonal_solvable()`](sofia.pde.jacobian.md#sofia.pde.jacobian.Jacobian.to_block_tridiagonal_solvable)
-* [sofia.pde.les](sofia.pde.les.md)
 * [sofia.pde.preprocess](sofia.pde.preprocess.md)
 * [sofia.pde.simulate](sofia.pde.simulate.md)
 * [sofia.pde.wall_functions](sofia.pde.wall_functions.md)

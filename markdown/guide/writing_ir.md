@@ -176,25 +176,27 @@ See also [Geometry](domains_fields.md#guide-geometry-reference-label)
 
 ### Large Eddy Simulation turbulence modelling
 
-[`sofia.ir.pde.EddyViscositySmagorinsky`](../api/sofia.ir.pde.md#sofia.ir.pde.EddyViscositySmagorinsky) and `sofia.pde.les.viscous_stress_divergence()` can be used
-together to quickly set up LES simulations with a constant Smagorinsky subgrid scale model:
+[`sofia.ir.pde.EddyViscositySmagorinsky`](../api/sofia.ir.pde.md#sofia.ir.pde.EddyViscositySmagorinsky) computes the eddy viscosity of a constant Smagorinsky subgrid
+scale model. Together with the divergence of the viscous stress, this sets up an LES simulation:
 
 ```python
+# Velocity on the cell faces
+vel = VectorField("u", G, staggered="faces")
 # Constant kinematic viscosity
 nu_sym = sp.symbols("nu_sym")
 # Variable eddy viscosity
 nu_sgs = Field("nu_field", G, Staggered.CENTER)
 
 # Eddy viscosity computation IR
-eddy_ir = ir.EddyViscositySmagorinsky((u, v, w), nu_sgs, subs[C_sgs], strain_squaring)
+eddy_ir = ir.EddyViscositySmagorinsky(vel, nu_sgs, subs[C_sgs], strain_squaring)
 
-# Diffusion term of Navier-Stokes (viscous stress divergence with variable viscosity)
-Fu_a, Fv_a, Fw_a = viscous_stress_divergence(u, v, w, nu_sgs + nu_sym)
+# Diffusion term of Navier-Stokes: div(nu_eff (grad u + grad u^T)) with variable viscosity
+grad_u = gradient(vel)
+F_visc = divergence((nu_sgs + nu_sym) * (grad_u + grad_u.T), allow_expand=False)
 
 # Use in update steps:
-ir.RKn({u: Fu_a, v: Fv_a, w: Fw_a}, 1, 0.01),
+ir.RKn({vel: F_visc}, 1, 0.01),
 ```
 
-It is also possible to use the individual components. For example, any subgrid scale model can be used to compute
-the effective viscosity nu_eff = nu_sym + nu_sgs and passed to `sofia.pde.les.viscous_stress_divergence()`
-in order to implement alternative LES schemes.
+Any other subgrid scale model can be used instead, by computing a different effective viscosity
+nu_eff = nu_sym + nu_sgs for the stress.

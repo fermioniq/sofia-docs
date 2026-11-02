@@ -8,7 +8,7 @@
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Writing IR - sofia 0.4.2.dev11</title>
+        <title>Writing IR - sofia 0.4.2.dev12</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.2.dev11</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.2.dev12</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.2.dev11</span>
+  <span class="sidebar-brand-text">sofia 0.4.2.dev12</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -270,7 +270,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../api/sofia.pde.drawing.html">sofia.pde.drawing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/sofia.pde.jacobian.html">sofia.pde.jacobian</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/sofia.pde.les.html">sofia.pde.les</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/sofia.pde.preprocess.html">sofia.pde.preprocess</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/sofia.pde.simulate.html">sofia.pde.simulate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/sofia.pde.wall_functions.html">sofia.pde.wall_functions</a></li>
@@ -469,26 +468,28 @@ around a 3D geometry:</p>
 </section>
 <section id="large-eddy-simulation-turbulence-modelling">
 <h3>Large Eddy Simulation turbulence modelling<a class="headerlink" href="#large-eddy-simulation-turbulence-modelling" title="Link to this heading">¶</a></h3>
-<p><a class="reference internal" href="../api/sofia.ir.pde.html#sofia.ir.pde.EddyViscositySmagorinsky" title="sofia.ir.pde.EddyViscositySmagorinsky"><code class="xref py py-class docutils literal notranslate"><span class="pre">sofia.ir.pde.EddyViscositySmagorinsky</span></code></a> and <code class="xref py py-func docutils literal notranslate"><span class="pre">sofia.pde.les.viscous_stress_divergence()</span></code> can be used
-together to quickly set up LES simulations with a constant Smagorinsky subgrid scale model:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Constant kinematic viscosity</span>
+<p><a class="reference internal" href="../api/sofia.ir.pde.html#sofia.ir.pde.EddyViscositySmagorinsky" title="sofia.ir.pde.EddyViscositySmagorinsky"><code class="xref py py-class docutils literal notranslate"><span class="pre">sofia.ir.pde.EddyViscositySmagorinsky</span></code></a> computes the eddy viscosity of a constant Smagorinsky subgrid
+scale model. Together with the divergence of the viscous stress, this sets up an LES simulation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Velocity on the cell faces</span>
+<span class="n">vel</span> <span class="o">=</span> <span class="n">VectorField</span><span class="p">(</span><span class="s2">"u"</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">staggered</span><span class="o">=</span><span class="s2">"faces"</span><span class="p">)</span>
+<span class="c1"># Constant kinematic viscosity</span>
 <span class="n">nu_sym</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"nu_sym"</span><span class="p">)</span>
 <span class="c1"># Variable eddy viscosity</span>
 <span class="n">nu_sgs</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">"nu_field"</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">Staggered</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
 
 <span class="c1"># Eddy viscosity computation IR</span>
-<span class="n">eddy_ir</span> <span class="o">=</span> <span class="n">ir</span><span class="o">.</span><span class="n">EddyViscositySmagorinsky</span><span class="p">((</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">nu_sgs</span><span class="p">,</span> <span class="n">subs</span><span class="p">[</span><span class="n">C_sgs</span><span class="p">],</span> <span class="n">strain_squaring</span><span class="p">)</span>
+<span class="n">eddy_ir</span> <span class="o">=</span> <span class="n">ir</span><span class="o">.</span><span class="n">EddyViscositySmagorinsky</span><span class="p">(</span><span class="n">vel</span><span class="p">,</span> <span class="n">nu_sgs</span><span class="p">,</span> <span class="n">subs</span><span class="p">[</span><span class="n">C_sgs</span><span class="p">],</span> <span class="n">strain_squaring</span><span class="p">)</span>
 
-<span class="c1"># Diffusion term of Navier-Stokes (viscous stress divergence with variable viscosity)</span>
-<span class="n">Fu_a</span><span class="p">,</span> <span class="n">Fv_a</span><span class="p">,</span> <span class="n">Fw_a</span> <span class="o">=</span> <span class="n">viscous_stress_divergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">nu_sgs</span> <span class="o">+</span> <span class="n">nu_sym</span><span class="p">)</span>
+<span class="c1"># Diffusion term of Navier-Stokes: div(nu_eff (grad u + grad u^T)) with variable viscosity</span>
+<span class="n">grad_u</span> <span class="o">=</span> <span class="n">gradient</span><span class="p">(</span><span class="n">vel</span><span class="p">)</span>
+<span class="n">F_visc</span> <span class="o">=</span> <span class="n">divergence</span><span class="p">((</span><span class="n">nu_sgs</span> <span class="o">+</span> <span class="n">nu_sym</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">grad_u</span> <span class="o">+</span> <span class="n">grad_u</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">allow_expand</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Use in update steps:</span>
-<span class="n">ir</span><span class="o">.</span><span class="n">RKn</span><span class="p">({</span><span class="n">u</span><span class="p">:</span> <span class="n">Fu_a</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Fv_a</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">Fw_a</span><span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+<span class="n">ir</span><span class="o">.</span><span class="n">RKn</span><span class="p">({</span><span class="n">vel</span><span class="p">:</span> <span class="n">F_visc</span><span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
 </pre></div>
 </div>
-<p>It is also possible to use the individual components. For example, any subgrid scale model can be used to compute
-the effective viscosity <cite>nu_eff = nu_sym + nu_sgs</cite> and passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">sofia.pde.les.viscous_stress_divergence()</span></code>
-in order to implement alternative LES schemes.</p>
+<p>Any other subgrid scale model can be used instead, by computing a different effective viscosity
+<cite>nu_eff = nu_sym + nu_sgs</cite> for the stress.</p>
 </section>
 </section>
 </section>
@@ -577,7 +578,7 @@ in order to implement alternative LES schemes.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=bf4c3a76"></script>
+</div><script src="../_static/documentation_options.js?v=121c4aba"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
