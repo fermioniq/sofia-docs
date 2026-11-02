@@ -584,12 +584,45 @@ indices, as well as symbolic grid shape and size specifications.
     last grid nodes. For example, a boundary specification of `(0.5, -2.5)` means
     that the boundary is at i = 0.5 and i = N - 1 - 2.5, where N is the number of
     grid points in that dimension.
-  * **transformation** – A callable function that defines a transformation from the base coordinate
-    system to a new coordinate system.
+  * **transformations** – Map from computational to physical coordinates, as a tuple of callables,
+    one per axis. It may contain a transformation placeholder, an undefined
+    sympy function applied to the axis coordinate, which makes the axis
+    discrete. The physical coordinate of that axis is then the field
+    `G.transformation_fields[c]`, with `c` the axis coordinate.
+  * **transformations_inverse** – Map from physical back to computational coordinates, in the same form. If
+    `None`, it is solved for with `sp.solve`. Ignored when any axis has a
+    transformation placeholder; such a grid has no inverse.
+
+### Examples
+
+A discrete x axis, with the transformation placeholder as the map or inside one:
+
+```pycon
+>>> X = sp.Function("X")
+>>> G1 = Grid(ndim=2, name="G1", transformations=(X, lambda y: y))
+>>> G2 = Grid(ndim=2, name="G2", transformations=(lambda x: 2 * X(x), lambda y: y))
+>>> G1.scale_factors
+(Derivative(X, G1.x), 1)
+>>> G2.scale_factors
+(2*Derivative(X, G2.x), 1)
+```
+
+The physical coordinate of the discrete axis is a field on the grid, passed to the
+simulation as an input:
+
+```pycon
+>>> X1 = G1.transformation_fields[G1.x]
+>>> type(X1).__name__, X1.domain == G1
+('GridField', True)
+```
 
 #### *property* uniform_axes
 
 Axes whose scale factor is constant – these stay circulant/spectral.
+
+#### *property* transformation_fields
+
+Map each discrete axis’s coordinate to the field of its node positions.
 
 #### *property* boundaries_absolute
 
