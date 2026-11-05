@@ -5,7 +5,7 @@ contain the root `toctree` directive. -->
 
 # Sofia
 
-– Version 0.4.3.dev4+1572e05 –
+– Version 0.4.3.dev5+ba97f92 –
 
 **Sofia** is a symbolic compute engine with high-level interface for building partial differential equations solvers.
 
