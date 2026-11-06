@@ -697,20 +697,23 @@ Sum a per-pair expression over the neighbours of each particle.
 * **Parameters:**
   * **expr** – Per-pair expression. field is the value at the particle itself,
     field.neighbour the value at the neighbour. Can be scalar or vector.
-  * **pos** – Particle position, determines which particles count as neighbours. Only
-    pairs closer than the domain’s smoothing_length contribute to the sum.
-  * **exclude_self** – If True, skip the particle itself.
+  * **pos** – Particle position, determines which particles count as neighbours.
+  * **h** – Cutoff radius, only pairs closer than h contribute to the sum.
+  * **exclude_self** – If True, skip the particle itself. Only for sums over the same domain.
+  * **neighbours** – Positions of the particles to sum over, on this or another particle
+    domain. Defaults to pos. In a sum over another domain, fields of that
+    domain are the values at the neighbour. .neighbour is only needed
+    when both are on the same domain.
 
 #### *property* cutoff *: Basic*
 
 Condition for a neighbour to contribute to the sum.
 
-A neighbour contributes if it is closer than smoothing_length to the
-particle.
+A neighbour contributes if it is closer than h to the particle.
 
 #### default_assumptions *= {}*
 
-### *class* sofia.ParticleDomain(ndim: Literal[1, 2, 3] = 3, name: str = 'P', \_n_particles: Expr | int | None = None, \_extent: Tuple | None = None, \_smoothing_length: Expr | float | None = None)
+### *class* sofia.ParticleDomain(ndim: Literal[1, 2, 3] = 3, name: str = 'P', \_n_particles: Expr | int | None = None, \_extent: Tuple | None = None)
 
 Bases: [`Domain`](sofia.domain.domain.md#sofia.domain.domain.Domain)
 
@@ -723,11 +726,7 @@ Particles live in ndim-dimensional Cartesian space.
   * **ndim** – Spatial dimensionality.
   * **name** – Name used to identify the particle domain.
 
-#### *property* smoothing_length *: Expr*
-
-Cutoff radius of every NeighbourSum on this domain.
-
-#### concrete(n_particles: int | None = None, extent: tuple[Numeric | tuple[Numeric, Numeric] | list[Numeric], ...] | list[Numeric | tuple[Numeric, Numeric] | list[Numeric]] | Numeric | None = None, smoothing_length: float | None = None, subs: dict | None = None) → dict[Symbol, int | float]
+#### concrete(n_particles: int | None = None, extent: tuple[Numeric | tuple[Numeric, Numeric] | list[Numeric], ...] | list[Numeric | tuple[Numeric, Numeric] | list[Numeric]] | Numeric | None = None, subs: dict | None = None) → dict[Symbol, int | float]
 
 Return substitutions corresponding to the concrete numbers of the domain.
 

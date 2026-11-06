@@ -29,7 +29,6 @@
     * [`Grid.concrete()`](sofia.domain.grid.md#sofia.domain.grid.Grid.concrete)
 * [sofia.domain.particle_domain](sofia.domain.particle_domain.md)
   * [`ParticleDomain`](sofia.domain.particle_domain.md#sofia.domain.particle_domain.ParticleDomain)
-    * [`ParticleDomain.smoothing_length`](sofia.domain.particle_domain.md#sofia.domain.particle_domain.ParticleDomain.smoothing_length)
     * [`ParticleDomain.concrete()`](sofia.domain.particle_domain.md#sofia.domain.particle_domain.ParticleDomain.concrete)
 
 ## Module contents
