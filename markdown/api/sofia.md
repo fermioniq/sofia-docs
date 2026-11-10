@@ -610,6 +610,8 @@ indices, as well as symbolic grid shape and size specifications.
     sympy function applied to the axis coordinate, which makes the axis
     discrete. The physical coordinate of that axis is then the field
     `G.transformation_fields[c]`, with `c` the axis coordinate.
+    A discrete axis that is periodic also needs its physical period, given
+    through `periods` in `concrete`.
   * **transformations_inverse** – Map from physical back to computational coordinates, in the same form. If
     `None`, it is solved for with `sp.solve`. Ignored when any axis has a
     transformation placeholder; such a grid has no inverse.
@@ -636,6 +638,12 @@ simulation as an input:
 >>> type(X1).__name__, X1.domain == G1
 ('GridField', True)
 ```
+
+#### *property* periods *: tuple[Symbol, ...]*
+
+Symbols for the physical period of each axis.
+
+Only used on periodic discrete axes.
 
 #### *property* uniform_axes
 
@@ -665,13 +673,15 @@ Return the dimension index of a coordinate.
 
 #### maps_ind_to_coord()
 
-#### concrete(shape: tuple[int, ...] | int, extent: tuple[Numeric | tuple[Numeric, Numeric] | list[Numeric], ...] | list[Numeric | tuple[Numeric, Numeric] | list[Numeric]] | Numeric | None = None, subs: dict | None = None) → dict[Symbol, int | float]
+#### concrete(shape: tuple[int, ...] | int, extent: tuple[Numeric | tuple[Numeric, Numeric] | list[Numeric], ...] | list[Numeric | tuple[Numeric, Numeric] | list[Numeric]] | Numeric | None = None, periods: dict[Symbol, float] | None = None, subs: dict | None = None) → dict[Symbol, int | float]
 
 Return the substitutions corresponding to the concrete numbers of the grid.
 
 * **Parameters:**
   * **shape** – Grid shape per dimension.
   * **extent** – Physical domain extents per dimension, given as concrete floats.
+  * **periods** – Physical period of each periodic discrete axis, keyed by its coordinate, e.g.
+    {G.x: 2.0}.
   * **subs** – Any additional substitutions.
 
 ### Examples

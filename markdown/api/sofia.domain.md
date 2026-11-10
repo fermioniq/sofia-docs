@@ -21,6 +21,7 @@
     * [`DD.eval()`](sofia.domain.grid.md#sofia.domain.grid.DD.eval)
     * [`DD.doit()`](sofia.domain.grid.md#sofia.domain.grid.DD.doit)
   * [`Grid`](sofia.domain.grid.md#sofia.domain.grid.Grid)
+    * [`Grid.periods`](sofia.domain.grid.md#sofia.domain.grid.Grid.periods)
     * [`Grid.uniform_axes`](sofia.domain.grid.md#sofia.domain.grid.Grid.uniform_axes)
     * [`Grid.transformation_fields`](sofia.domain.grid.md#sofia.domain.grid.Grid.transformation_fields)
     * [`Grid.boundaries_absolute`](sofia.domain.grid.md#sofia.domain.grid.Grid.boundaries_absolute)

@@ -8,7 +8,7 @@
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia package - sofia 0.4.4.dev1</title>
+        <title>sofia package - sofia 0.4.4.dev2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.4.dev1</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.4.dev2</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.4.dev1</span>
+  <span class="sidebar-brand-text">sofia 0.4.4.dev2</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -1145,7 +1145,9 @@ grid points in that dimension.</p></li>
 one per axis. It may contain a transformation placeholder, an undefined
 sympy function applied to the axis coordinate, which makes the axis
 discrete. The physical coordinate of that axis is then the field
-<code class="docutils literal notranslate"><span class="pre">G.transformation_fields[c]</span></code>, with <code class="docutils literal notranslate"><span class="pre">c</span></code> the axis coordinate.</p></li>
+<code class="docutils literal notranslate"><span class="pre">G.transformation_fields[c]</span></code>, with <code class="docutils literal notranslate"><span class="pre">c</span></code> the axis coordinate.
+A discrete axis that is periodic also needs its physical period, given
+through <code class="docutils literal notranslate"><span class="pre">periods</span></code> in <code class="docutils literal notranslate"><span class="pre">concrete</span></code>.</p></li>
 <li><p><strong>transformations_inverse</strong> – Map from physical back to computational coordinates, in the same form. If
 <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is solved for with <code class="docutils literal notranslate"><span class="pre">sp.solve</span></code>. Ignored when any axis has a
 transformation placeholder; such a grid has no inverse.</p></li>
@@ -1170,6 +1172,13 @@ simulation as an input:</p>
 <span class="go">('GridField', True)</span>
 </pre></div>
 </div>
+<dl class="py property">
+<dt class="sig sig-object py" id="sofia.Grid.periods">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">periods</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#sofia.Grid.periods" title="Link to this definition">¶</a></dt>
+<dd><p>Symbols for the physical period of each axis.</p>
+<p>Only used on periodic discrete axes.</p>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="sofia.Grid.uniform_axes">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">uniform_axes</span></span><a class="headerlink" href="#sofia.Grid.uniform_axes" title="Link to this definition">¶</a></dt>
@@ -1222,13 +1231,15 @@ simulation as an input:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sofia.Grid.concrete">
-<span class="sig-name descname"><span class="pre">concrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Numeric</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.Grid.concrete" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">concrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Numeric</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Numeric</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.Grid.concrete" title="Link to this definition">¶</a></dt>
 <dd><p>Return the substitutions corresponding to the concrete numbers of the grid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> – Grid shape per dimension.</p></li>
 <li><p><strong>extent</strong> – Physical domain extents per dimension, given as concrete floats.</p></li>
+<li><p><strong>periods</strong> – Physical period of each periodic discrete axis, keyed by its coordinate, e.g.
+{G.x: 2.0}.</p></li>
 <li><p><strong>subs</strong> – Any additional substitutions.</p></li>
 </ul>
 </dd>
@@ -1579,6 +1590,7 @@ a tuple for better type support.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#sofia.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li><a class="reference internal" href="#sofia.Grid.periods"><code class="docutils literal notranslate"><span class="pre">Grid.periods</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Grid.uniform_axes"><code class="docutils literal notranslate"><span class="pre">Grid.uniform_axes</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Grid.transformation_fields"><code class="docutils literal notranslate"><span class="pre">Grid.transformation_fields</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Grid.boundaries_absolute"><code class="docutils literal notranslate"><span class="pre">Grid.boundaries_absolute</span></code></a></li>
@@ -1644,7 +1656,7 @@ a tuple for better type support.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=d9d29bd4"></script>
+</div><script src="../_static/documentation_options.js?v=7482eb18"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
