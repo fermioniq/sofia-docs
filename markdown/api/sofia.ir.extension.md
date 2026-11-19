@@ -190,15 +190,51 @@ symbol, compiled to a function of one `vec2d` or `vec3d`.
 symbols in `expr`, in no fixed order), so e.g. a constant still takes
 them and returns `float64`.
 
-#### warp_kernel(output: Basic, inputs: Iterable[Basic], body: Callable[[str], str], assign: bool = True) → str
+#### warp_kernel(output: Basic | Sequence[Basic], inputs: Iterable[Basic], body: Callable[[...], str], assign: bool = True) → str
 
 Add a `@warp.kernel` that computes `output` and return its call.
 
-`body(out)` returns the kernel body, given the name of the array the
-kernel writes. That array is separate from `output`’s input array, so
-the body reads the old values of `output`. The returned statement
-assigns the result to `output`; with `assign=False`, it is only the
-call, e.g. to assign to a temporary named with `print_in_program`.
+`output` is one field, or a sequence of fields that one kernel computes
+together, e.g. so that they share work. `body(out)`, or
+`body(out0, out1, ...)` for a sequence, returns the kernel body, given the
+name of each array the kernel writes, in the order of `output`. Each array
+is separate from that field’s input array, so the body reads the old values
+of every output. The body must write every element of every output array,
+since an array may start uninitialised. The kernel launches over the shape
+of the outputs, which must all be the same.
+
+The returned statement assigns the results to `output`. With
+`assign=False`, it is only the call, e.g. to assign to temporaries named
+with `print_in_program`. For a sequence, the call returns a tuple, even
+one with a single element.
+
+### Examples
+
+One kernel sets `(a, b)` to `(a + b, a - b)`:
+
+```
+``
+```
+
+```
+`
+```
+
+python
+a, b = ctx.print_in_kernel(self.a), ctx.print_in_kernel(self.b)
+ctx.warp_kernel(
+
+> output=(self.a, self.b),
+> inputs=(self.a, self.b),
+> body=lambda out_a, out_b: (
+
+> > “i = warp.tid()n”
+> > f”{out_a}[i] = {a}[i] + {b}[i]n”
+> > f”{out_b}[i] = {a}[i] - {b}[i]”
+
+> ),
+
+## )
 
 #### function(body: str, inputs: Iterable[Basic], outputs: Iterable[Basic]) → str
 

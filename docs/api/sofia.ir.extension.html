@@ -8,7 +8,7 @@
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia.ir.extension - sofia 0.4.5.dev3</title>
+        <title>sofia.ir.extension - sofia 0.4.5.dev4</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.5.dev3</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.5.dev4</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.5.dev3</span>
+  <span class="sidebar-brand-text">sofia 0.4.5.dev4</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -493,13 +493,39 @@ them and returns <code class="docutils literal notranslate"><span class="pre">fl
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sofia.ir.extension.ProgramContext.warp_kernel">
-<span class="sig-name descname"><span class="pre">warp_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Basic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Basic</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sofia.ir.extension.ProgramContext.warp_kernel" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">warp_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Basic</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Basic</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Basic</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sofia.ir.extension.ProgramContext.warp_kernel" title="Link to this definition">¶</a></dt>
 <dd><p>Add a <code class="docutils literal notranslate"><span class="pre">&#64;warp.kernel</span></code> that computes <code class="docutils literal notranslate"><span class="pre">output</span></code> and return its call.</p>
-<p><code class="docutils literal notranslate"><span class="pre">body(out)</span></code> returns the kernel body, given the name of the array the
-kernel writes. That array is separate from <code class="docutils literal notranslate"><span class="pre">output</span></code>’s input array, so
-the body reads the old values of <code class="docutils literal notranslate"><span class="pre">output</span></code>. The returned statement
-assigns the result to <code class="docutils literal notranslate"><span class="pre">output</span></code>; with <code class="docutils literal notranslate"><span class="pre">assign=False</span></code>, it is only the
-call, e.g. to assign to a temporary named with <code class="docutils literal notranslate"><span class="pre">print_in_program</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">output</span></code> is one field, or a sequence of fields that one kernel computes
+together, e.g. so that they share work. <code class="docutils literal notranslate"><span class="pre">body(out)</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">body(out0,</span> <span class="pre">out1,</span> <span class="pre">...)</span></code> for a sequence, returns the kernel body, given the
+name of each array the kernel writes, in the order of <code class="docutils literal notranslate"><span class="pre">output</span></code>. Each array
+is separate from that field’s input array, so the body reads the old values
+of every output. The body must write every element of every output array,
+since an array may start uninitialised. The kernel launches over the shape
+of the outputs, which must all be the same.</p>
+<p>The returned statement assigns the results to <code class="docutils literal notranslate"><span class="pre">output</span></code>. With
+<code class="docutils literal notranslate"><span class="pre">assign=False</span></code>, it is only the call, e.g. to assign to temporaries named
+with <code class="docutils literal notranslate"><span class="pre">print_in_program</span></code>. For a sequence, the call returns a tuple, even
+one with a single element.</p>
+<p class="rubric">Examples</p>
+<p>One kernel sets <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code> to <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b,</span> <span class="pre">a</span> <span class="pre">-</span> <span class="pre">b)</span></code>:</p>
+<p><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a>python
+a, b = ctx.print_in_kernel(self.a), ctx.print_in_kernel(self.b)
+ctx.warp_kernel(</p>
+<blockquote>
+<div><p>output=(self.a, self.b),
+inputs=(self.a, self.b),
+body=lambda out_a, out_b: (</p>
+<blockquote>
+<div><p>“i = warp.tid()n”
+f”{out_a}[i] = {a}[i] + {b}[i]n”
+f”{out_b}[i] = {a}[i] - {b}[i]”</p>
+</div></blockquote>
+<p>),</p>
+</div></blockquote>
+<section id="id21">
+<h2>)<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h2>
+</section>
 </dd></dl>
 
 <dl class="py method">
@@ -600,7 +626,7 @@ statement assigns.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=00080392"></script>
+</div><script src="../_static/documentation_options.js?v=e516340f"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

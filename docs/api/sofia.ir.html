@@ -8,7 +8,7 @@
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia.ir package - sofia 0.4.5.dev3</title>
+        <title>sofia.ir package - sofia 0.4.5.dev4</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.5.dev3</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.5.dev4</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.5.dev3</span>
+  <span class="sidebar-brand-text">sofia 0.4.5.dev4</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -1226,13 +1226,39 @@ them and returns <code class="docutils literal notranslate"><span class="pre">fl
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sofia.ir.ProgramContext.warp_kernel">
-<span class="sig-name descname"><span class="pre">warp_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Basic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Basic</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sofia.ir.ProgramContext.warp_kernel" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">warp_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Basic</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Basic</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Basic</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sofia.ir.ProgramContext.warp_kernel" title="Link to this definition">¶</a></dt>
 <dd><p>Add a <code class="docutils literal notranslate"><span class="pre">&#64;warp.kernel</span></code> that computes <code class="docutils literal notranslate"><span class="pre">output</span></code> and return its call.</p>
-<p><code class="docutils literal notranslate"><span class="pre">body(out)</span></code> returns the kernel body, given the name of the array the
-kernel writes. That array is separate from <code class="docutils literal notranslate"><span class="pre">output</span></code>’s input array, so
-the body reads the old values of <code class="docutils literal notranslate"><span class="pre">output</span></code>. The returned statement
-assigns the result to <code class="docutils literal notranslate"><span class="pre">output</span></code>; with <code class="docutils literal notranslate"><span class="pre">assign=False</span></code>, it is only the
-call, e.g. to assign to a temporary named with <code class="docutils literal notranslate"><span class="pre">print_in_program</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">output</span></code> is one field, or a sequence of fields that one kernel computes
+together, e.g. so that they share work. <code class="docutils literal notranslate"><span class="pre">body(out)</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">body(out0,</span> <span class="pre">out1,</span> <span class="pre">...)</span></code> for a sequence, returns the kernel body, given the
+name of each array the kernel writes, in the order of <code class="docutils literal notranslate"><span class="pre">output</span></code>. Each array
+is separate from that field’s input array, so the body reads the old values
+of every output. The body must write every element of every output array,
+since an array may start uninitialised. The kernel launches over the shape
+of the outputs, which must all be the same.</p>
+<p>The returned statement assigns the results to <code class="docutils literal notranslate"><span class="pre">output</span></code>. With
+<code class="docutils literal notranslate"><span class="pre">assign=False</span></code>, it is only the call, e.g. to assign to temporaries named
+with <code class="docutils literal notranslate"><span class="pre">print_in_program</span></code>. For a sequence, the call returns a tuple, even
+one with a single element.</p>
+<p class="rubric">Examples</p>
+<p>One kernel sets <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code> to <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b,</span> <span class="pre">a</span> <span class="pre">-</span> <span class="pre">b)</span></code>:</p>
+<p><a href="#id38"><span class="problematic" id="id39">``</span></a><a href="#id40"><span class="problematic" id="id41">`</span></a>python
+a, b = ctx.print_in_kernel(self.a), ctx.print_in_kernel(self.b)
+ctx.warp_kernel(</p>
+<blockquote>
+<div><p>output=(self.a, self.b),
+inputs=(self.a, self.b),
+body=lambda out_a, out_b: (</p>
+<blockquote>
+<div><p>“i = warp.tid()n”
+f”{out_a}[i] = {a}[i] + {b}[i]n”
+f”{out_b}[i] = {a}[i] - {b}[i]”</p>
+</div></blockquote>
+<p>),</p>
+</div></blockquote>
+<section id="id42">
+<h3>)<a class="headerlink" href="#id42" title="Link to this heading">¶</a></h3>
+</section>
 </dd></dl>
 
 <dl class="py method">
@@ -1269,7 +1295,7 @@ substituted and cached by hash. Use a converter for other values, e.g.
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<p><a href="#id38"><span class="problematic" id="id39">``</span></a><a href="#id40"><span class="problematic" id="id41">`</span></a>python
+<p><a href="#id43"><span class="problematic" id="id44">``</span></a><a href="#id45"><span class="problematic" id="id46">`</span></a>python
 from sofia import Field, Geometry, ir</p>
 <dl>
 <dt>class GhostCellFill(ir.ProgramExtension):</dt><dd><dl class="simple">
@@ -1307,10 +1333,10 @@ f”{out}[i, j, k] = ghost_value({geo}, {f}, i, j, k)”</p>
 </dl>
 </dd>
 </dl>
-<p><a href="#id42"><span class="problematic" id="id43">``</span></a><a href="#id44"><span class="problematic" id="id45">`</span></a></p>
+<p><a href="#id47"><span class="problematic" id="id48">``</span></a><a href="#id49"><span class="problematic" id="id50">`</span></a></p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id46">
-<span class="sig-name descname"><span class="pre">runtime_imports</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#id46" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id51">
+<span class="sig-name descname"><span class="pre">runtime_imports</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#id51" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1696,29 +1722,29 @@ below.</p>
 </dl>
 <p class="rubric">Examples</p>
 <p>A stencil, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code></p>
-<p><a href="#id47"><span class="problematic" id="id48">``</span></a><a href="#id49"><span class="problematic" id="id50">`</span></a>python
+<p><a href="#id52"><span class="problematic" id="id53">``</span></a><a href="#id54"><span class="problematic" id="id55">`</span></a>python
 from sofia import Grid, fields, ir</p>
 <p>G = Grid(ndim=2)
 i, j = G.indices
 x, b = fields(“x b”, G)</p>
 <p>A = 4 * x[i, j] - x[i - 1, j] - x[i, j - 1] - x[i + 1, j + 1]
 token = ir.SolveSparse(x, A, b)
-<a href="#id51"><span class="problematic" id="id52">``</span></a><a href="#id53"><span class="problematic" id="id54">`</span></a></p>
+<a href="#id56"><span class="problematic" id="id57">``</span></a><a href="#id58"><span class="problematic" id="id59">`</span></a></p>
 <p>An expression, coupling two 1D fields</p>
-<p><a href="#id55"><span class="problematic" id="id56">``</span></a><a href="#id57"><span class="problematic" id="id58">`</span></a>python
+<p><a href="#id60"><span class="problematic" id="id61">``</span></a><a href="#id62"><span class="problematic" id="id63">`</span></a>python
 from sofia.pde import diff</p>
 <p>G = Grid(ndim=1)
 u, v, f, g = fields(“u v f g”, G)</p>
 <p>token = ir.SolveSparse((u, v), (-diff(u, G.x, 2) + v, v - 2 * u), (f, g))
-<a href="#id59"><span class="problematic" id="id60">``</span></a><a href="#id61"><span class="problematic" id="id62">`</span></a></p>
+<a href="#id64"><span class="problematic" id="id65">``</span></a><a href="#id66"><span class="problematic" id="id67">`</span></a></p>
 <p>A <code class="docutils literal notranslate"><span class="pre">Jacobian</span></code>, for a Newton step on the nonlinear residual <code class="docutils literal notranslate"><span class="pre">R</span></code> of a 2D field</p>
-<p><a href="#id63"><span class="problematic" id="id64">``</span></a><a href="#id65"><span class="problematic" id="id66">`</span></a>python
+<p><a href="#id68"><span class="problematic" id="id69">``</span></a><a href="#id70"><span class="problematic" id="id71">`</span></a>python
 from sofia.pde.jacobian import Jacobian</p>
 <p>G = Grid(ndim=2)
 u, d, q = fields(“u d q”, G)
 R = -(diff(u, G.x, 2) + diff(u, G.y, 2)) + u**3 - q</p>
 <p>token = ir.SolveSparse(d, Jacobian(R, u), -R)
-<a href="#id67"><span class="problematic" id="id68">``</span></a><a href="#id69"><span class="problematic" id="id70">`</span></a></p>
+<a href="#id72"><span class="problematic" id="id73">``</span></a><a href="#id74"><span class="problematic" id="id75">`</span></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sofia.ir.SolveSparse.x">
 <span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sp.Tuple</span></span><a class="headerlink" href="#sofia.ir.SolveSparse.x" title="Link to this definition">¶</a></dt>
@@ -2025,7 +2051,7 @@ returned.</p></li>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p><a href="#id71"><span class="problematic" id="id72">``</span></a><a href="#id73"><span class="problematic" id="id74">`</span></a>python
+<p><a href="#id76"><span class="problematic" id="id77">``</span></a><a href="#id78"><span class="problematic" id="id79">`</span></a>python
 from sofia import Field, Grid, Scalar, ir
 from sofia.field.reductions import Norm</p>
 <p>G = Grid(ndim=3)
@@ -2039,7 +2065,7 @@ ir.Outputs((u, n_iter)),</p>
 </dd>
 </dl>
 <p>)</p>
-<p><a href="#id75"><span class="problematic" id="id76">``</span></a><a href="#id77"><span class="problematic" id="id78">`</span></a></p>
+<p><a href="#id80"><span class="problematic" id="id81">``</span></a><a href="#id82"><span class="problematic" id="id83">`</span></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sofia.ir.While.condition">
 <span class="sig-name descname"><span class="pre">condition</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Basic</span></span><a class="headerlink" href="#sofia.ir.While.condition" title="Link to this definition">¶</a></dt>
@@ -2278,7 +2304,7 @@ through multiple <cite>.transform()</cite> calls) eventually expand to just
 </li>
 <li><a class="reference internal" href="#sofia.ir.ProgramExtension"><code class="docutils literal notranslate"><span class="pre">ProgramExtension</span></code></a><ul>
 <li><a class="reference internal" href="#sofia.ir.ProgramExtension.runtime_imports"><code class="docutils literal notranslate"><span class="pre">ProgramExtension.runtime_imports</span></code></a></li>
-<li><a class="reference internal" href="#id46"><code class="docutils literal notranslate"><span class="pre">ProgramExtension.runtime_imports</span></code></a></li>
+<li><a class="reference internal" href="#id51"><code class="docutils literal notranslate"><span class="pre">ProgramExtension.runtime_imports</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.ProgramExtension.inputs"><code class="docutils literal notranslate"><span class="pre">ProgramExtension.inputs</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.ProgramExtension.outputs"><code class="docutils literal notranslate"><span class="pre">ProgramExtension.outputs</span></code></a></li>
 <li><a class="reference internal" href="#sofia.ir.ProgramExtension.emit"><code class="docutils literal notranslate"><span class="pre">ProgramExtension.emit()</span></code></a></li>
@@ -2397,7 +2423,7 @@ through multiple <cite>.transform()</cite> calls) eventually expand to just
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=00080392"></script>
+</div><script src="../_static/documentation_options.js?v=e516340f"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

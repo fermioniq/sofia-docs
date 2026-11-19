@@ -200,7 +200,7 @@
       * [`ProgramContext.function()`](sofia.ir.md#sofia.ir.ProgramContext.function)
     * [`ProgramExtension`](sofia.ir.md#sofia.ir.ProgramExtension)
       * [`ProgramExtension.runtime_imports`](sofia.ir.md#sofia.ir.ProgramExtension.runtime_imports)
-      * [`ProgramExtension.runtime_imports`](sofia.ir.md#id46)
+      * [`ProgramExtension.runtime_imports`](sofia.ir.md#id51)
       * [`ProgramExtension.inputs`](sofia.ir.md#sofia.ir.ProgramExtension.inputs)
       * [`ProgramExtension.outputs`](sofia.ir.md#sofia.ir.ProgramExtension.outputs)
       * [`ProgramExtension.emit()`](sofia.ir.md#sofia.ir.ProgramExtension.emit)
