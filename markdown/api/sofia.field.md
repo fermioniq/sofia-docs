@@ -2,6 +2,13 @@
 
 ## Submodules
 
+* [sofia.field.discrete_inverse](sofia.field.discrete_inverse.md)
+  * [`DiscreteInverse`](sofia.field.discrete_inverse.md#sofia.field.discrete_inverse.DiscreteInverse)
+    * [`DiscreteInverse.eval()`](sofia.field.discrete_inverse.md#sofia.field.discrete_inverse.DiscreteInverse.eval)
+    * [`DiscreteInverse.field`](sofia.field.discrete_inverse.md#sofia.field.discrete_inverse.DiscreteInverse.field)
+    * [`DiscreteInverse.axis`](sofia.field.discrete_inverse.md#sofia.field.discrete_inverse.DiscreteInverse.axis)
+    * [`DiscreteInverse.v`](sofia.field.discrete_inverse.md#sofia.field.discrete_inverse.DiscreteInverse.v)
+    * [`DiscreteInverse.period`](sofia.field.discrete_inverse.md#sofia.field.discrete_inverse.DiscreteInverse.period)
 * [sofia.field.field](sofia.field.field.md)
   * [`Field`](sofia.field.field.md#sofia.field.field.Field)
     * [`Field.as_dummy()`](sofia.field.field.md#sofia.field.field.Field.as_dummy)
@@ -20,6 +27,7 @@
     * [`GridField.fractional_offset()`](sofia.field.grid_field.md#sofia.field.grid_field.GridField.fractional_offset)
   * [`GridFieldLocus`](sofia.field.grid_field.md#sofia.field.grid_field.GridFieldLocus)
     * [`GridFieldLocus.shifts`](sofia.field.grid_field.md#sofia.field.grid_field.GridFieldLocus.shifts)
+  * [`PeriodicCoordField`](sofia.field.grid_field.md#sofia.field.grid_field.PeriodicCoordField)
 * [sofia.field.locus](sofia.field.locus.md)
   * [`Locus`](sofia.field.locus.md#sofia.field.locus.Locus)
   * [`ScalarLocus`](sofia.field.locus.md#sofia.field.locus.ScalarLocus)

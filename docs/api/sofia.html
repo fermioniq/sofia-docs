@@ -8,7 +8,7 @@
         <link rel="prefetch" href="../_static/White logo thick.png" as="image">
 
     <link rel="shortcut icon" href="../_static/favicon_dark_bold.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>sofia package - sofia 0.4.5.dev4</title>
+        <title>sofia package - sofia 0.4.6.dev1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -185,7 +185,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">sofia 0.4.5.dev4</div></a>
+      <a href="../index.html"><div class="brand">sofia 0.4.6.dev1</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/White logo thick.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">sofia 0.4.5.dev4</span>
+  <span class="sidebar-brand-text">sofia 0.4.6.dev1</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -241,6 +241,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="sofia.field.html">sofia.field package</a><input aria-label="Toggle navigation of sofia.field package" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.discrete_inverse.html">sofia.field.discrete_inverse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.grid_field.html">sofia.field.grid_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a></li>
@@ -354,6 +355,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sofia.field.html">sofia.field package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sofia.field.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sofia.field.discrete_inverse.html">sofia.field.discrete_inverse</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.discrete_inverse.html#sofia.field.discrete_inverse.DiscreteInverse"><code class="docutils literal notranslate"><span class="pre">DiscreteInverse</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.field.html">sofia.field.field</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.field.html#sofia.field.field.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.field.html#sofia.field.field.VectorField"><code class="docutils literal notranslate"><span class="pre">VectorField</span></code></a></li>
@@ -366,6 +371,7 @@
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.IndexedGridField"><code class="docutils literal notranslate"><span class="pre">IndexedGridField</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridField"><code class="docutils literal notranslate"><span class="pre">GridField</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.GridFieldLocus"><code class="docutils literal notranslate"><span class="pre">GridFieldLocus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sofia.field.grid_field.html#sofia.field.grid_field.PeriodicCoordField"><code class="docutils literal notranslate"><span class="pre">PeriodicCoordField</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sofia.field.locus.html">sofia.field.locus</a><ul>
@@ -1015,7 +1021,7 @@ components at cell centers and the off-diagonal ones on the edges.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sofia.GridField">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">GridField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="sofia.domain.grid.html#sofia.domain.grid.Grid" title="sofia.domain.grid.Grid"><span class="pre">Grid</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">staggered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="sofia.field.staggered.html#sofia.field.staggered.Staggered" title="sofia.field.staggered.Staggered"><span class="pre">Staggered</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discretisation_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_shifts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.GridField" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sofia.</span></span><span class="sig-name descname"><span class="pre">GridField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="sofia.domain.grid.html#sofia.domain.grid.Grid" title="sofia.domain.grid.Grid"><span class="pre">Grid</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">staggered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="sofia.field.staggered.html#sofia.field.staggered.Staggered" title="sofia.field.staggered.Staggered"><span class="pre">Staggered</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discretisation_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_shifts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sofia.GridField" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="sofia.field.field.html#sofia.field.field.Field" title="sofia.field.field.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a></p>
 <p>Symbolic representation of a field living on a structured grid.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">GridField</span></code> is a symbol that carries the information needed to discretise
@@ -1144,21 +1150,31 @@ grid points in that dimension.</p></li>
 <li><p><strong>transformations</strong> – Map from computational to physical coordinates, as a tuple of callables,
 one per axis. It may contain a transformation placeholder, an undefined
 sympy function applied to the axis coordinate, which makes the axis
-discrete. The physical coordinate of that axis is then the field
-<code class="docutils literal notranslate"><span class="pre">G.transformation_fields[c]</span></code>, with <code class="docutils literal notranslate"><span class="pre">c</span></code> the axis coordinate.
-A discrete axis that is periodic also needs its physical period, given
-through <code class="docutils literal notranslate"><span class="pre">periods</span></code> in <code class="docutils literal notranslate"><span class="pre">concrete</span></code>.</p></li>
-<li><p><strong>transformations_inverse</strong> – Map from physical back to computational coordinates, in the same form. If
-<code class="docutils literal notranslate"><span class="pre">None</span></code>, it is solved for with <code class="docutils literal notranslate"><span class="pre">sp.solve</span></code>. Ignored when any axis has a
-transformation placeholder; such a grid has no inverse.</p></li>
+discrete. The coordinate must then appear only inside the placeholder,
+e.g. <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">X(x)</span></code> but not <code class="docutils literal notranslate"><span class="pre">X(x)</span> <span class="pre">+</span> <span class="pre">x</span></code>. The physical coordinate of that axis
+is then the field <code class="docutils literal notranslate"><span class="pre">G.transformation_fields[c]</span></code>, with <code class="docutils literal notranslate"><span class="pre">c</span></code> the axis
+coordinate. A discrete axis that is periodic also needs its physical period,
+given through <code class="docutils literal notranslate"><span class="pre">periods</span></code> in <code class="docutils literal notranslate"><span class="pre">concrete</span></code>; its field is then a
+<code class="docutils literal notranslate"><span class="pre">PeriodicCoordField</span></code>.</p></li>
+<li><p><strong>transformations_inverse</strong> – Map from physical back to computational coordinates. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is
+solved for with <code class="docutils literal notranslate"><span class="pre">sp.solve</span></code>, and on a discrete axis the positions field is
+inverted with <code class="docutils literal notranslate"><span class="pre">DiscreteInverse</span></code> (see <code class="docutils literal notranslate"><span class="pre">physical_to_computational</span></code>). Must
+be <code class="docutils literal notranslate"><span class="pre">None</span></code> when any axis has a transformation placeholder.</p></li>
 </ul>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <p>A discrete x axis, with the transformation placeholder as the map or inside one:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s2">"X"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G1</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"G1"</span><span class="p">,</span> <span class="n">transformations</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G2</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"G2"</span><span class="p">,</span> <span class="n">transformations</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G1</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"G1"</span><span class="p">,</span> <span class="n">transformations</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="p">),</span> <span class="n">boundaries</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G2</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">name</span><span class="o">=</span><span class="s2">"G2"</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">transformations</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">boundaries</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G1</span><span class="o">.</span><span class="n">scale_factors</span>
 <span class="go">(Derivative(X, G1.x), 1)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G2</span><span class="o">.</span><span class="n">scale_factors</span>
@@ -1172,11 +1188,30 @@ simulation as an input:</p>
 <span class="go">('GridField', True)</span>
 </pre></div>
 </div>
-<dl class="py property">
-<dt class="sig sig-object py" id="sofia.Grid.periods">
-<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">periods</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#sofia.Grid.periods" title="Link to this definition">¶</a></dt>
-<dd><p>Symbols for the physical period of each axis.</p>
-<p>Only used on periodic discrete axes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sofia.Grid.computational_to_physical">
+<span class="sig-name descname"><span class="pre">computational_to_physical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">xis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Expr</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.Grid.computational_to_physical" title="Link to this definition">¶</a></dt>
+<dd><p>Return the physical coordinates <code class="docutils literal notranslate"><span class="pre">x</span></code> corresponding to <code class="docutils literal notranslate"><span class="pre">xis</span></code>.</p>
+<p>On a discrete axis, the placeholder <code class="docutils literal notranslate"><span class="pre">X(xi)</span></code> is replaced by the positions field
+<code class="docutils literal notranslate"><span class="pre">X</span></code> of that axis. There, <code class="docutils literal notranslate"><span class="pre">xi</span></code> must be the axis coordinate itself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – If <code class="docutils literal notranslate"><span class="pre">xi</span></code> on a discrete axis is not the axis coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sofia.Grid.physical_to_computational">
+<span class="sig-name descname"><span class="pre">physical_to_computational</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Expr</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sofia.Grid.physical_to_computational" title="Link to this definition">¶</a></dt>
+<dd><p>Return the computational coordinates <code class="docutils literal notranslate"><span class="pre">ξ</span></code> corresponding to <code class="docutils literal notranslate"><span class="pre">x=xs</span></code>.</p>
+<p>On a discrete axis with positions field <code class="docutils literal notranslate"><span class="pre">X</span></code>, the component is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">+</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">br</span> <span class="o">-</span> <span class="n">bl</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">DiscreteInverse</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">-</span> <span class="n">bl</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>with <code class="docutils literal notranslate"><span class="pre">x0</span></code> and <code class="docutils literal notranslate"><span class="pre">L</span></code> the start and length of that axis, <code class="docutils literal notranslate"><span class="pre">(bl,</span> <span class="pre">br)</span></code> the
+indices of the left and right domain edges, and <code class="docutils literal notranslate"><span class="pre">w</span></code> the analytic part of
+the inverse applied to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -1238,8 +1273,8 @@ simulation as an input:</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> – Grid shape per dimension.</p></li>
 <li><p><strong>extent</strong> – Physical domain extents per dimension, given as concrete floats.</p></li>
-<li><p><strong>periods</strong> – Physical period of each periodic discrete axis, keyed by its coordinate, e.g.
-{G.x: 2.0}.</p></li>
+<li><p><strong>periods</strong> – Period <code class="docutils literal notranslate"><span class="pre">P</span></code> of the positions field of each periodic discrete axis, keyed by
+its coordinate, e.g. {G.x: 2.0}.</p></li>
 <li><p><strong>subs</strong> – Any additional substitutions.</p></li>
 </ul>
 </dd>
@@ -1590,7 +1625,8 @@ a tuple for better type support.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#sofia.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
-<li><a class="reference internal" href="#sofia.Grid.periods"><code class="docutils literal notranslate"><span class="pre">Grid.periods</span></code></a></li>
+<li><a class="reference internal" href="#sofia.Grid.computational_to_physical"><code class="docutils literal notranslate"><span class="pre">Grid.computational_to_physical()</span></code></a></li>
+<li><a class="reference internal" href="#sofia.Grid.physical_to_computational"><code class="docutils literal notranslate"><span class="pre">Grid.physical_to_computational()</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Grid.uniform_axes"><code class="docutils literal notranslate"><span class="pre">Grid.uniform_axes</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Grid.transformation_fields"><code class="docutils literal notranslate"><span class="pre">Grid.transformation_fields</span></code></a></li>
 <li><a class="reference internal" href="#sofia.Grid.boundaries_absolute"><code class="docutils literal notranslate"><span class="pre">Grid.boundaries_absolute</span></code></a></li>
@@ -1656,7 +1692,7 @@ a tuple for better type support.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=e516340f"></script>
+</div><script src="../_static/documentation_options.js?v=f958ea48"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

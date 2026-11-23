@@ -83,13 +83,16 @@ indices, as well as symbolic grid shape and size specifications.
   * **transformations** – Map from computational to physical coordinates, as a tuple of callables,
     one per axis. It may contain a transformation placeholder, an undefined
     sympy function applied to the axis coordinate, which makes the axis
-    discrete. The physical coordinate of that axis is then the field
-    `G.transformation_fields[c]`, with `c` the axis coordinate.
-    A discrete axis that is periodic also needs its physical period, given
-    through `periods` in `concrete`.
-  * **transformations_inverse** – Map from physical back to computational coordinates, in the same form. If
-    `None`, it is solved for with `sp.solve`. Ignored when any axis has a
-    transformation placeholder; such a grid has no inverse.
+    discrete. The coordinate must then appear only inside the placeholder,
+    e.g. `2 * X(x)` but not `X(x) + x`. The physical coordinate of that axis
+    is then the field `G.transformation_fields[c]`, with `c` the axis
+    coordinate. A discrete axis that is periodic also needs its physical period,
+    given through `periods` in `concrete`; its field is then a
+    `PeriodicCoordField`.
+  * **transformations_inverse** – Map from physical back to computational coordinates. If `None`, it is
+    solved for with `sp.solve`, and on a discrete axis the positions field is
+    inverted with `DiscreteInverse` (see `physical_to_computational`). Must
+    be `None` when any axis has a transformation placeholder.
 
 ### Examples
 
@@ -97,8 +100,15 @@ A discrete x axis, with the transformation placeholder as the map or inside one:
 
 ```pycon
 >>> X = sp.Function("X")
->>> G1 = Grid(ndim=2, name="G1", transformations=(X, lambda y: y))
->>> G2 = Grid(ndim=2, name="G2", transformations=(lambda x: 2 * X(x), lambda y: y))
+>>> G1 = Grid(
+...     ndim=2, name="G1", transformations=(X, lambda y: y), boundaries=(0.5, -0.5)
+... )
+>>> G2 = Grid(
+...     ndim=2,
+...     name="G2",
+...     transformations=(lambda x: 2 * X(x), lambda y: y),
+...     boundaries=(0.5, -0.5),
+... )
 >>> G1.scale_factors
 (Derivative(X, G1.x), 1)
 >>> G2.scale_factors
@@ -114,11 +124,29 @@ simulation as an input:
 ('GridField', True)
 ```
 
-#### *property* periods *: tuple[Symbol, ...]*
+#### computational_to_physical(\*xis: Expr) → tuple[Expr, ...]
 
-Symbols for the physical period of each axis.
+Return the physical coordinates `x` corresponding to `xis`.
 
-Only used on periodic discrete axes.
+On a discrete axis, the placeholder `X(xi)` is replaced by the positions field
+`X` of that axis. There, `xi` must be the axis coordinate itself.
+
+* **Raises:**
+  **NotImplementedError** – If `xi` on a discrete axis is not the axis coordinate.
+
+#### physical_to_computational(\*xs: Expr) → tuple[Expr, ...]
+
+Return the computational coordinates `ξ` corresponding to `x=xs`.
+
+On a discrete axis with positions field `X`, the component is:
+
+```default
+x0 + L / (br - bl) * (DiscreteInverse(X, w) - bl)
+```
+
+with `x0` and `L` the start and length of that axis, `(bl, br)` the
+indices of the left and right domain edges, and `w` the analytic part of
+the inverse applied to `x`.
 
 #### *property* uniform_axes
 
@@ -147,8 +175,8 @@ Return the substitutions corresponding to the concrete numbers of the grid.
 * **Parameters:**
   * **shape** – Grid shape per dimension.
   * **extent** – Physical domain extents per dimension, given as concrete floats.
-  * **periods** – Physical period of each periodic discrete axis, keyed by its coordinate, e.g.
-    {G.x: 2.0}.
+  * **periods** – Period `P` of the positions field of each periodic discrete axis, keyed by
+    its coordinate, e.g. {G.x: 2.0}.
   * **subs** – Any additional substitutions.
 
 ### Examples

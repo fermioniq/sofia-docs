@@ -4,7 +4,7 @@
 
 Bases: `Indexed`
 
-### *class* sofia.field.grid_field.GridField(name: str, domain: [Grid](sofia.domain.grid.md#sofia.domain.grid.Grid), staggered: [Staggered](sofia.field.staggered.md#sofia.field.staggered.Staggered) = Center, discretisation_order: int = 0, axes: Tuple | tuple[Symbol | int, ...] = None, \_shifts: Tuple | tuple[Symbol | float | int, ...] | None = None)
+### *class* sofia.field.grid_field.GridField(name: str, domain: [Grid](sofia.domain.grid.md#sofia.domain.grid.Grid), staggered: [Staggered](sofia.field.staggered.md#sofia.field.staggered.Staggered) = Center, discretisation_order: int = 0, axes: Tuple | tuple[Symbol | int, ...] | None = None, \_shifts: Tuple | tuple[Symbol | float | int, ...] | None = None)
 
 Bases: [`Field`](sofia.field.field.md#sofia.field.field.Field)
 
@@ -72,3 +72,30 @@ Bases: [`Locus`](sofia.field.locus.md#sofia.field.locus.Locus)
 #### *property* shifts *: Tuple*
 
 Tuple of (half-)integer shifts.
+
+### *class* sofia.field.grid_field.PeriodicCoordField(name: str, domain: [Grid](sofia.domain.grid.md#sofia.domain.grid.Grid), period: Expr, staggered: [Staggered](sofia.field.staggered.md#sofia.field.staggered.Staggered) = Center, discretisation_order: int = 0, axes: Tuple | tuple[Symbol | int, ...] | None = None, \_shifts: Tuple | tuple[Symbol | float | int, ...] | None = None)
+
+Bases: [`GridField`](#sofia.field.grid_field.GridField)
+
+Positions field of a periodic discrete axis.
+
+Let `X` be this field, holding the physical positions of the nodes, and let `N`
+be the number of nodes. Its values obey:
+
+```default
+X[j + N] = X[j] + P
+```
+
+with `P = period`, the period of the axis. Indexing `X` at `j` returns
+`X[j] + P` for `j >= N`, `X[j] - P` for `j < 0`, and `X[j]` otherwise.
+
+`X` can be seen as the lift of a map from a circle to a circle and `P`
+as the circumference of the target circle.
+
+* **Parameters:**
+  * **name** – Name of the field.
+  * **domain** – The `Grid` the field is defined on.
+  * **period** – Period `P` of the axis.
+  * **staggered** – As in `GridField`. `axes` must select exactly one periodic axis.
+  * **discretisation_order** – As in `GridField`. `axes` must select exactly one periodic axis.
+  * **axes** – As in `GridField`. `axes` must select exactly one periodic axis.
