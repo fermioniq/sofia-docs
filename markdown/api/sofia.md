@@ -735,26 +735,27 @@ Bases: `Function`
 
 Sum a per-pair expression over the neighbours of each particle.
 
+The sum is evaluated at the particles of the field it is assigned to.
+
 * **Parameters:**
   * **expr** – Per-pair expression. field is the value at the particle itself,
     field.neighbour the value at the neighbour. Can be scalar or vector.
-  * **pos** – Particle position, determines which particles count as neighbours.
   * **h** – Cutoff radius, only pairs closer than h contribute to the sum.
+  * **neighbours** – Particle domain to sum over. Defaults to the domain the sum is evaluated
+    at, i.e. a sum over the same particles. In a sum over another domain,
+    fields of that domain are the values at the neighbour. .neighbour is
+    only needed when both are on the same domain.
   * **exclude_self** – If True, skip the particle itself. Only for sums over the same domain.
-  * **neighbours** – Positions of the particles to sum over, on this or another particle
-    domain. Defaults to pos. In a sum over another domain, fields of that
-    domain are the values at the neighbour. .neighbour is only needed
-    when both are on the same domain.
 
-#### *property* cutoff *: Basic*
+#### cutoff(pos: Tuple) → Basic
 
 Condition for a neighbour to contribute to the sum.
 
-A neighbour contributes if it is closer than h to the particle.
+A neighbour contributes if it is closer than h to the particle at pos.
 
 #### default_assumptions *= {}*
 
-### *class* sofia.ParticleDomain(ndim: Literal[1, 2, 3] = 3, name: str = 'P', \_n_particles: Expr | int | None = None, \_extent: Tuple | None = None)
+### *class* sofia.ParticleDomain(ndim: Literal[1, 2, 3] = 3, name: str = 'P', pos: str = 'pos', \_n_particles: Expr | int | None = None, \_extent: Tuple | None = None)
 
 Bases: [`Domain`](sofia.domain.domain.md#sofia.domain.domain.Domain)
 
@@ -766,6 +767,7 @@ Particles live in ndim-dimensional Cartesian space.
 * **Parameters:**
   * **ndim** – Spatial dimensionality.
   * **name** – Name used to identify the particle domain.
+  * **pos** – Name of the particle position field self.pos (a VectorField).
 
 #### concrete(n_particles: int | None = None, extent: tuple[Numeric | tuple[Numeric, Numeric] | list[Numeric], ...] | list[Numeric | tuple[Numeric, Numeric] | list[Numeric]] | Numeric | None = None, subs: dict | None = None) → dict[Symbol, int | float]
 

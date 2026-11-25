@@ -33,7 +33,7 @@
   * [`ScalarLocus`](sofia.field.locus.md#sofia.field.locus.ScalarLocus)
 * [sofia.field.neighbour_sum](sofia.field.neighbour_sum.md)
   * [`NeighbourSum`](sofia.field.neighbour_sum.md#sofia.field.neighbour_sum.NeighbourSum)
-    * [`NeighbourSum.cutoff`](sofia.field.neighbour_sum.md#sofia.field.neighbour_sum.NeighbourSum.cutoff)
+    * [`NeighbourSum.cutoff()`](sofia.field.neighbour_sum.md#sofia.field.neighbour_sum.NeighbourSum.cutoff)
 * [sofia.field.particle_field](sofia.field.particle_field.md)
   * [`ParticleField`](sofia.field.particle_field.md#sofia.field.particle_field.ParticleField)
   * [`IndexedParticleField`](sofia.field.particle_field.md#sofia.field.particle_field.IndexedParticleField)
